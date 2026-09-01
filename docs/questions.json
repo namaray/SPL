@@ -1,0 +1,2139 @@
+{
+  "01-intro": {
+    "01. Hello World.c": {
+      "title": "Hello World",
+      "statement": "Program that will print “Hello World”.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "",
+          "output": "Hello World"
+        }
+      ]
+    },
+    "02. Print Multiple Lines.c": {
+      "title": "Print Multiple Lines",
+      "statement": "Program that will use newline/tab and print the following segment:",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "",
+          "output": "Hello World.\nThis is my first program.           C is fun."
+        }
+      ]
+    },
+    "03. Escape Sequences.c": {
+      "title": "Escape Sequences",
+      "statement": "Program that will print the following segment:",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "",
+          "output": "The question is - “How to write a \\comment/ in C programming language?”"
+        }
+      ]
+    },
+    "04. Int Float Char Variables.c": {
+      "title": "Int Float Char Variables",
+      "statement": "Program that will declare an integer, a floating point number, a character. Then it will initialize them with values and print those values.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "",
+          "output": "The integer value: 5\nThe floating point value: 3.141593\nThe character value: a"
+        },
+        {
+          "input": "",
+          "output": "The integer value: 100\nThe floating point value: 1.618000\nThe character value: z"
+        }
+      ]
+    },
+    "05. Variable Declaration and Initialization.c": {
+      "title": "Variable Declaration and Initialization",
+      "statement": "Program that will do the followings: Declare a variable uninitialized Declare and initialize a variable in one statement Declare and initialize multiple variables with different values in one statement Declare and initialize multiple variables with the same value in one statement",
+      "difficulty": "*",
+      "samples": []
+    },
+    "06. Input and Print Age.c": {
+      "title": "Input and Print Age",
+      "statement": "Program that will take your age in year(s) as input and print it.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "20",
+          "output": "My age is: 20"
+        },
+        {
+          "input": "21",
+          "output": "My age is: 21"
+        }
+      ]
+    },
+    "07. Input Int Float Char.c": {
+      "title": "Input Int Float Char",
+      "statement": "Program that will receive the values of an integer, a floating point number, a character from the keyboard and print those values.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5\n3.141593\nA",
+          "output": "The integer value: 5\nThe floating point value: 3.141593\nThe character value: a"
+        },
+        {
+          "input": "100    1.618    z",
+          "output": "The integer value: 100\nThe floating point value: 1.618000\nThe character value: z"
+        }
+      ]
+    },
+    "08. Skip Input with Assignment Suppression.c": {
+      "title": "Skip Input with Assignment Suppression",
+      "statement": "Program that will take three integer numbers from keyboard but assign only the first and last inputs to variables and skip any assignment of the middle one.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "20     50     100",
+          "output": "First Value = 20,  Last Value = 100"
+        },
+        {
+          "input": "33     75      22",
+          "output": "First Value = 33,  Last Value = 22"
+        }
+      ]
+    },
+    "09. Double and Bool Types.c": {
+      "title": "Double and Bool Types",
+      "statement": "Program that will declare a variable from each data type: double, boolean. Then it will initialize them with values and print them.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "",
+          "output": "The double value: 3.140000e+00\nThe boolean value: 1"
+        },
+        {
+          "input": "",
+          "output": "The double value: 1.618039\nThe boolean value: 0"
+        }
+      ]
+    },
+    "10. Long and Short Int Types.c": {
+      "title": "Long and Short Int Types",
+      "statement": "Program that will declare a variable from each data type: long int, long long int, long double, short int. Then it will initialize them with values and print them.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "",
+          "output": "The long int value: 2147483647\nThe long long int value: 9223372036854775807\nThe long double value: 1.1E+4932\nThe short int value: 32767"
+        },
+        {
+          "input": "",
+          "output": "The long int value: -2,147,483,648\nThe long long int value: -9223372036854775808\nThe long double value: 3.4E-4932\nThe short int value: -32768"
+        }
+      ]
+    },
+    "11. Unsigned Data Types.c": {
+      "title": "Unsigned Data Types",
+      "statement": "Program that will declare a variable from each data type: unsigned int, unsigned long int, unsigned long long int, unsigned short int. Then it will initialize them with values and print them.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "",
+          "output": "The unsigned int value: 4294967295\nThe unsigned long int value: 4294967295\nThe unsigned long long int value: 18446744073709551615\nhe unsigned short int value: 65,535"
+        },
+        {
+          "input": "",
+          "output": "The unsigned int value: 0\nThe unsigned long int value: 0\nThe unsigned long long int value: 0\nThe unsigned short int value: 0"
+        }
+      ]
+    },
+    "12. Constant Variables (const).c": {
+      "title": "Constant Variables (const)",
+      "statement": "Program that will define a constant using “CONST” and print the value.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "",
+          "output": "The value of pi: 3.14"
+        },
+        {
+          "input": "",
+          "output": "The value of golden ratio: 1.62"
+        }
+      ]
+    },
+    "13. Symbolic Constants (define).c": {
+      "title": "Symbolic Constants (define)",
+      "statement": "Program that will define a constant using “DEFINE” and print the value.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "",
+          "output": "The value of HEIGHT: 200"
+        },
+        {
+          "input": "",
+          "output": "The value of PI: 3.14"
+        }
+      ]
+    },
+    "14. Global vs Local Variable Scope.c": {
+      "title": "Global vs Local Variable Scope",
+      "statement": "Program that will define a global and a local variable with the same name but with different values, and then do the following steps in order- Print the value of the variable before defining the local variable Print the value of the variable after defining the local variable Explicitly print the value of the variable as global",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "",
+          "output": "Global: 10\nLocal: 20\nGlobal: 10"
+        }
+      ]
+    },
+    "15. Float Format Specifiers.c": {
+      "title": "Float Format Specifiers",
+      "statement": "Program that will take a floating point number as input from the keyboard and use printf function to perform the followings: Print the number right justified within 10 columns Print the number to be right justified to 2 columns (Assuming the input has more than 2 digits) Print the number rounded to two decimal places Print the number rounded to integer (without using conversion or type casting) Prints the number in exponential notation/scientific notation",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "123.098",
+          "output": "(a) Val:          123.098000\n(b) Val:123.098000\n(c) Val:123.10\n(d) Val:123\n(e) Val: 1.230980e+02"
+        }
+      ]
+    }
+  },
+  "02-operators": {
+    "01. Arithmetic Operations on Two Numbers.c": {
+      "title": "Arithmetic Operations on Two Numbers",
+      "statement": "Program that will take two numbers X and Y as inputs, then calculate and print the values of their addition, subtraction, multiplication, division (quotient and reminder).",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5     10",
+          "output": "Addition: 15\nSubtraction: -5\nMultiplication: 50\nQuotient : 0\nReminder: 5"
+        },
+        {
+          "input": "-5     10.5",
+          "output": "Addition: 5.5\nSubtraction: -15.5\nMultiplication: -52.5\nQuotient: 0\nReminder: -5"
+        }
+      ]
+    },
+    "02. Circumference of a Circle.c": {
+      "title": "Circumference of a Circle",
+      "statement": "Program that will calculate the circumference of a circle having radius r. Area, A = 2 * Pi * r",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5",
+          "output": "Area:  31.4"
+        },
+        {
+          "input": "10.5",
+          "output": "Area:  65.94"
+        }
+      ]
+    },
+    "03. Evaluate Algebraic Expression.c": {
+      "title": "Evaluate Algebraic Expression",
+      "statement": "Program that will take two numbers (a, b) as inputs and compute the value of the equation – (Without using math.h) X = (3.31 * a2 + 2.01 * b3) / (7.16 * b2 + 2.01 * a3)",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5            10.5",
+          "output": "X = 2.315475"
+        },
+        {
+          "input": "100      -250",
+          "output": "X = -12.766287"
+        }
+      ]
+    },
+    "04. Increment and Decrement Operators.c": {
+      "title": "Increment and Decrement Operators",
+      "statement": "Program that will increment and decrement a number X by 1 inside the printf function. (Use ++ and - - operators)",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "X++ :    5\n++X :    6\nX- -  :    5\n--X   :    4"
+        },
+        {
+          "input": "-5",
+          "output": "X++ :    -5\n++X :    -4\nX- -  :    -5\n--X   :    -6"
+        }
+      ]
+    },
+    "05. Compound Assignment Add and Subtract.c": {
+      "title": "Compound Assignment Add and Subtract",
+      "statement": "Program that will increment and decrement a number X by Y. (Use += and -= operators)",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5     10",
+          "output": "Incremented Value:    15\nDecremented Value:   -5"
+        },
+        {
+          "input": "-5      5",
+          "output": "Incremented Value:      0\nDecremented Value:   -10"
+        }
+      ]
+    },
+    "06. Compound Assignment Multiply and Divide.c": {
+      "title": "Compound Assignment Multiply and Divide",
+      "statement": "Program that will multiply and divide a number X by Y. (Use *= and /= operators)",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "56       10",
+          "output": "Multiplication:    560\nDivision:   5"
+        },
+        {
+          "input": "-56      -10",
+          "output": "Multiplication:    560\nDivision:   5"
+        }
+      ]
+    },
+    "07. Type Conversion and Type Casting.c": {
+      "title": "Type Conversion and Type Casting",
+      "statement": "Program that will declare and initialize an integer and a floating point number. Then it will perform floating to integer and integer to floating conversions using Assignment operation Type casting",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "-150      123.125",
+          "output": "Assignment:   123.125000 assigned to an int produces 123\nAssignment:  -150 assigned to a float produces -150.000000\nType Casting: (float) -150 produces -150.000000\nType Casting: (int) 123.125 produces -123"
+        }
+      ]
+    },
+    "08. Maximum of Two Numbers (Ternary).c": {
+      "title": "Maximum of Two Numbers (Ternary)",
+      "statement": "Program that will take two numbers as inputs and print the maximum value. (Using conditional operator - ?)",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "20     100",
+          "output": "Max: 100"
+        },
+        {
+          "input": "50     -20",
+          "output": "Max: 50"
+        }
+      ]
+    },
+    "09. Operator Precedence with Parentheses.c": {
+      "title": "Operator Precedence with Parentheses",
+      "statement": "Program that will evaluate the following equations - X = a – b / 3 + c * 2 – 1 Y = a – ( b / ( 3 + c ) * 2) - 1 Z = a – ( ( b / 3) + c * 2) - 1",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "9     12     3",
+          "output": "X = 10\nY = 4\nZ = -2"
+        }
+      ]
+    },
+    "10. Relational and Logical NOT Operators.c": {
+      "title": "Relational and Logical NOT Operators",
+      "statement": "Program that will take a, b & c as inputs and decide if the statements are True (1) of False (0)",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "10   -10   0",
+          "output": "1\n0\n1"
+        }
+      ]
+    },
+    "11. Logical AND and OR Operators.c": {
+      "title": "Logical AND and OR Operators",
+      "statement": "Program that will take a, b & c as inputs and decide if the statements are True (1) of False (0)",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "10   -10   0",
+          "output": "0\n1\n1"
+        }
+      ]
+    },
+    "12. Roots of a Quadratic Equation.c": {
+      "title": "Roots of a Quadratic Equation",
+      "statement": "Program that will take calculate the roots of a quadratic equation (a.x2 + b.x + c = 0) from the formula, (here, dot (.) stands for multiplication) -",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "2      4     -16",
+          "output": "2.00    -4.00"
+        },
+        {
+          "input": "1      2       3",
+          "output": "Imaginary"
+        }
+      ]
+    },
+    "13. Trigonometric Expression.c": {
+      "title": "Trigonometric Expression",
+      "statement": "Program that will evaluate the equation ; where 1<= x <=180 [No checking needed]",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "30",
+          "output": "0.8927936413"
+        },
+        {
+          "input": "120",
+          "output": "-0.1339745962"
+        },
+        {
+          "input": "180",
+          "output": "3.000013"
+        }
+      ]
+    },
+    "14. Ceil Floor and Absolute Value.c": {
+      "title": "Ceil Floor and Absolute Value",
+      "statement": "Program that will take a floating point number X as input and evaluate A,B,C where- A = Value when X is rounded up to the nearest integer B = Value when X is rounded down to the nearest integer C = Absolute value of X",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "10.6",
+          "output": "A = 11, B = 10, C = 10.6"
+        },
+        {
+          "input": "-77.9",
+          "output": "A = 78, B = 77, C = 77.9"
+        }
+      ]
+    },
+    "15. Size of Data Types (sizeof).c": {
+      "title": "Size of Data Types (sizeof)",
+      "statement": "Program to find size of int, float, double and char of the system.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "",
+          "output": "Size of int in byte(s) = 4\nSize of float in byte(s) = 4\nSize of double in byte(s) = 8\nSize of char in byte(s) = 1"
+        }
+      ]
+    }
+  },
+  "03-conditions": {
+    "01. Positive or Negative.c": {
+      "title": "Positive or Negative",
+      "statement": "Program that will decide whether a number is positive or not.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "100",
+          "output": "Positive"
+        },
+        {
+          "input": "-11.11",
+          "output": "Negative"
+        },
+        {
+          "input": "0",
+          "output": "Positive"
+        }
+      ]
+    },
+    "02. Even or Odd.c": {
+      "title": "Even or Odd",
+      "statement": "Program that will decide whether a number is even or odd.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "50",
+          "output": "Even"
+        },
+        {
+          "input": "-77",
+          "output": "Odd"
+        },
+        {
+          "input": "0",
+          "output": "Even"
+        }
+      ]
+    },
+    "03. Number to Word.c": {
+      "title": "Number to Word",
+      "statement": "Program that will take an integer of length one from the terminal and then display the digit in English.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "9",
+          "output": "nine"
+        },
+        {
+          "input": "0",
+          "output": "zero"
+        }
+      ]
+    },
+    "04. Valid Triangle Angles.c": {
+      "title": "Valid Triangle Angles",
+      "statement": "Program that will check whether a triangle is valid or not, when the three angles (angle value should be such that, 0 < value < 180) of the triangle are entered through the keyboard. [Hint: A triangle is valid if the sum of all the three angles is equal to 180 degrees.]",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "90       45        45",
+          "output": "Yes"
+        },
+        {
+          "input": "30       110      40",
+          "output": "Yes"
+        },
+        {
+          "input": "160     20        30",
+          "output": "No"
+        },
+        {
+          "input": "0         180       0",
+          "output": "No"
+        }
+      ]
+    },
+    "05. Power of Two.c": {
+      "title": "Power of Two",
+      "statement": "Program that will read from the console a random positive nonzero number and determine if it is a power of 2.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "1",
+          "output": "Yes"
+        },
+        {
+          "input": "512",
+          "output": "Yes"
+        },
+        {
+          "input": "1022",
+          "output": "No"
+        }
+      ]
+    },
+    "06. Power of Two with Input Validation.c": {
+      "title": "Power of Two with Input Validation",
+      "statement": "Program that will read from the console a random number and check if it is a nonzero positive number. If the check is yes, it will determine if the number is a power of 2. If the check fails the program will check for two more cases. If the number is zero, the program will print “Zero is not a valid input”. Else it will print “Negative input is not valid”.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "0",
+          "output": "Zero is not a valid input"
+        },
+        {
+          "input": "1",
+          "output": "Yes"
+        },
+        {
+          "input": "512",
+          "output": "Yes"
+        },
+        {
+          "input": "1022",
+          "output": "No"
+        },
+        {
+          "input": "-512",
+          "output": "Negative input is not valid"
+        }
+      ]
+    },
+    "07. Compare Two Numbers.c": {
+      "title": "Compare Two Numbers",
+      "statement": "Program that will take two numbers X & Y as inputs and decide whether X is greater than/less than/equal to Y.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5   -10",
+          "output": "5 is greater than -10"
+        },
+        {
+          "input": "5    10",
+          "output": "5 is less than 10"
+        },
+        {
+          "input": "5     5",
+          "output": "5 is equal to 5"
+        }
+      ]
+    },
+    "08. Leap Year.c": {
+      "title": "Leap Year",
+      "statement": "Program that will decide whether a year is leap year or not. Yes, if ( Year % 4 == 0 && year % 100 != 0 ) || ( Year % 400 ==0 )",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "2000",
+          "output": "Yes"
+        },
+        {
+          "input": "2004",
+          "output": "Yes"
+        },
+        {
+          "input": "2014",
+          "output": "No"
+        }
+      ]
+    },
+    "09. Alphabet Digit or Special Character.c": {
+      "title": "Alphabet Digit or Special Character",
+      "statement": "Program that will categorize a single character that is entered at the terminal, whether it is an alphabet, a digit or a special character. (Restriction: Without math.h)",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "z",
+          "output": "Alphabet"
+        },
+        {
+          "input": "A",
+          "output": "Alphabet"
+        },
+        {
+          "input": "8",
+          "output": "Digit"
+        },
+        {
+          "input": "*",
+          "output": "Special"
+        }
+      ]
+    },
+    "10. Calculator with Operator Symbol.c": {
+      "title": "Calculator with Operator Symbol",
+      "statement": "Program that will evaluate simple expressions of the form- <number1> <operator> <number2> ; where operators are (+, - , *, /) And if the operator is “/”, then check if <number2> nonzero or not.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "100     *      55.5",
+          "output": "Multiplication:  5550"
+        },
+        {
+          "input": "100     /      -5.5",
+          "output": "Division:   -18.181818"
+        },
+        {
+          "input": "100    /        0",
+          "output": "Division:    Zero as divisor is not valid!"
+        }
+      ]
+    },
+    "11. Grade Calculator.c": {
+      "title": "Grade Calculator",
+      "statement": "Program that will take the final score of a student in a particular subject as input and find his/her grade.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "91.5",
+          "output": "Grade: A"
+        },
+        {
+          "input": "50",
+          "output": "Grade: F"
+        }
+      ]
+    },
+    "12. Menu Based Calculator.c": {
+      "title": "Menu Based Calculator",
+      "statement": "Program that will construct a menu for performing arithmetic operations. The user will give two real numbers (a, b) on which the arithmetic operations will be performed and an integer number (1 <= Choice <= 4) as a choice. Choice-1, 2, 3, 4 are for performing addition, subtraction, multiplication, division (quotient) respectively.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5     10\n3",
+          "output": "Multiplication: 50"
+        },
+        {
+          "input": "-5     10.5\n4",
+          "output": "Quotient: 0"
+        }
+      ]
+    },
+    "13. Menu Based Calculator with Submenu.c": {
+      "title": "Menu Based Calculator with Submenu",
+      "statement": "Program that will construct a menu for performing arithmetic operations. The user will give two real numbers (a, b) on which the arithmetic operations will be performed and an integer number (1 <= Choice <= 4) as a choice. Choice-1, 2, 3, 4 are for performing addition, subtraction, multiplication, division respectively. If Choice-4 is selected, again the program will ask for another choice (1 <= Case <=2), where Case-1, 2 evaluate quotient and remainder respectively. Addition Subtraction Multiplication Division 1. Quotient 2. Remainder",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5     10\n3",
+          "output": "Multiplication: 50"
+        },
+        {
+          "input": "-5     10.5\n4\n1",
+          "output": "Quotient: 0"
+        },
+        {
+          "input": "-5     10.5\n4\n2",
+          "output": "Remainder:  -48"
+        }
+      ]
+    },
+    "14. Menu Based Calculator with Zero Division Check.c": {
+      "title": "Menu Based Calculator with Zero Division Check",
+      "statement": "Program that will construct a menu for performing arithmetic operations. The user will give two real numbers (a, b) on which the arithmetic operations will be performed and an integer number (1 <= Choice <= 4) as a choice. Choice-1, 2, 3, 4 are for performing addition, subtraction, multiplication, division respectively. If Choice-4 is selected, the program will check if b is nonzero. If the check is true, the program will ask for another choice (1 <= Case <=2), where Case-1, 2 evaluate quotient and reminder respectively. If the check is false, it will print an error message “Error: Divisor is zero” and halt.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "5     10\n3",
+          "output": "Multiplication: 50"
+        },
+        {
+          "input": "-5     10.5\n4\n2",
+          "output": "Reminder: -48"
+        },
+        {
+          "input": "-5     0\n4",
+          "output": "Error: Divisor is zero"
+        }
+      ]
+    },
+    "15. Number Guessing Game.c": {
+      "title": "Number Guessing Game",
+      "statement": "Program for “Guessing Game”: Player-1 picks a number X and Player-2 has to guess that number within N = 3 tries. For each wrong guess by Player-2, the program prints “Wrong, N-1 Chance(s) Left!” If Player-2 successfully guesses the number, the program prints “Right, Player-2 wins!” and stops allowing further tries (if any left). Otherwise after the completion of N = 3 wrong tries, the program prints “Player-1 wins!” and halts. [ Restriction: Without using loop/break/continue Hint: Use flag ]",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "5\n12    8    5",
+          "output": "Wrong, 2 Chance(s) Left!\nWrong, 1 Chance(s) Left!\nRight, Player-2 wins!"
+        },
+        {
+          "input": "100\n50    100",
+          "output": "Wrong, 2 Chance(s) Left!\nRight, Player-2 wins!"
+        },
+        {
+          "input": "20\n12    8    5",
+          "output": "Wrong, 2 Chance(s) Left!\nWrong, 1 Chance(s) Left!\nWrong, 0 Chance(s) Left!\nPlayer-1 wins!"
+        }
+      ]
+    }
+  },
+  "04-loop": {
+    "01.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will print following series upto Nth terms. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, …….",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "2",
+          "output": "1, 2"
+        },
+        {
+          "input": "5",
+          "output": "1, 2, 3, 4, 5"
+        },
+        {
+          "input": "11",
+          "output": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+        }
+      ]
+    },
+    "02.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will print following series upto Nth terms. 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31 …….",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "2",
+          "output": "1, 3"
+        },
+        {
+          "input": "5",
+          "output": "1, 3, 5, 7, 9"
+        },
+        {
+          "input": "11",
+          "output": "1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21"
+        }
+      ]
+    },
+    "03.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will print following series upto Nth terms. 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, …….",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "1",
+          "output": "1"
+        },
+        {
+          "input": "2",
+          "output": "1, 0"
+        },
+        {
+          "input": "3",
+          "output": "1, 0, 1"
+        },
+        {
+          "input": "4",
+          "output": "1, 0, 1, 0"
+        },
+        {
+          "input": "7",
+          "output": "1, 0, 1, 0, 1, 0, 1"
+        },
+        {
+          "input": "13",
+          "output": "1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1"
+        }
+      ]
+    },
+    "04.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will take N numbers as inputs and compute their average. (Restriction: Without using any array)",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "3\n10         20        30.5",
+          "output": "AVG of 3 inputs:  20.166667"
+        },
+        {
+          "input": "2\n22.4     11.1",
+          "output": "AVG of 2 inputs:  16.750000"
+        }
+      ]
+    },
+    "05.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will take two numbers X and Y as inputs. Then it will print the square of X and increment (if X<Y) or decrement (if X>Y) X by 1, until X reaches Y. If and when X is equal to Y, the program prints “Reached!”",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "10       5",
+          "output": "100, 81, 64, 49, 36, Reached!"
+        },
+        {
+          "input": "5         10",
+          "output": "25, 36, 49, 64, 81, Reached!"
+        },
+        {
+          "input": "10       10",
+          "output": "Reached!"
+        }
+      ]
+    },
+    "06.c": {
+      "title": "",
+      "statement": "Write a program (WAP) for the described scenario: Player-1 picks a number X and Player-2 has to guess that number within N tries. For each wrong guess by Player-2, the program prints “Wrong, N-1 Choice(s) Left!” If Player-2 at any time successfully guesses the number, the program prints “Right, Player-2 wins!” and terminates right away. Otherwise after the completion of N wrong tries, the program prints “Player-1 wins!” and halts. (Hint: Use break/continue)",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5\n3\n12    8    5",
+          "output": "Wrong, 2 Choice(s) Left!\nWrong, 1 Choice(s) Left!\nRight, Player-2 wins!"
+        },
+        {
+          "input": "100\n5\n50    100",
+          "output": "Wrong, 4 Choice(s) Left!\nRight, Player-2 wins!"
+        },
+        {
+          "input": "20\n3\n12    8    5",
+          "output": "Wrong, 2 Choice(s) Left!\nWrong, 1 Choice(s) Left!\nWrong, 0 Choice(s) Left!\nPlayer-1 wins!"
+        }
+      ]
+    },
+    "07.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will run and show keyboard inputs until the user types an ’A’ at the keyboard.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "X\n1\na\nA",
+          "output": "Input 1: X\nInput 2: 1\nInput 3: a"
+        }
+      ]
+    },
+    "08.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will reverse the digits of an input integer.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "13579",
+          "output": "97531"
+        },
+        {
+          "input": "4321",
+          "output": "1234"
+        }
+      ]
+    },
+    "09.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will find the grade of N students. For each student, it will take the marks of his/her the attendance (on 5 marks), assignment (on 10 marks), class test (on 15 marks), midterm (on 50 marks), term final (on 100 marks). Then based on the tables shown below, the program will output his grade.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "2\n5     10      15      44.5     92.5\n0     7.5       5       20        55.5",
+          "output": "Student 1 : A\nStudent 2 : F"
+        }
+      ]
+    },
+    "10.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will give the sum of first Nth terms for the following series. 1, -2, 3, -4, 5, -6, 7, -8, 9, -10, 11, -12, 13, -14, …….",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "2",
+          "output": "Result: -1"
+        },
+        {
+          "input": "3",
+          "output": "Result: 2"
+        },
+        {
+          "input": "4",
+          "output": "Result: -2"
+        }
+      ]
+    },
+    "11.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will calculate the result for the first Nth terms of the following series. [In that series sum, dot sign (.) means multiplication] 12.2 + 22.3 + 32.4 + 42.5 + …….",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "2",
+          "output": "Result: 14"
+        },
+        {
+          "input": "3",
+          "output": "Result: 50"
+        },
+        {
+          "input": "4",
+          "output": "Result: 130"
+        },
+        {
+          "input": "7",
+          "output": "Result: 924"
+        }
+      ]
+    },
+    "12.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will print Fibonacci series upto Nth terms. 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, …….",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "1",
+          "output": "1"
+        },
+        {
+          "input": "2",
+          "output": "1, 1"
+        },
+        {
+          "input": "4",
+          "output": "1, 1, 2, 3"
+        },
+        {
+          "input": "7",
+          "output": "1, 1, 2, 3, 5, 8, 13"
+        }
+      ]
+    },
+    "13.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will print the factorial (N!) of a given number N. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "1",
+          "output": "1! = 1 = 1"
+        },
+        {
+          "input": "2",
+          "output": "2! = 2 X 1 = 2"
+        },
+        {
+          "input": "3",
+          "output": "3! = 3 X 2 X 1 = 6"
+        },
+        {
+          "input": "4",
+          "output": "4! = 4 X 3 X 2 X 1 = 24"
+        }
+      ]
+    },
+    "14.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will find nCr where n >= r; n and r are integers.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5   2",
+          "output": "10"
+        },
+        {
+          "input": "10   3",
+          "output": "120"
+        },
+        {
+          "input": "7   7",
+          "output": "1"
+        },
+        {
+          "input": "6   1",
+          "output": "6"
+        }
+      ]
+    },
+    "15.c": {
+      "title": "",
+      "statement": "Write a program (WAP) that will find xy (x to the power y) where x, y are positive integers.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5   2",
+          "output": "25"
+        },
+        {
+          "input": "2   0",
+          "output": "1"
+        },
+        {
+          "input": "6   1",
+          "output": "6"
+        },
+        {
+          "input": "0   5",
+          "output": "0"
+        }
+      ]
+    },
+    "16.c": {
+      "title": "",
+      "statement": "Write a program that will find the GCD (greatest common divisor) and LCM (least common multiple) of two positive integers.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5   7",
+          "output": "GCD: 1\nLCM: 35"
+        },
+        {
+          "input": "12  12",
+          "output": "GCD: 12\nLCM: 12"
+        },
+        {
+          "input": "12   32",
+          "output": "GCD: 4\nLCM: 96"
+        }
+      ]
+    },
+    "17.c": {
+      "title": "",
+      "statement": "Write a program that will determine whether a number is prime or not.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "1",
+          "output": "Not prime"
+        },
+        {
+          "input": "2",
+          "output": "Prime"
+        },
+        {
+          "input": "11",
+          "output": "Prime"
+        },
+        {
+          "input": "39",
+          "output": "Not prime"
+        },
+        {
+          "input": "101",
+          "output": "Prime"
+        }
+      ]
+    },
+    "18.c": {
+      "title": "",
+      "statement": "Write a program that will determine whether an integer is palindrome number or not.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "9",
+          "output": "Yes"
+        },
+        {
+          "input": "91",
+          "output": "No"
+        },
+        {
+          "input": "222",
+          "output": "Yes"
+        },
+        {
+          "input": "12321",
+          "output": "Yes"
+        },
+        {
+          "input": "110",
+          "output": "No"
+        }
+      ]
+    },
+    "19.c": {
+      "title": "",
+      "statement": "Write a program that will calculate following mathematical function for the input of x. Use only the series to solve the problem.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "1",
+          "output": "0.841"
+        },
+        {
+          "input": "2",
+          "output": "0.909"
+        },
+        {
+          "input": "3",
+          "output": "0.141"
+        }
+      ]
+    },
+    "20.c": {
+      "title": "",
+      "statement": "Write a program that takes an integer number n as input and find out the sum of the following series up to n terms. 1 + 12 + 123 + 1234 + …….",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "1",
+          "output": "1"
+        },
+        {
+          "input": "2",
+          "output": "13"
+        },
+        {
+          "input": "3",
+          "output": "136"
+        },
+        {
+          "input": "4",
+          "output": "1370"
+        }
+      ]
+    }
+  },
+  "05-array": {
+    "01.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers into an array, and then print all the integers into reverse order (from the last valid index to index 0).",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5\n1  2  3  4  5",
+          "output": "5  4  3  2  1"
+        },
+        {
+          "input": "6\n2  8  3  9  0  1",
+          "output": "1  0  9  3  8  2"
+        }
+      ]
+    },
+    "02.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers into an array, and then sum up all the integers in that array.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5\n1  2  3  4  5",
+          "output": "15"
+        },
+        {
+          "input": "6\n2  8  3  9  0  1",
+          "output": "23"
+        }
+      ]
+    },
+    "03.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers into an array, and then sum up all the even integers in that array.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5\n1  2  3  4  5",
+          "output": "6"
+        },
+        {
+          "input": "6\n2  8  3  9  0  1",
+          "output": "10"
+        }
+      ]
+    },
+    "04.c": {
+      "title": "",
+      "statement": "Write a program that will take n floating point numbers into an array, and then find the average of those numbers.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5\n1.2  5.6  10.3  4.5  5.2",
+          "output": "5.36"
+        },
+        {
+          "input": "8\n2.1  8.3  3.7  9.2  0.6  1.5 6.4 10.1",
+          "output": "8.38"
+        }
+      ]
+    },
+    "05.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers into an array, and then sum up all the even indexed integers in that array.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5\n1  2  3  4  5",
+          "output": "9"
+        },
+        {
+          "input": "6\n2  8  3  9  0  1",
+          "output": "5"
+        }
+      ]
+    },
+    "06.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers in an array, n different integer numbers in a second array and put the sum of the same indexed numbers from the two arrays in a third array.",
+      "difficulty": "",
+      "samples": [
+        {
+          "input": "5\n1 2 3 4 5\n2 8 3 4 8",
+          "output": "3 10 6 8 13"
+        },
+        {
+          "input": "8\n2 8 3 9 0 1 6 10\n5 1 4 8 9 3 1 5",
+          "output": "7 9 7 17 9 4 7 15"
+        }
+      ]
+    },
+    "07.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers into an array, and then reverse all the integers within that array. Finally print them all from 0 index to last valid index.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5\n1  2  3  4  5",
+          "output": "5  4  3  2  1"
+        },
+        {
+          "input": "6\n2  8  3  9  0  1",
+          "output": "1  0  9  3  8  2"
+        }
+      ]
+    },
+    "08.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers into an array, and then find the maximum -minimum among them with its index position.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5\n1  2  3  4  5",
+          "output": "Max: 5, Index: 4\nMin: 1, Index: 0"
+        },
+        {
+          "input": "6\n2  8  3  9  0  1",
+          "output": "Max: 9, Index: 3\nMin: 0, Index: 4"
+        }
+      ]
+    },
+    "09.c": {
+      "title": "",
+      "statement": "Write a program that will take n alphabets into an array, and then count number of vowels in that array.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "7\nAKIOUEH",
+          "output": "Count: 5"
+        },
+        {
+          "input": "29\nUNITEDINTERNATIONALUNIVERSITY",
+          "output": "Count: 13"
+        }
+      ]
+    },
+    "10.c": {
+      "title": "",
+      "statement": "Write a program that will take n integers into an array, and then search a number into that array. If found then print its index. If not found then print “NOT FOUND”.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "8\n7 8 1 3 2 6 4 3\n3",
+          "output": "FOUND at index position: 3, 7"
+        },
+        {
+          "input": "8\n7 8 1 3 2 6 4 3\n5",
+          "output": "NOT FOUND"
+        }
+      ]
+    },
+    "11.c": {
+      "title": "",
+      "statement": "Write a program that will take n integers into an array A, and then copy all numbers in reverse order from array A to another array B. Finally show all elements of both array A and B.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "8\n7 8 1 3 2 6 4 3",
+          "output": "Array A : 7 8 1 3 2 6 4 3\nArray B : 3 4 6 2 3 1 8 7"
+        },
+        {
+          "input": "3\n3 2 1",
+          "output": "Array A : 3 2 1\nArray B : 1 2 3"
+        }
+      ]
+    },
+    "12.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers as input in an array and then insert a number in a position specified by the user in the array.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "10\n9 11 34 23 16 15 2 37 89 54\nnumber: 78 position: 4",
+          "output": "9 11 34 23 78 16 15 2 37 89 54"
+        },
+        {
+          "input": "5\n32 14 9 48 6\nnumber: 16 position: 0",
+          "output": "16 32 14 9 48 6"
+        }
+      ]
+    },
+    "13.c": {
+      "title": "",
+      "statement": "Write a program that will take n integer numbers as input in an array and then delete a number from a position specified by the user in the array.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "10\n9 11 34 23 16 15 2 37 89 54\nposition: 4",
+          "output": "9 11 34 23 15 2 37 89 54"
+        },
+        {
+          "input": "5\n32 14 9 48 6\nposition: 0",
+          "output": "14 9 48 6"
+        }
+      ]
+    },
+    "14.c": {
+      "title": "",
+      "statement": "Write a program that will first take n integers into an array A and then m integers into array B. Now swap all elements between array A and B. Finally show all elements of both array A and B.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "8\n7 8 1 3 2 6 4 3\n3\n3 2 1",
+          "output": "Array A : 3 2 1\nArray B : 7 8 1 3 2 6 4 3"
+        }
+      ]
+    },
+    "15.c": {
+      "title": "",
+      "statement": "Write a program that will take n positive integers into an array A. Now find all the integers that are divisible by 3 and replace them by -1 in array A. Finally show all elements of array A.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "8\n7 8 1 3 2 6 4 3",
+          "output": "7 8 1 -1 2 -1 4 -1"
+        },
+        {
+          "input": "3\n3 2 1",
+          "output": "-1 2 1"
+        }
+      ]
+    },
+    "16.c": {
+      "title": "",
+      "statement": "Write a program that will take n positive integers into an array A. Now find all the integers that have an odd index and replace them by 0 in array A. Finally show all elements of array A.",
+      "difficulty": "",
+      "samples": [
+        {
+          "input": "8\n7 8 1 3 2 6 4 3",
+          "output": "7 0 1 0 2 0 4 0"
+        },
+        {
+          "input": "3\n3 2 1",
+          "output": "3 0 1"
+        }
+      ]
+    },
+    "17.c": {
+      "title": "",
+      "statement": "Write a program that will take n integers into an array A. Now sort them in ascending order within that array. Finally show all elements of array A. Reference: http://en.wikipedia.org/wiki/Bubble_sort",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "8\n7 8 1 3 2 6 4 3",
+          "output": "1  2  3  3  4  6  7  8"
+        },
+        {
+          "input": "3\n3 2 1",
+          "output": "1  2  3"
+        }
+      ]
+    },
+    "18.c": {
+      "title": "",
+      "statement": "Write a program that will take n integers into an array A. Now remove all duplicates numbers from that array. Finally print all elements from that array.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "8\n2 8 1 3 2 6 4 3",
+          "output": "2 8 1 3 6 4"
+        },
+        {
+          "input": "3\n3 3 3",
+          "output": "3"
+        },
+        {
+          "input": "4\n6 7 8 9",
+          "output": "6 7 8 9"
+        }
+      ]
+    },
+    "19.c": {
+      "title": "",
+      "statement": "Write a program that will take n integers into array A and m positive integers into array B. Now find the intersection (set operation) of array A and B.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "8\n7 8 1 5 2 6 4 3\n6\n1 3 6 0 9 2",
+          "output": "1 2 6 3"
+        },
+        {
+          "input": "3\n1 2 3\n2\n4 5",
+          "output": "Empty set"
+        }
+      ]
+    },
+    "20.c": {
+      "title": "",
+      "statement": "Write a program that will take n integers into an array A and m positive integers into array B. Now find the union (set operation) of array A and B.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "8\n7 8 1 5 2 6 4 3\n6\n1 3 6 0 9 2",
+          "output": "7 8 1 5 2 6 4 3 0 9"
+        },
+        {
+          "input": "3\n1 2 3\n2\n4 5",
+          "output": "1 2 3 4 5"
+        }
+      ]
+    },
+    "21.c": {
+      "title": "",
+      "statement": "Write a program that will take n integers into an array A and m positive integers into array B. Now find the difference (set operation) of array A and B or (A-B).",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "8\n7 8 1 5 2 6 4 3\n6\n1 3 6 0 9 2",
+          "output": "7 8 5 4"
+        },
+        {
+          "input": "3\n1 2 3\n2\n4 5",
+          "output": "1 2 3"
+        }
+      ]
+    }
+  },
+  "06-nested-loop": {
+    "01.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "3",
+          "output": "123\n123\n123"
+        },
+        {
+          "input": "4",
+          "output": "1234\n1234\n1234\n1234"
+        }
+      ]
+    },
+    "02.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "3",
+          "output": "123\n234\n345"
+        },
+        {
+          "input": "4",
+          "output": "1234\n2345\n3456\n4567"
+        }
+      ]
+    },
+    "03.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "3",
+          "output": "1\n23\n345"
+        },
+        {
+          "input": "4",
+          "output": "1\n23\n345\n4567"
+        }
+      ]
+    },
+    "04.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "3",
+          "output": "__1\n_22\n333"
+        },
+        {
+          "input": "5",
+          "output": "____1\n___22\n__333\n_4444\n55555"
+        }
+      ]
+    },
+    "05.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "3",
+          "output": "3\n32\n321"
+        },
+        {
+          "input": "4",
+          "output": "4\n43\n432\n4321"
+        }
+      ]
+    },
+    "06.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "3",
+          "output": "1\n12\n123"
+        },
+        {
+          "input": "4",
+          "output": "1\n12\n123\n1234"
+        }
+      ]
+    },
+    "07.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "4",
+          "output": "****\n****\n****\n****"
+        },
+        {
+          "input": "2",
+          "output": "**\n**"
+        }
+      ]
+    },
+    "08.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5",
+          "output": "*****\n****\n***\n**\n*"
+        },
+        {
+          "input": "2",
+          "output": "**\n*"
+        }
+      ]
+    },
+    "09.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "10101\n01010\n10101\n01010\n10101"
+        },
+        {
+          "input": "3",
+          "output": "101\n010\n101"
+        }
+      ]
+    },
+    "10.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "____*\n___**\n__***\n_****\n*****"
+        },
+        {
+          "input": "3",
+          "output": "__*\n_**\n***"
+        }
+      ]
+    },
+    "11.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "____*\n___***\n__*****\n_*******\n*********"
+        },
+        {
+          "input": "3",
+          "output": "__*\n_***\n*****"
+        }
+      ]
+    },
+    "12.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "9",
+          "output": "____*\n___***\n__*****\n_*******\n*********\n_*******\n__*****\n___***\n____*"
+        },
+        {
+          "input": "3",
+          "output": "_*\n***\n_*"
+        }
+      ]
+    },
+    "13.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "4",
+          "output": "1_____1\n12___21\n123_321\n1234321"
+        },
+        {
+          "input": "3",
+          "output": "1___1\n12_21\n12321"
+        }
+      ]
+    },
+    "14.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "*****\n*___*\n*****\n*___*\n*****"
+        },
+        {
+          "input": "3",
+          "output": "***\n*_*\n***"
+        }
+      ]
+    },
+    "15.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "ZZZZZ\n        Z\n     Z\n  Z\nZZZZZ"
+        },
+        {
+          "input": "7",
+          "output": "ZZZZZZZ\n             Z\n           Z\n        Z\n     Z\n  Z\nZZZZZZZ"
+        }
+      ]
+    },
+    "16.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "*___*\n_*_*_\n__*__\n_*_*_\n*___*"
+        },
+        {
+          "input": "7",
+          "output": "*_____*\n_*___*_\n__*_*__\n___*___\n__*_*__\n_*___*_\n*_____*"
+        }
+      ]
+    },
+    "17.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "9",
+          "output": "____$____\n___$$$___\n__$_$_$__\n_$__$__$_\n$$$$$$$$$\n_$__$__$_\n__$_$_$__\n___$$$___\n____$____"
+        },
+        {
+          "input": "13",
+          "output": "______$______\n_____$$$_____\n____$_$_$____\n___$__$__$___\n__$___$___$__\n_$____$____$_\n$$$$$$$$$$$$$\n_$____$____$_\n__$___$___$__\n___$__$__$___\n____$_$_$____\n_____$$$_____\n______$______"
+        }
+      ]
+    },
+    "18.c": {
+      "title": "",
+      "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "H            H\nH            H\nH H H H H\nH            H\nH            H"
+        },
+        {
+          "input": "7",
+          "output": "H                    H\nH                    H\nH                    H\nH H H H H H H\nH                    H\nH                    H\nH                    H"
+        }
+      ]
+    }
+  },
+  "07-2d-array": {
+    "01.c": {
+      "title": "",
+      "statement": "Write a program that will take 9 integers into a 3 by 3 array (2D) and show them as traditional matrix view.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "9 8 7 6 5 4 3 2 1",
+          "output": "9 8 7\n6 5 4\n3 2 1"
+        },
+        {
+          "input": "1 1 1 2 2 2 3 3 3",
+          "output": "1 1 1\n2 2 2\n3 3 3"
+        }
+      ]
+    },
+    "02.c": {
+      "title": "",
+      "statement": "Write a program that will take (m x n) integers into a m by n array (2D) and print them both row-wise and column-wise.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "2 3\n1 2 3\n6 5 4",
+          "output": "Row-wise: 1 2 3 6 5 4\nColumn-wise: 1 6 2 5 3 4"
+        },
+        {
+          "input": "3 3\n1 1 1\n2 2 2\n3 3 3",
+          "output": "Row-wise: 1 1 1 2 2 2 3 3 3\nColumn-wise: 1 2 3 1 2 3 1 2 3"
+        }
+      ]
+    },
+    "03.c": {
+      "title": "",
+      "statement": "Write a program that will take inputs of a 3 by 3 matrix into a 2D array. Now find the determinant of this matrix. http://www.mathsisfun.com/algebra/matrix-determinant.html",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "1 2 3\n4 5 6\n7 8 9",
+          "output": "0"
+        }
+      ]
+    },
+    "04.c": {
+      "title": "",
+      "statement": "Write a program that will take inputs of a n sized square matrix into a 2D array. Now show all the elements of its two diagonals. Reference: http://en.wikipedia.org/wiki/Main_diagonal",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5\n1 2 3 4 5\n5 4 3 2 1\n2 2 2 2 2\n6 7 8 9 0\n1 9 3 7 4",
+          "output": "Major diagonal: 1 4 2 9 4\nMinor diagonal: 5 2 2 7 1"
+        }
+      ]
+    },
+    "05.c": {
+      "title": "",
+      "statement": "Write a program that will take the size of an identity matrix from the user and generate the identity matrix into a 2D array. Finally display it. Reference:http://en.wikipedia.org/wiki/Identity_matrix",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "5",
+          "output": "1 0 0 0 0\n0 1 0 0 0\n0 0 1 0 0\n0 0 0 1 0\n0 0 0 0 1"
+        }
+      ]
+    },
+    "06.c": {
+      "title": "",
+      "statement": "Write a program that will take inputs of two m x n sized matrix into two 2D array, suppose A and B. Now do C = A + B. Finally display all the elements from matrix / 2D array C.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "2 3\n1 2 3\n2 3 4\n1 1 1\n2 2 2",
+          "output": "2 3 4\n4 5 6"
+        }
+      ]
+    },
+    "07.c": {
+      "title": "",
+      "statement": "Write a program that will take inputs of two 3 x 3 sized matrix into two 2D array, suppose A and B. Now do C = A * B (multiplication). Finally display all the elements from matrix / 2D array C.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "1 2 3\n4 5 6\n7 8 9\n2 2 2\n2 2 2\n1 1 1",
+          "output": "9 9 9\n24 24 24\n39 39 39"
+        }
+      ]
+    },
+    "08.c": {
+      "title": "",
+      "statement": "Write a program that will take inputs of m x n sized matrix into a 2D array and find the maximum element with index locationfrom that matrix.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "3 3\n1 2 3\n4 5 6\n2 9 2",
+          "output": "Max: 9\nLocation: [2][1]"
+        },
+        {
+          "input": "2 3\n9 8 7\n3 4 5",
+          "output": "Max: 9\nLocation: [0][0]"
+        }
+      ]
+    },
+    "09.c": {
+      "title": "",
+      "statement": "Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers at first row, last row and two diagonals without overlap. Please see the sample input-output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5\n1 2 3 4 5\n2 3 4 1 6\n3 4 9 6 7\n4 2 6 7 8\n5 4 3 2 1",
+          "output": "52"
+        },
+        {
+          "input": "7\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1",
+          "output": "23"
+        }
+      ]
+    },
+    "10.c": {
+      "title": "",
+      "statement": "Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers based on following position pattern (consider only the boxed position during the sum). Please see the input-output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5\n1 2 3 4 5\n2 3 4 1 6\n3 4 9 6 7\n4 2 6 7 8\n5 4 3 2 1",
+          "output": "71"
+        },
+        {
+          "input": "7\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1",
+          "output": "25"
+        }
+      ]
+    },
+    "11.c": {
+      "title": "",
+      "statement": "Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers based on following position pattern (consider only the boxed position during the sum). Please see the input-output.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "5\n1 2 3 4 5\n2 3 4 1 6\n3 4 9 6 7\n4 2 6 7 8\n5 4 3 2 1",
+          "output": "65"
+        },
+        {
+          "input": "7\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1\n1 1 1 1 1 1 1",
+          "output": "33"
+        }
+      ]
+    },
+    "12.c": {
+      "title": "",
+      "statement": "Write a program that will take (m x n) integer inputs into a matrix of dimension m x n. Now reverse that matrix within itself and display it. Reversal means swap 1st column with the nth column, swap 2nd column with the (n-1)th column and so on…",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "3 3\n1 2 3\n4 5 6\n2 9 2",
+          "output": "3 2 1\n6 5 4\n2 9 2"
+        },
+        {
+          "input": "2 6\n1 2 3 4 5 6\n9 8 7 6 5 4",
+          "output": "6 5 4 3 2 1\n4 5 6 7 8 9"
+        }
+      ]
+    },
+    "13.c": {
+      "title": "",
+      "statement": "Write a program that will take (n x n) integer inputs into a square matrix of dimension n. Now determine whether the matrix is symmetric or not. Reference: http://en.wikipedia.org/wiki/Symmetric_matrix",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "3\n1  7  3\n7  4  5\n3  5  6",
+          "output": "Yes"
+        },
+        {
+          "input": "2\n1  3\n4  2",
+          "output": "No"
+        }
+      ]
+    },
+    "14.c": {
+      "title": "",
+      "statement": "Write a program that will take (m x n) positive integer inputs into a matrix of dimension m x n. Now replace all the duplicate integers by -1 in that matrix. Finally display it.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "3  3\n1  7  3\n7  4  5\n3  5  6",
+          "output": " 1  7  3\n-1  4  5\n-1 -1  6"
+        },
+        {
+          "input": "2 6\n2  2  2  2  2  2\n6  5  4  3  2  1",
+          "output": "2 -1 -1 -1 -1 -1\n6  5  4   3 -1  1"
+        }
+      ]
+    },
+    "15.c": {
+      "title": "",
+      "statement": "Write a program that will take (m x n) integer inputs into a matrix of dimension m x n. Now just simply add all the integers in that matrix and show the result.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "3  3\n1  7  3\n7  4  5\n3  5  6",
+          "output": "41"
+        },
+        {
+          "input": "2 6\n2  2  2  2  2  2\n6  5  4  3  2  1",
+          "output": "33"
+        }
+      ]
+    }
+  },
+  "08-strings": {
+    "01.c": {
+      "title": "",
+      "statement": "Write a program in C to find the length of a string without using any library function.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "“My name is andy”",
+          "output": "15"
+        },
+        {
+          "input": "“Abc 123 7&*&*”",
+          "output": "13"
+        }
+      ]
+    },
+    "02.c": {
+      "title": "",
+      "statement": "Write a program in C to concatenate two strings without using any library function.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "“My name ”\n“is andy”",
+          "output": "“My name is andy”"
+        },
+        {
+          "input": "“123abc”\n“*A*B”",
+          "output": "“123abc*A*B”"
+        }
+      ]
+    },
+    "03.c": {
+      "title": "",
+      "statement": "Write a program in C to count how many vowels are there in a string.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "“My name is andy”",
+          "output": "4"
+        },
+        {
+          "input": "“Are you READY yet?”",
+          "output": "7"
+        }
+      ]
+    },
+    "04.c": {
+      "title": "",
+      "statement": "Write a program in C to count the number of words in a string.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "“My name is andy”",
+          "output": "4"
+        },
+        {
+          "input": "“Abc 123 7&*&*”",
+          "output": "3"
+        }
+      ]
+    },
+    "05.c": {
+      "title": "",
+      "statement": "Write a program in C to find the reverse of a string.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "“My name is Andy”",
+          "output": "“ydnA si eman yM”"
+        },
+        {
+          "input": "“Abc 123 7&*&*”",
+          "output": "“*&*&7 321 cbA”"
+        }
+      ]
+    },
+    "06.c": {
+      "title": "",
+      "statement": "Write a program in C to convert lowercase string to uppercase.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "“My name is andy”",
+          "output": "“MY NAME IS ANDY”"
+        },
+        {
+          "input": "“& I am 20 years old”",
+          "output": "“& I AM 20 YEARS OLD”"
+        }
+      ]
+    },
+    "07.c": {
+      "title": "",
+      "statement": "Write a program in C to toggle the case of each character in a string.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "“My name is Andy”",
+          "output": "“mY NAME IS aNDY”"
+        },
+        {
+          "input": "“& I am 20 Years old”",
+          "output": "“& i AM 20 yEARS OLD”"
+        }
+      ]
+    },
+    "08.c": {
+      "title": "",
+      "statement": "Write a program in C to sort a string array in alphabetic order.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "“My name is Andy”",
+          "output": "“   AMadeimnnsyy”"
+        },
+        {
+          "input": "“Abc 123 7&*&*”",
+          "output": "“  &&**1237Abc”"
+        }
+      ]
+    },
+    "09.c": {
+      "title": "",
+      "statement": "Write a program in C to count the occurrences of a character in a string regardless of its case.",
+      "difficulty": "*",
+      "samples": [
+        {
+          "input": "“My name is Andy”\n‘a’",
+          "output": "2"
+        },
+        {
+          "input": "“WELCOME to CSE, everyone”\n‘E’",
+          "output": "6"
+        }
+      ]
+    },
+    "10.c": {
+      "title": "",
+      "statement": "Write a program in C to check whether a string is a palindrome or not.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "“My name is andy”",
+          "output": "no"
+        },
+        {
+          "input": "“madam”",
+          "output": "yes"
+        }
+      ]
+    },
+    "11.c": {
+      "title": "",
+      "statement": "Write a program in C to add the digits in a string.",
+      "difficulty": "**",
+      "samples": [
+        {
+          "input": "“I am 20 years old”",
+          "output": "2"
+        },
+        {
+          "input": "“Abc 123 7&*&*”",
+          "output": "13"
+        }
+      ]
+    },
+    "12.c": {
+      "title": "",
+      "statement": "Write a program in C to count occurrences of a word in a string.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "“I liked the story about the sad giant”\n“the”",
+          "output": "2"
+        },
+        {
+          "input": "“It is what it is”\n“it”",
+          "output": "1"
+        }
+      ]
+    },
+    "13.c": {
+      "title": "",
+      "statement": "Write a program in C to remove all repeated characters in a string.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "“i like programming in C”",
+          "output": "“i lkeprogamnC”"
+        },
+        {
+          "input": "“My name is Andy”",
+          "output": "“My nameisAd”"
+        }
+      ]
+    },
+    "14.c": {
+      "title": "",
+      "statement": "Write a program in C to find the maximum occurring character in a string.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "“Welcome to CSE”",
+          "output": "E (or e)"
+        },
+        {
+          "input": "“mmmttssarrrddd”",
+          "output": "D (or d)"
+        },
+        {
+          "input": "“mmmttssarrrDDd”",
+          "output": "D (or d)"
+        }
+      ]
+    },
+    "15.c": {
+      "title": "",
+      "statement": "Write a program in C to reverse the words in a string.",
+      "difficulty": "***",
+      "samples": [
+        {
+          "input": "“My name is  Andy”",
+          "output": "“Andy  is name My”"
+        },
+        {
+          "input": "“Abc 123 7&*&*”",
+          "output": "“7&*&* 123 Abc”"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# The compiled programs gcc leaves behind have no file extension (01, 02, ...),
+# so instead of listing what to skip, this ignores everything and then allows
+# back only the kinds of files worth keeping.
+
+*
+
+# Keep walking into folders, otherwise nothing below is ever seen.
+!*/
+
+# Source and site files.
+!*.c
+!*.h
+!*.py
+!*.html
+!*.css
+!*.js
+!*.json
+!*.md
+!.gitignore
+
+# Editor settings are not part of the coursework.
+.vscode/

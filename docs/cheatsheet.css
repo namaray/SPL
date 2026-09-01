@@ -1,0 +1,201 @@
+/* ==========================================================================
+   Cheatsheet page only.
+
+   Loaded after style.css, and every class here starts with "cs-" so nothing
+   can collide with the rules that style the problem pages.
+
+   Colours come from the variables style.css already defines (--bg, --text,
+   --accent and friends) so this page follows the same light/dark theme as the
+   rest of the site. The two additions below are semantic, not decorative:
+   amber marks a mistake that costs marks, green marks a pattern worth
+   memorising.
+   ========================================================================== */
+
+:root {
+  --cs-trap:    #a35b12;
+  --cs-trap-bg: #fdf3e6;
+  --cs-ok:      #1c7a4d;
+  --cs-ok-bg:   #e9f6ef;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cs-trap:    #e0a760;
+    --cs-trap-bg: #2e2417;
+    --cs-ok:      #6cc79b;
+    --cs-ok-bg:   #16291f;
+  }
+}
+
+
+/* This page is a dense reference, not prose, so it gets more width than the
+   900px the problem pages use. Loaded after style.css, so this wins. */
+main { max-width: 1200px; }
+
+
+/* Jump bar ---------------------------------------------------------------- */
+
+.cs-jump {
+  position: sticky;
+  top: 3.4rem;                /* sits below the site header */
+  z-index: 5;
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  scrollbar-width: none;            /* same treatment as the main nav */
+}
+
+.cs-jump::-webkit-scrollbar { display: none; }
+
+.cs-jump a {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.55rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.cs-jump a:hover,
+.cs-jump a:focus-visible { background: var(--accent-soft); color: var(--accent); }
+
+
+/* Sections ---------------------------------------------------------------- */
+
+.cs-section { margin-top: 2.5rem; scroll-margin-top: 7rem; }
+
+.cs-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--text);
+}
+
+.cs-head h2 { margin: 0; font-size: 1.3rem; letter-spacing: -0.01em; }
+
+.cs-head .cs-tag {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+
+/* Cards ------------------------------------------------------------------- */
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.cs-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.9rem 1rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.cs-card h3 { margin: 0; font-size: 0.95rem; font-weight: 650; }
+.cs-card p  { margin: 0; font-size: 0.88rem; color: var(--text-muted); }
+.cs-wide    { grid-column: 1 / -1; }
+
+
+/* Code -------------------------------------------------------------------- */
+
+.cs-code {
+  margin: 0;
+  padding: 0.7rem 0.85rem;
+  background: var(--bg-code);
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+.cs-cmt { color: var(--text-muted); font-style: italic; }
+
+.cs-card p code,
+.cs-note code,
+.cs-table code {
+  padding: 0.08em 0.32em;
+  border-radius: 3px;
+  background: var(--bg-code);
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+}
+
+
+/* Callouts ---------------------------------------------------------------- */
+
+.cs-note {
+  padding: 0.5rem 0.7rem;
+  border-left: 3px solid var(--cs-trap);
+  border-radius: 0 5px 5px 0;
+  background: var(--cs-trap-bg);
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.cs-note b { color: var(--cs-trap); }
+
+.cs-note.cs-good { border-left-color: var(--cs-ok); background: var(--cs-ok-bg); }
+.cs-note.cs-good b { color: var(--cs-ok); }
+
+
+/* Tables ------------------------------------------------------------------ */
+
+.cs-tablewrap { overflow-x: auto; }
+
+.cs-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+
+.cs-table th {
+  padding: 0.34rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.cs-table td {
+  padding: 0.34rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.cs-table td:first-child {
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  color: var(--accent);
+}
+
+.cs-table tbody tr:last-child td { border-bottom: none; }
+
+
+/* Print - it should survive being printed the night before ----------------- */
+
+@media print {
+  .site-header, .site-footer, .cs-jump { display: none; }
+  .cs-grid { grid-template-columns: 1fr 1fr; }
+  .cs-card { break-inside: avoid; }
+  .cs-code { font-size: 8.2pt; }
+  body { font-size: 10.5pt; }
+}

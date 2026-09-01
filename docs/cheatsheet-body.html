@@ -1,0 +1,974 @@
+<!--
+  The cheatsheet content.
+
+  This file is hand written, not generated. build.py wraps it in the same
+  header/footer as every other page and writes cheatsheet.html.
+  Styling lives in cheatsheet.css; every class starts with "cs-".
+-->
+
+    <section class="category-intro">
+      <h1>Midterm Cheatsheet</h1>
+      <p class="lede">
+        Every syntax pattern and method behind the 134 problems in sets 1&ndash;8,
+        written to match how this lab actually solves them &mdash; manual loops,
+        <code>fgets</code> for input, and no <code>string.h</code>.
+        Amber boxes are the mistakes that cost marks.
+      </p>
+      <p class="stats">Sets 01&ndash;08 &middot; prints on paper cleanly</p>
+    </section>
+
+    <nav class="cs-jump" aria-label="Cheatsheet sections">
+      <a href="#basics">Skeleton</a>
+      <a href="#io">printf / scanf</a>
+      <a href="#types">Types</a>
+      <a href="#ops">Operators</a>
+      <a href="#cond">Conditions</a>
+      <a href="#loops">Loops</a>
+      <a href="#arrays">Arrays</a>
+      <a href="#nested">Patterns</a>
+      <a href="#twod">2D Arrays</a>
+      <a href="#strings">Strings</a>
+      <a href="#algos">Algorithms</a>
+      <a href="#traps">Traps</a>
+    </nav>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="basics">
+      <div class="cs-head">
+        <h2>The skeleton</h2>
+        <span class="cs-tag">start every answer here</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Program shell</h3>
+<pre class="cs-code">#include &lt;stdio.h&gt;
+
+int main() {
+    <span class="cs-cmt">// declare, input, process, output</span>
+    return 0;
+}</pre>
+          <p>Declare all variables at the top &mdash; that is the style this lab uses.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Compiling</h3>
+<pre class="cs-code">gcc solution.c -o out
+./out
+
+<span class="cs-cmt"># only if you used math.h</span>
+gcc solution.c -o out -lm</pre>
+          <div class="cs-note"><b>Forgetting <code>-lm</code></b> gives "undefined
+            reference to sqrt" &mdash; a linker error, not a mistake in your code.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>The four steps of nearly every problem</h3>
+<pre class="cs-code">int n, i;
+scanf("%d", &amp;n);          <span class="cs-cmt">// 1. how many</span>
+for (i = 0; i &lt; n; i++)   <span class="cs-cmt">// 2. read them</span>
+    scanf("%d", &amp;a[i]);
+<span class="cs-cmt">// 3. compute</span>
+printf("%d\n", result);   <span class="cs-cmt">// 4. print</span></pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="io">
+      <div class="cs-head">
+        <h2>printf and scanf</h2>
+        <span class="cs-tag">set 01</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card cs-wide">
+          <h3>Format specifiers</h3>
+          <div class="cs-tablewrap">
+            <table class="cs-table">
+              <thead><tr><th>Specifier</th><th>Type</th><th>Note</th></tr></thead>
+              <tbody>
+                <tr><td>%d</td><td>int</td><td>The one you use most</td></tr>
+                <tr><td>%f</td><td>float / double</td><td>Prints 6 decimals by default</td></tr>
+                <tr><td>%.2f</td><td>float</td><td>Exactly 2 decimals &mdash; use when the sample shows 2</td></tr>
+                <tr><td>%g</td><td>float</td><td>Drops trailing zeros: <code>7</code> not <code>7.000000</code></td></tr>
+                <tr><td>%e</td><td>float</td><td>Exponential: <code>2.695000e+01</code></td></tr>
+                <tr><td>%c</td><td>char</td><td>A single character</td></tr>
+                <tr><td>%s</td><td>string</td><td>Char array, stops at the first space</td></tr>
+                <tr><td>%ld</td><td>long</td><td>For factorials and big sums</td></tr>
+                <tr><td>%lf</td><td>double</td><td><b>Required</b> in <code>scanf</code> for a double</td></tr>
+                <tr><td>%u</td><td>unsigned</td><td>No negatives</td></tr>
+                <tr><td>%15.2f</td><td>float</td><td>Field width 15, right aligned</td></tr>
+                <tr><td>%-15d</td><td>int</td><td>Minus sign = left aligned</td></tr>
+                <tr><td>%%</td><td>&mdash;</td><td>Prints a literal <code>%</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Reading several values at once</h3>
+<pre class="cs-code">int a, b;  float x;  char op;
+
+scanf("%d %d", &amp;a, &amp;b);
+scanf("%f %c %f", &amp;x, &amp;op, &amp;x);</pre>
+          <div class="cs-note"><b>Every variable needs <code>&amp;</code></b> in
+            <code>scanf</code> &mdash; except arrays and strings, which are already
+            addresses.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Reading a char safely</h3>
+<pre class="cs-code">char c;
+scanf(" %c", &amp;c);   <span class="cs-cmt">// note the leading space</span></pre>
+          <div class="cs-note"><b>The space matters.</b> Without it, <code>%c</code>
+            reads the Enter key left over from the previous <code>scanf</code> and
+            your program looks like it skipped an input.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Skipping an input (assignment suppression)</h3>
+<pre class="cs-code"><span class="cs-cmt">// input: 101 50 24.50 A
+// read the 50 but do not store it</span>
+scanf("%d %*d %f %c", &amp;code, &amp;price, &amp;cat);
+
+<span class="cs-cmt">// input: number: 78 position: 4
+// skip the words, keep the numbers</span>
+scanf("%*s %d %*s %d", &amp;num, &amp;pos);</pre>
+          <p>The <code>*</code> means "match this, then throw it away". It appears
+             in set 01 and again in the array insert/delete problems.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Escape sequences</h3>
+<pre class="cs-code">\n   newline          \t   tab
+\\   backslash        \"   double quote
+\'   single quote     \0   null character</pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="types">
+      <div class="cs-head">
+        <h2>Data types, const and scope</h2>
+        <span class="cs-tag">set 01</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Sizes</h3>
+          <div class="cs-tablewrap">
+            <table class="cs-table">
+              <thead><tr><th>Type</th><th>Bytes</th><th>Print with</th></tr></thead>
+              <tbody>
+                <tr><td>char</td><td>1</td><td>%c</td></tr>
+                <tr><td>short</td><td>2</td><td>%hd</td></tr>
+                <tr><td>int</td><td>4</td><td>%d</td></tr>
+                <tr><td>long</td><td>8</td><td>%ld</td></tr>
+                <tr><td>float</td><td>4</td><td>%f</td></tr>
+                <tr><td>double</td><td>8</td><td>%lf</td></tr>
+              </tbody>
+            </table>
+          </div>
+<pre class="cs-code">printf("%d\n", (int)sizeof(int));</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Constants &mdash; two ways</h3>
+<pre class="cs-code">#define VAT 0.15          <span class="cs-cmt">// no semicolon, no type</span>
+const float DISCOUNT = 0.05;  <span class="cs-cmt">// has a type</span></pre>
+          <p><code>#define</code> is a text replacement done before compiling;
+             <code>const</code> is a real variable that cannot be changed.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Global vs local scope</h3>
+<pre class="cs-code">int g = 10;          <span class="cs-cmt">// global: visible everywhere</span>
+
+int main() {
+    int g = 20;      <span class="cs-cmt">// local hides the global</span>
+    printf("%d", g); <span class="cs-cmt">// prints 20</span>
+}</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>bool</h3>
+<pre class="cs-code">#include &lt;stdbool.h&gt;
+bool found = true;   <span class="cs-cmt">// prints as 1 / 0 with %d</span></pre>
+          <p>Most solutions here just use <code>int flag = 0;</code> instead.</p>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="ops">
+      <div class="cs-head">
+        <h2>Operators</h2>
+        <span class="cs-tag">set 02</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Integer division and modulus</h3>
+<pre class="cs-code">7 / 2      <span class="cs-cmt">// 3   (int / int throws away the rest)</span>
+7 % 2      <span class="cs-cmt">// 1   (the remainder)</span>
+7.0 / 2    <span class="cs-cmt">// 3.5 (one float makes it float)</span>
+(float)7 / 2   <span class="cs-cmt">// 3.5 (cast to force it)</span></pre>
+          <div class="cs-note"><b>The single most common mistake.</b> Averages,
+            percentages and division answers come out wrong because both operands
+            were <code>int</code>. Cast one of them.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Increment: pre vs post</h3>
+<pre class="cs-code">int a = 5;
+printf("%d", a++);   <span class="cs-cmt">// prints 5, then a becomes 6</span>
+printf("%d", ++a);   <span class="cs-cmt">// a becomes 7, then prints 7</span></pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Compound assignment</h3>
+<pre class="cs-code">x += 3;   x -= 3;
+x *= 3;   x /= 3;   x %= 3;</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Ternary (one-line if)</h3>
+<pre class="cs-code">max = (a &gt; b) ? a : b;
+min = (a &lt; b) ? a : b;</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Relational and logical</h3>
+<pre class="cs-code">==  !=  &lt;  &gt;  &lt;=  &gt;=
+
+&amp;&amp;  and    ||  or    !  not</pre>
+          <div class="cs-note"><b><code>=</code> is not <code>==</code>.</b>
+            <code>if (x = 5)</code> assigns 5 and is always true.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Precedence, high to low</h3>
+<pre class="cs-code">()
+!  ++  --  (cast)
+*  /  %
++  -
+&lt;  &lt;=  &gt;  &gt;=
+==  !=
+&amp;&amp;
+||
+=  +=  -=</pre>
+          <p>When unsure, add brackets. Nobody loses marks for extra brackets.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>math.h</h3>
+<pre class="cs-code">#include &lt;math.h&gt;      <span class="cs-cmt">// compile with -lm</span>
+
+sqrt(x)      pow(x, y)
+ceil(x)      floor(x)
+fabs(x)      <span class="cs-cmt">// float absolute value</span>
+abs(n)       <span class="cs-cmt">// int, from stdlib.h</span>
+sin(x) cos(x) tan(x)   <span class="cs-cmt">// radians!</span></pre>
+          <div class="cs-note"><b>Trig takes radians.</b> Convert first:
+            <code>rad = deg * 3.1416 / 180</code></div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Quadratic roots</h3>
+<pre class="cs-code">d = b*b - 4*a*c;
+if (d &gt; 0) {
+    r1 = (-b + sqrt(d)) / (2*a);
+    r2 = (-b - sqrt(d)) / (2*a);
+} else if (d == 0) {
+    r1 = -b / (2.0*a);
+} else {
+    <span class="cs-cmt">// imaginary roots</span>
+}</pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="cond">
+      <div class="cs-head">
+        <h2>Conditions</h2>
+        <span class="cs-tag">set 03</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>The chain</h3>
+<pre class="cs-code">if (m &gt;= 90)       printf("A\n");
+else if (m &gt;= 86)  printf("A-\n");
+else if (m &gt;= 82)  printf("B+\n");
+else               printf("F\n");</pre>
+          <div class="cs-note"><b>Order matters.</b> Go from the highest boundary
+            down. If you start with <code>m &gt;= 55</code>, everyone gets a D.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Classifying a character</h3>
+<pre class="cs-code">if ((c &gt;= 'a' &amp;&amp; c &lt;= 'z') ||
+    (c &gt;= 'A' &amp;&amp; c &lt;= 'Z'))  printf("Alphabet\n");
+else if (c &gt;= '0' &amp;&amp; c &lt;= '9') printf("Digit\n");
+else                            printf("Special\n");</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Leap year</h3>
+<pre class="cs-code">if ((y % 4 == 0 &amp;&amp; y % 100 != 0) || y % 400 == 0)
+    printf("Yes\n");</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Even / odd, positive / negative</h3>
+<pre class="cs-code">n % 2 == 0        <span class="cs-cmt">// even (works for negatives too)</span>
+n &gt; 0             <span class="cs-cmt">// positive</span>
+n == 0            <span class="cs-cmt">// zero is its own case - check it!</span></pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Menu with a submenu</h3>
+<pre class="cs-code">scanf("%d", &amp;choice);
+if (choice == 1)      printf("Addition: %g\n", a + b);
+else if (choice == 4) {
+    if ((int)b == 0) { printf("Error: Divisor is zero\n"); }
+    else {
+        scanf("%d", &amp;sub);
+        if (sub == 1) printf("Quotient: %d\n", (int)a / (int)b);
+        else          printf("Remainder: %d\n", (int)a % (int)b);
+    }
+}</pre>
+          <div class="cs-note"><b>Check the divisor you actually divide by.</b>
+            If you divide by <code>(int)b</code>, then test <code>(int)b == 0</code>.
+            Testing <code>b != 0</code> lets <code>0.5</code> through and the
+            program crashes.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>switch (alternative to a menu chain)</h3>
+<pre class="cs-code">switch (choice) {
+    case 1: printf("Add\n");  break;
+    case 2: printf("Sub\n");  break;
+    default: printf("Invalid\n");
+}</pre>
+          <div class="cs-note"><b>Missing <code>break</code></b> falls through into
+            the next case.</div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="loops">
+      <div class="cs-head">
+        <h2>Loops</h2>
+        <span class="cs-tag">set 04</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>The three forms</h3>
+<pre class="cs-code">for (i = 1; i &lt;= n; i++) { }
+
+while (i &lt;= n) { i++; }
+
+do { i++; } while (i &lt;= n);   <span class="cs-cmt">// runs at least once</span></pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>break and continue</h3>
+<pre class="cs-code">if (g == x) { printf("Right\n"); break; }   <span class="cs-cmt">// leave the loop</span>
+if (s[i] == ' ') continue;                  <span class="cs-cmt">// skip to next turn</span></pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Comma-separated output</h3>
+<pre class="cs-code">for (i = 1; i &lt;= n; i++) {
+    printf("%d", i);
+    if (i &lt; n) printf(", ");   <span class="cs-cmt">// no comma after the last</span>
+}
+printf("\n");</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Reading n values and accumulating</h3>
+<pre class="cs-code">float x, sum = 0;
+for (i = 0; i &lt; n; i++) {
+    scanf("%f", &amp;x);
+    sum += x;
+}
+printf("%.2f\n", sum / n);</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Alternating series 1 &minus; 2 + 3 &minus; 4</h3>
+<pre class="cs-code">for (i = 1; i &lt;= n; i++) {
+    if (i % 2 == 1) sum += i;
+    else            sum -= i;
+}</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Building 1, 12, 123, 1234</h3>
+<pre class="cs-code">long term = 0;
+for (i = 1; i &lt;= n; i++) {
+    term = term * 10 + i;
+    sum += term;
+}</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Infinite loop with a sentinel</h3>
+<pre class="cs-code">while (1) {
+    scanf(" %c", &amp;c);
+    if (c == 'A') break;
+    printf("Input %d: %c\n", i++, c);
+}</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Taylor series for sin(x)</h3>
+<pre class="cs-code">term = x;  sum = x;
+for (i = 1; i &lt; 10; i++) {
+    term = term * (-1) * x * x / ((2*i) * (2*i + 1));
+    sum += term;
+}</pre>
+          <p>Each term is built from the one before &mdash; no factorial needed.</p>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="arrays">
+      <div class="cs-head">
+        <h2>Arrays</h2>
+        <span class="cs-tag">set 05</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Declare, read, print</h3>
+<pre class="cs-code">int a[100], n, i;
+scanf("%d", &amp;n);
+for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+printf("\n");</pre>
+          <div class="cs-note"><b>Declare it big</b> (<code>[100]</code>) and use
+            only <code>n</code> of it. Indexes run <code>0</code> to
+            <code>n-1</code>.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Print in reverse</h3>
+<pre class="cs-code">for (i = n - 1; i &gt;= 0; i--) printf("%d ", a[i]);</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Reverse in place</h3>
+<pre class="cs-code">for (i = 0; i &lt; n / 2; i++) {   <span class="cs-cmt">// only halfway!</span>
+    temp       = a[i];
+    a[i]       = a[n-1-i];
+    a[n-1-i]   = temp;
+}</pre>
+          <div class="cs-note"><b>Loop to <code>n/2</code>, not <code>n</code></b>
+            &mdash; going all the way swaps everything back.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Max / min with index</h3>
+<pre class="cs-code">int max = a[0], maxi = 0;
+for (i = 1; i &lt; n; i++)
+    if (a[i] &gt; max) { max = a[i]; maxi = i; }</pre>
+          <div class="cs-note"><b>Start from <code>a[0]</code>, not 0.</b> Starting
+            at 0 breaks on all-negative arrays.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Even values vs even indexes</h3>
+<pre class="cs-code">if (a[i] % 2 == 0) sum += a[i];   <span class="cs-cmt">// even VALUE</span>
+
+for (i = 0; i &lt; n; i += 2) sum += a[i];   <span class="cs-cmt">// even INDEX</span></pre>
+          <div class="cs-note"><b>Read the question twice.</b> These two are asked
+            as separate problems and look almost identical.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Search, reporting every position</h3>
+<pre class="cs-code">int found = 0;
+for (i = 0; i &lt; n; i++) if (a[i] == key) found++;
+
+if (found == 0) printf("NOT FOUND\n");
+else {
+    printf("FOUND at index position: ");
+    int first = 1;
+    for (i = 0; i &lt; n; i++)
+        if (a[i] == key) {
+            if (!first) printf(", ");
+            printf("%d", i);  first = 0;
+        }
+}</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Insert at a position</h3>
+<pre class="cs-code">for (i = n; i &gt; pos; i--)   <span class="cs-cmt">// shift RIGHT, from the back</span>
+    a[i] = a[i-1];
+a[pos] = num;
+n++;</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Delete at a position</h3>
+<pre class="cs-code">for (i = pos; i &lt; n - 1; i++)   <span class="cs-cmt">// shift LEFT, from the front</span>
+    a[i] = a[i+1];
+n--;</pre>
+          <div class="cs-note"><b>Direction is everything.</b> Insert walks
+            backwards, delete walks forwards. Going the wrong way copies one value
+            over the whole array.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Bubble sort (ascending)</h3>
+<pre class="cs-code">for (i = 0; i &lt; n - 1; i++)
+    for (j = 0; j &lt; n - 1 - i; j++)
+        if (a[j] &gt; a[j+1]) {
+            temp = a[j]; a[j] = a[j+1]; a[j+1] = temp;
+        }</pre>
+          <p>Flip to <code>&lt;</code> for descending.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Remove duplicates</h3>
+<pre class="cs-code">int b[100], bn = 0;
+for (i = 0; i &lt; n; i++) {
+    int dup = 0;
+    for (j = 0; j &lt; bn; j++) if (b[j] == a[i]) dup = 1;
+    if (!dup) b[bn++] = a[i];
+}</pre>
+        </div>
+
+        <div class="cs-card cs-wide">
+          <h3>Set operations &mdash; all three share one shape</h3>
+<pre class="cs-code"><span class="cs-cmt">// INTERSECTION: in A and also in B</span>
+for (i = 0; i &lt; n; i++) {
+    int inB = 0;
+    for (j = 0; j &lt; m; j++) if (a[i] == b[j]) inB = 1;
+    if (inB) printf("%d ", a[i]);
+}
+
+<span class="cs-cmt">// DIFFERENCE A-B: in A but NOT in B   -> if (!inB)</span>
+<span class="cs-cmt">// UNION: print all of A, then each B not already in A</span></pre>
+          <div class="cs-note cs-good"><b>Learn one, get three.</b> Inner loop sets
+            a flag, outer loop acts on it. Only the final <code>if</code> changes.</div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="nested">
+      <div class="cs-head">
+        <h2>Nested loops and patterns</h2>
+        <span class="cs-tag">set 06</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>The shape of every pattern problem</h3>
+<pre class="cs-code">for (i = 1; i &lt;= n; i++) {      <span class="cs-cmt">// rows</span>
+    for (j = 1; j &lt;= i; j++) {  <span class="cs-cmt">// columns</span>
+        printf("*");
+    }
+    printf("\n");               <span class="cs-cmt">// end of row - OUTSIDE inner loop</span>
+}</pre>
+          <div class="cs-note"><b>The newline goes in the outer loop.</b> Put it
+            inside the inner loop and you get one character per line.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Right triangle / inverted</h3>
+<pre class="cs-code"><span class="cs-cmt">// growing: 1 to i</span>
+for (j = 1; j &lt;= i; j++)
+
+<span class="cs-cmt">// shrinking: i to n</span>
+for (j = i; j &lt;= n; j++)</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Pyramid: spaces then stars</h3>
+<pre class="cs-code">for (i = 1; i &lt;= n; i++) {
+    for (j = 1; j &lt;= n - i; j++) printf(" ");   <span class="cs-cmt">// leading spaces</span>
+    for (j = 1; j &lt;= 2*i - 1; j++) printf("*"); <span class="cs-cmt">// odd count</span>
+    printf("\n");
+}</pre>
+          <div class="cs-note cs-good"><b>Two magic numbers.</b> A centred pattern
+            of <code>n</code> rows is <code>2*n-1</code> wide, and row
+            <code>i</code> has <code>2*i-1</code> stars with <code>n-i</code>
+            spaces before it.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Numbers instead of stars</h3>
+<pre class="cs-code">printf("%d", j);          <span class="cs-cmt">// 1 2 3 across</span>
+printf("%d", i);          <span class="cs-cmt">// same number down a row</span>
+printf("%d", i + j - 1);  <span class="cs-cmt">// 123 / 234 / 345</span></pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Distance-from-edge trick</h3>
+<pre class="cs-code">int width = 2*n - 1;
+for (p = 0; p &lt; width; p++) {
+    int left = p + 1, right = width - p;
+    int v = (left &lt; right) ? left : right;  <span class="cs-cmt">// 1,2,3,2,1</span>
+    if (v &lt;= i) printf("%d", v);
+    else        printf("_");
+}</pre>
+          <p>Useful for diamonds and any pattern that mirrors around the centre.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Multiplication table</h3>
+<pre class="cs-code">for (i = 1; i &lt;= n; i++) {
+    for (j = 1; j &lt;= 10; j++)
+        printf("%d x %d = %d\n", i, j, i*j);
+    printf("\n");
+}</pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="twod">
+      <div class="cs-head">
+        <h2>2D arrays</h2>
+        <span class="cs-tag">set 07</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Declare, read, print</h3>
+<pre class="cs-code">int a[50][50], r, c, i, j;
+scanf("%d %d", &amp;r, &amp;c);
+
+for (i = 0; i &lt; r; i++)
+    for (j = 0; j &lt; c; j++)
+        scanf("%d", &amp;a[i][j]);
+
+for (i = 0; i &lt; r; i++) {
+    for (j = 0; j &lt; c; j++) printf("%d ", a[i][j]);
+    printf("\n");           <span class="cs-cmt">// newline per ROW</span>
+}</pre>
+          <p><code>i</code> is the row, <code>j</code> is the column. Always.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>The position conditions</h3>
+<pre class="cs-code">i == j              <span class="cs-cmt">// main diagonal \</span>
+i + j == n - 1      <span class="cs-cmt">// other diagonal /</span>
+i == 0 || i == n-1 ||
+j == 0 || j == n-1  <span class="cs-cmt">// border</span>
+i &lt; j               <span class="cs-cmt">// above the diagonal</span>
+i &gt; j               <span class="cs-cmt">// below the diagonal</span></pre>
+          <div class="cs-note cs-good"><b>Memorise these five.</b> Identity matrix,
+            diagonal sums, triangular printing and border problems are all just one
+            of these inside the standard double loop.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Transpose</h3>
+<pre class="cs-code">for (i = 0; i &lt; r; i++)
+    for (j = 0; j &lt; c; j++)
+        t[j][i] = a[i][j];      <span class="cs-cmt">// indexes swapped</span></pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Symmetric check</h3>
+<pre class="cs-code">int symmetric = 1;
+for (i = 0; i &lt; n; i++)
+    for (j = 0; j &lt; n; j++)
+        if (a[i][j] != a[j][i]) symmetric = 0;</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Addition</h3>
+<pre class="cs-code">c[i][j] = a[i][j] + b[i][j];   <span class="cs-cmt">// inside the double loop</span></pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Multiplication &mdash; three loops</h3>
+<pre class="cs-code">for (i = 0; i &lt; r1; i++)
+    for (j = 0; j &lt; c2; j++) {
+        c[i][j] = 0;            <span class="cs-cmt">// reset before summing!</span>
+        for (k = 0; k &lt; c1; k++)
+            c[i][j] += a[i][k] * b[k][j];
+    }</pre>
+          <div class="cs-note"><b>Two traps.</b> Reset <code>c[i][j] = 0</code>
+            inside the <code>j</code> loop, and remember <code>c1</code> must equal
+            <code>r2</code> or the multiplication is undefined.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Row and column sums</h3>
+<pre class="cs-code">for (i = 0; i &lt; r; i++) {
+    sum = 0;                    <span class="cs-cmt">// reset per row</span>
+    for (j = 0; j &lt; c; j++) sum += a[i][j];
+    printf("Row %d: %d\n", i, sum);
+}
+<span class="cs-cmt">// for columns, swap the loops: j outside, i inside</span></pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="strings">
+      <div class="cs-head">
+        <h2>Strings</h2>
+        <span class="cs-tag">set 08 &mdash; done manually, no string.h</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card cs-wide">
+          <h3>How this lab reads a string</h3>
+<pre class="cs-code">char s[200];
+fgets(s, 200, stdin);     <span class="cs-cmt">// reads the WHOLE line, spaces included</span>
+
+int len = 0;
+while (s[len] != '\0' &amp;&amp; s[len] != '\n') len++;   <span class="cs-cmt">// this is strlen()</span></pre>
+          <div class="cs-note"><b>This <code>while</code> is the key to the whole
+            chapter.</b> <code>fgets</code> keeps the Enter key as <code>'\n'</code>
+            at the end, so every loop must stop at <b>both</b> <code>'\0'</code> and
+            <code>'\n'</code> or you print a stray blank line and count one
+            character too many.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Why not scanf("%s")</h3>
+<pre class="cs-code">scanf("%s", s);        <span class="cs-cmt">// stops at the first SPACE</span>
+fgets(s, 200, stdin);  <span class="cs-cmt">// takes the whole line</span></pre>
+          <p>Any problem mentioning a sentence needs <code>fgets</code>.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Walking a string</h3>
+<pre class="cs-code">int i = 0;
+while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+    printf("%c", s[i]);
+    i++;
+}</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Case conversion by arithmetic</h3>
+<pre class="cs-code">if (c &gt;= 'a' &amp;&amp; c &lt;= 'z') c = c - 'a' + 'A';   <span class="cs-cmt">// to upper</span>
+if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') c = c - 'A' + 'a';   <span class="cs-cmt">// to lower</span></pre>
+          <p>Characters are numbers: <code>'A'</code> is 65, <code>'a'</code> is 97,
+             <code>'0'</code> is 48. So <code>c - '0'</code> turns a digit character
+             into its value.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Counting vowels</h3>
+<pre class="cs-code">if (c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||
+    c=='A'||c=='E'||c=='I'||c=='O'||c=='U') count++;</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Counting words</h3>
+<pre class="cs-code">int count = 0, inWord = 0;
+while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+    if (s[i] != ' ') {
+        if (inWord == 0) { count++; inWord = 1; }
+    } else inWord = 0;
+    i++;
+}</pre>
+          <div class="cs-note"><b>Do not just count spaces</b> &mdash; two spaces in
+            a row would count an extra word. The flag handles it.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Palindrome (two pointers)</h3>
+<pre class="cs-code">int i = 0, j = len - 1, pal = 1;
+while (i &lt; j) {
+    if (s[i] != s[j]) pal = 0;
+    i++;  j--;
+}</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Reverse a string</h3>
+<pre class="cs-code">for (i = len - 1; i &gt;= 0; i--) printf("%c", s[i]);
+printf("\n");</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Concatenate two strings</h3>
+<pre class="cs-code">i = 0; while (a[i] != '\0' &amp;&amp; a[i] != '\n') printf("%c", a[i++]);
+j = 0; while (b[j] != '\0' &amp;&amp; b[j] != '\n') printf("%c", b[j++]);
+printf("\n");</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Most frequent character</h3>
+<pre class="cs-code">for (i = 0; i &lt; len; i++) {
+    if (s[i] == ' ') continue;
+    count = 0;
+    for (j = 0; j &lt; len; j++)
+        if (s[j] == s[i]) count++;
+    if (count &gt; best) { best = count; bestChar = s[i]; }
+}</pre>
+          <p>Compare in one case (convert both) if the question ignores case.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>If you are allowed string.h</h3>
+<pre class="cs-code">#include &lt;string.h&gt;
+strlen(s)        <span class="cs-cmt">// length</span>
+strcpy(a, b)     <span class="cs-cmt">// copy b into a</span>
+strcat(a, b)     <span class="cs-cmt">// append b to a</span>
+strcmp(a, b)     <span class="cs-cmt">// 0 means equal</span></pre>
+          <div class="cs-note"><b>This lab does not use these</b> &mdash; every
+            solution in set 08 loops manually. Write the loop unless the question
+            says otherwise.</div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="algos">
+      <div class="cs-head">
+        <h2>Algorithms worth memorising</h2>
+        <span class="cs-tag">these keep coming back</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Break a number into digits</h3>
+<pre class="cs-code">while (n != 0) {
+    digit = n % 10;   <span class="cs-cmt">// last digit</span>
+    n = n / 10;       <span class="cs-cmt">// chop it off</span>
+}</pre>
+          <p>The base of digit-count, digit-sum, reverse and palindrome problems.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Reverse a number</h3>
+<pre class="cs-code">rev = 0;
+while (t != 0) {
+    rev = rev * 10 + t % 10;
+    t = t / 10;
+}
+if (rev == n) printf("Palindrome\n");</pre>
+          <div class="cs-note"><b>Copy <code>n</code> first.</b> The loop destroys
+            it, and you need the original to compare against.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Factorial</h3>
+<pre class="cs-code">long f = 1;
+for (i = 1; i &lt;= n; i++) f *= i;</pre>
+          <p>Use <code>long</code> and <code>%ld</code> &mdash; <code>int</code>
+             overflows past 12!.</p>
+        </div>
+
+        <div class="cs-card">
+          <h3>Fibonacci</h3>
+<pre class="cs-code">a = 1; b = 1;
+for (i = 1; i &lt;= n; i++) {
+    printf("%d ", a);
+    t = a + b;  a = b;  b = t;
+}</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Prime check</h3>
+<pre class="cs-code">int isPrime = 1;
+if (n &lt; 2) isPrime = 0;
+for (i = 2; i &lt; n; i++)
+    if (n % i == 0) isPrime = 0;</pre>
+          <div class="cs-note"><b>Handle <code>n &lt; 2</code> separately.</b> 0 and
+            1 are not prime but the loop never runs for them, so they would pass.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>GCD and LCM</h3>
+<pre class="cs-code">for (i = 1; i &lt;= a &amp;&amp; i &lt;= b; i++)
+    if (a % i == 0 &amp;&amp; b % i == 0) gcd = i;
+
+lcm = a / gcd * b;   <span class="cs-cmt">// divide BEFORE multiplying</span></pre>
+          <div class="cs-note"><b><code>a / gcd * b</code>, not
+            <code>a * b / gcd</code></b> &mdash; dividing first keeps the number
+            small and avoids overflow.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Power without pow()</h3>
+<pre class="cs-code">long p = 1;
+for (i = 1; i &lt;= y; i++) p *= x;</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>nCr</h3>
+<pre class="cs-code">long num = 1, den = 1;
+for (i = 1; i &lt;= r; i++) {
+    num *= (n - i + 1);
+    den *= i;
+}
+printf("%ld\n", num / den);</pre>
+        </div>
+
+        <div class="cs-card">
+          <h3>Power of two</h3>
+<pre class="cs-code">while (n &gt; 0 &amp;&amp; n % 2 == 0) n = n / 2;
+if (n == 1) printf("Yes\n");</pre>
+          <div class="cs-note"><b>The <code>n &gt; 0</code> guard is not optional.</b>
+            Without it, input <code>0</code> loops forever because <code>0/2</code>
+            is still <code>0</code>.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Swap two variables</h3>
+<pre class="cs-code">temp = a;  a = b;  b = temp;</pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="traps">
+      <div class="cs-head">
+        <h2>Traps checklist</h2>
+        <span class="cs-tag">read this last, before you hand in</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card cs-wide">
+          <h3>Compile and logic</h3>
+          <div class="cs-tablewrap">
+            <table class="cs-table">
+              <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+              <tbody>
+                <tr><td>skips an input</td><td><code>%c</code> ate the Enter key</td><td>use <code>scanf(" %c", &amp;c)</code></td></tr>
+                <tr><td>crash / "core dumped"</td><td>divide by zero</td><td>test the divisor <em>you actually divide by</em></td></tr>
+                <tr><td>hangs forever</td><td>loop variable never changes, or <code>n</code> is 0</td><td>guard with <code>n &gt; 0</code></td></tr>
+                <tr><td>prints garbage</td><td>missing <code>&amp;</code> in <code>scanf</code></td><td>add it (arrays excepted)</td></tr>
+                <tr><td>answer is 0 or truncated</td><td>int &divide; int</td><td>cast one side to <code>float</code></td></tr>
+                <tr><td>undefined reference to sqrt</td><td>math.h not linked</td><td>compile with <code>-lm</code></td></tr>
+                <tr><td>numbers run together</td><td><code>printf("%d", x)</code></td><td>add the space: <code>"%d "</code></td></tr>
+                <tr><td>one extra blank line</td><td><code>fgets</code> kept the <code>'\n'</code></td><td>stop the loop at <code>'\n'</code> too</td></tr>
+                <tr><td>wrong by one element</td><td><code>i &lt;= n</code> on an array</td><td>use <code>i &lt; n</code></td></tr>
+                <tr><td>big factorial is wrong</td><td><code>int</code> overflow</td><td><code>long</code> + <code>%ld</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Match the output exactly</h3>
+          <p>Marks go on exact output. Copy the sample's wording, spacing,
+             capitalisation and decimal places character for character &mdash;
+             <code>Yes</code> is not <code>yes</code>, and <code>%.2f</code> is not
+             <code>%f</code>.</p>
+          <div class="cs-note cs-good"><b>Before submitting:</b> run the program on
+            the sample input in the question and compare the output side by side.</div>
+        </div>
+
+        <div class="cs-card">
+          <h3>Five-second checks</h3>
+<pre class="cs-code">&amp;      in every scanf?
+;      after every statement?
+{}     matched, and around multi-line if bodies?
+i &lt; n  not i &lt;= n?
+\n     at the end of the output?
+= vs == in every condition?</pre>
+        </div>
+      </div>
+    </section>
