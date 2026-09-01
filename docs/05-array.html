@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arrays - SPL Lab Solutions</title>
+  <meta name="description" content="One dimensional arrays: searching, sorting and set operations.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">SPL&nbsp;Lab</a>
+    <nav class="site-nav">
+      <a href="01-intro.html">Intro</a>
+      <a href="02-operators.html">Operators</a>
+      <a href="03-conditions.html">Conditions</a>
+      <a href="04-loop.html">Loops</a>
+      <a href="05-array.html" aria-current="page">Arrays</a>
+      <a href="06-nested-loop.html">Nested Loops</a>
+      <a href="07-2d-array.html">2D Arrays</a>
+      <a href="08-strings.html">Strings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>Arrays</h1>
+      <p class="lede">One dimensional arrays: searching, sorting and set operations.</p>
+      <p class="stats">21 problems</p>
+    </section>
+
+    <nav class="contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#p01"><span class="n">01</span> Print all the integers into reverse order (from the last...</a></li>
+        <li><a href="#p02"><span class="n">02</span> Sum up all the integers in that array.</a></li>
+        <li><a href="#p03"><span class="n">03</span> Sum up all the even integers in that array.</a></li>
+        <li><a href="#p04"><span class="n">04</span> N floating point numbers into an array, and then find the...</a></li>
+        <li><a href="#p05"><span class="n">05</span> Sum up all the even indexed integers in that array.</a></li>
+        <li><a href="#p06"><span class="n">06</span> N integer numbers in an array, n different integer numbers in...</a></li>
+        <li><a href="#p07"><span class="n">07</span> Reverse all the integers within that array. Finally print...</a></li>
+        <li><a href="#p08"><span class="n">08</span> Find the maximum -minimum among them with its index position.</a></li>
+        <li><a href="#p09"><span class="n">09</span> N alphabets into an array, and then count number of vowels in...</a></li>
+        <li><a href="#p10"><span class="n">10</span> Search a number into that array. If found then print its...</a></li>
+        <li><a href="#p11"><span class="n">11</span> N integers into an array A, and then copy all numbers in...</a></li>
+        <li><a href="#p12"><span class="n">12</span> N integer numbers as input in an array and then insert a...</a></li>
+        <li><a href="#p13"><span class="n">13</span> N integer numbers as input in an array and then delete a...</a></li>
+        <li><a href="#p14"><span class="n">14</span> First take n integers into an array A and then m integers...</a></li>
+        <li><a href="#p15"><span class="n">15</span> 7 8 1 -1 2 -1 4 -1</a></li>
+        <li><a href="#p16"><span class="n">16</span> 7 0 1 0 2 0 4 0</a></li>
+        <li><a href="#p17"><span class="n">17</span> N integers into an array A. Now sort them in ascending order...</a></li>
+        <li><a href="#p18"><span class="n">18</span> N integers into an array A. Now remove all duplicates numbers...</a></li>
+        <li><a href="#p19"><span class="n">19</span> N integers into array A and m positive integers into array B....</a></li>
+        <li><a href="#p20"><span class="n">20</span> 7 8 1 5 2 6 4 3 0 9</a></li>
+        <li><a href="#p21"><span class="n">21</span> 7 8 5 4</a></li>
+      </ol>
+    </nav>
+
+    <section class="problem-list">
+      <article class="problem" id="p01">
+        <header class="problem-header">
+          <h2>01</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">01.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers into an array, and then print all the integers into reverse order (from the last valid index to index 0).</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1  2  3  4  5</pre></td>
+              <td><pre>5  4  3  2  1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>6
+2  8  3  9  0  1</pre></td>
+              <td><pre>1  0  9  3  8  2</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    for (i = n - 1; i &gt;= 0; i--)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p02">
+        <header class="problem-header">
+          <h2>02</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">02.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers into an array, and then sum up all the integers in that array.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1  2  3  4  5</pre></td>
+              <td><pre>15</pre></td>
+            </tr>
+            <tr>
+              <td><pre>6
+2  8  3  9  0  1</pre></td>
+              <td><pre>23</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], sum = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    for (i = 0; i &lt; n; i++) sum += a[i];
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p03">
+        <header class="problem-header">
+          <h2>03</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">03.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers into an array, and then sum up all the even integers in that array.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1  2  3  4  5</pre></td>
+              <td><pre>6</pre></td>
+            </tr>
+            <tr>
+              <td><pre>6
+2  8  3  9  0  1</pre></td>
+              <td><pre>10</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], sum = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    for (i = 0; i &lt; n; i++)
+        if (a[i] % 2 == 0) sum += a[i];
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p04">
+        <header class="problem-header">
+          <h2>04</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">04.c</code>
+        </header>
+        <p class="statement">Write a program that will take n floating point numbers into an array, and then find the average of those numbers.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1.2  5.6  10.3  4.5  5.2</pre></td>
+              <td><pre>5.36</pre></td>
+            </tr>
+            <tr>
+              <td><pre>8
+2.1  8.3  3.7  9.2  0.6  1.5 6.4 10.1</pre></td>
+              <td><pre>8.38</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    float a[100], sum = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%f", &amp;a[i]);
+
+    for (i = 0; i &lt; n; i++) sum += a[i];
+    printf("%.2f\n", sum / n);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p05">
+        <header class="problem-header">
+          <h2>05</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">05.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers into an array, and then sum up all the even indexed integers in that array.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1  2  3  4  5</pre></td>
+              <td><pre>9</pre></td>
+            </tr>
+            <tr>
+              <td><pre>6
+2  8  3  9  0  1</pre></td>
+              <td><pre>5</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], sum = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    for (i = 0; i &lt; n; i += 2)   // even indexes: 0, 2, 4 ...
+        sum += a[i];
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p06">
+        <header class="problem-header">
+          <h2>06</h2>
+          
+          <code class="filename">06.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers in an array, n different integer numbers in a second array and put the sum of the same indexed numbers from the two arrays in a third array.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1 2 3 4 5
+2 8 3 4 8</pre></td>
+              <td><pre>3 10 6 8 13</pre></td>
+            </tr>
+            <tr>
+              <td><pre>8
+2 8 3 9 0 1 6 10
+5 1 4 8 9 3 1 5</pre></td>
+              <td><pre>7 9 7 17 9 4 7 15</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], b[100], c[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;b[i]);
+
+    for (i = 0; i &lt; n; i++) c[i] = a[i] + b[i];
+
+    for (i = 0; i &lt; n; i++) printf("%d ", c[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p07">
+        <header class="problem-header">
+          <h2>07</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">07.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers into an array, and then reverse all the integers within that array. Finally print them all from 0 index to last valid index.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1  2  3  4  5</pre></td>
+              <td><pre>5  4  3  2  1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>6
+2  8  3  9  0  1</pre></td>
+              <td><pre>1  0  9  3  8  2</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], temp;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    // reverse inside the same array by swapping ends
+    for (i = 0; i &lt; n / 2; i++) {
+        temp = a[i];
+        a[i] = a[n - 1 - i];
+        a[n - 1 - i] = temp;
+    }
+
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p08">
+        <header class="problem-header">
+          <h2>08</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">08.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers into an array, and then find the maximum -minimum among them with its index position.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1  2  3  4  5</pre></td>
+              <td><pre>Max: 5, Index: 4
+Min: 1, Index: 0</pre></td>
+            </tr>
+            <tr>
+              <td><pre>6
+2  8  3  9  0  1</pre></td>
+              <td><pre>Max: 9, Index: 3
+Min: 0, Index: 4</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    int max = a[0], min = a[0], maxi = 0, mini = 0;
+    for (i = 1; i &lt; n; i++) {
+        if (a[i] &gt; max) { max = a[i]; maxi = i; }
+        if (a[i] &lt; min) { min = a[i]; mini = i; }
+    }
+    printf("Max: %d, Index: %d\n", max, maxi);
+    printf("Min: %d, Index: %d\n", min, mini);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p09">
+        <header class="problem-header">
+          <h2>09</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">09.c</code>
+        </header>
+        <p class="statement">Write a program that will take n alphabets into an array, and then count number of vowels in that array.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>7
+AKIOUEH</pre></td>
+              <td><pre>Count: 5</pre></td>
+            </tr>
+            <tr>
+              <td><pre>29
+UNITEDINTERNATIONALUNIVERSITY</pre></td>
+              <td><pre>Count: 13</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, count = 0;
+    char a[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf(" %c", &amp;a[i]);
+
+    for (i = 0; i &lt; n; i++) {
+        char c = a[i];
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+            count++;
+    }
+    printf("Count: %d\n", count);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p10">
+        <header class="problem-header">
+          <h2>10</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">10.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integers into an array, and then search a number into that array. If found then print its index. If not found then print “NOT FOUND”.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 3 2 6 4 3
+3</pre></td>
+              <td><pre>FOUND at index position: 3, 7</pre></td>
+            </tr>
+            <tr>
+              <td><pre>8
+7 8 1 3 2 6 4 3
+5</pre></td>
+              <td><pre>NOT FOUND</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], key, found = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+    scanf("%d", &amp;key);
+
+    for (i = 0; i &lt; n; i++)
+        if (a[i] == key) found++;
+
+    if (found == 0) {
+        printf("NOT FOUND\n");
+    } else {
+        printf("FOUND at index position: ");
+        int first = 1;
+        for (i = 0; i &lt; n; i++)
+            if (a[i] == key) {
+                if (!first) printf(", ");
+                printf("%d", i);
+                first = 0;
+            }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p11">
+        <header class="problem-header">
+          <h2>11</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">11.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integers into an array A, and then copy all numbers in reverse order from array A to another array B. Finally show all elements of both array A and B.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 3 2 6 4 3</pre></td>
+              <td><pre>Array A : 7 8 1 3 2 6 4 3
+Array B : 3 4 6 2 3 1 8 7</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3
+3 2 1</pre></td>
+              <td><pre>Array A : 3 2 1
+Array B : 1 2 3</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], b[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    for (i = 0; i &lt; n; i++)
+        b[i] = a[n - 1 - i];   // copy in reverse order
+
+    printf("Array A : ");
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    printf("Array B : ");
+    for (i = 0; i &lt; n; i++) printf("%d ", b[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p12">
+        <header class="problem-header">
+          <h2>12</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">12.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers as input in an array and then insert a number in a position specified by the user in the array.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>10
+9 11 34 23 16 15 2 37 89 54
+number: 78 position: 4</pre></td>
+              <td><pre>9 11 34 23 78 16 15 2 37 89 54</pre></td>
+            </tr>
+            <tr>
+              <td><pre>5
+32 14 9 48 6
+number: 16 position: 0</pre></td>
+              <td><pre>16 32 14 9 48 6</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], num, pos;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+    // input looks like:  number: 78 position: 4  (words are skipped with %*s)
+    scanf("%*s %d %*s %d", &amp;num, &amp;pos);
+
+    // shift right to make room
+    for (i = n; i &gt; pos; i--)
+        a[i] = a[i - 1];
+    a[pos] = num;
+    n++;
+
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p13">
+        <header class="problem-header">
+          <h2>13</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">13.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integer numbers as input in an array and then delete a number from a position specified by the user in the array.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>10
+9 11 34 23 16 15 2 37 89 54
+position: 4</pre></td>
+              <td><pre>9 11 34 23 15 2 37 89 54</pre></td>
+            </tr>
+            <tr>
+              <td><pre>5
+32 14 9 48 6
+position: 0</pre></td>
+              <td><pre>14 9 48 6</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100], pos;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+    scanf("%*s %d", &amp;pos);   // input:  position: 4
+
+    // shift left over the deleted spot
+    for (i = pos; i &lt; n - 1; i++)
+        a[i] = a[i + 1];
+    n--;
+
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p14">
+        <header class="problem-header">
+          <h2>14</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">14.c</code>
+        </header>
+        <p class="statement">Write a program that will first take n integers into an array A and then m integers into array B. Now swap all elements between array A and B. Finally show all elements of both array A and B.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 3 2 6 4 3
+3
+3 2 1</pre></td>
+              <td><pre>Array A : 3 2 1
+Array B : 7 8 1 3 2 6 4 3</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, m, i, a[100], b[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+    scanf("%d", &amp;m);
+    for (i = 0; i &lt; m; i++) scanf("%d", &amp;b[i]);
+
+    // after swapping, A holds B's values and B holds A's values
+    printf("Array A : ");
+    for (i = 0; i &lt; m; i++) printf("%d ", b[i]);
+    printf("\n");
+    printf("Array B : ");
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p15">
+        <header class="problem-header">
+          <h2>15</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">15.c</code>
+        </header>
+        <p class="statement">Write a program that will take n positive integers into an array A. Now find all the integers that are divisible by 3 and replace them by -1 in array A. Finally show all elements of array A.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 3 2 6 4 3</pre></td>
+              <td><pre>7 8 1 -1 2 -1 4 -1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3
+3 2 1</pre></td>
+              <td><pre>-1 2 1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    for (i = 0; i &lt; n; i++)
+        if (a[i] % 3 == 0) a[i] = -1;
+
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p16">
+        <header class="problem-header">
+          <h2>16</h2>
+          
+          <code class="filename">16.c</code>
+        </header>
+        <p class="statement">Write a program that will take n positive integers into an array A. Now find all the integers that have an odd index and replace them by 0 in array A. Finally show all elements of array A.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 3 2 6 4 3</pre></td>
+              <td><pre>7 0 1 0 2 0 4 0</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3
+3 2 1</pre></td>
+              <td><pre>3 0 1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    for (i = 1; i &lt; n; i += 2)   // odd indexes: 1, 3, 5 ...
+        a[i] = 0;
+
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p17">
+        <header class="problem-header">
+          <h2>17</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">17.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integers into an array A. Now sort them in ascending order within that array. Finally show all elements of array A. Reference: http://en.wikipedia.org/wiki/Bubble_sort</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 3 2 6 4 3</pre></td>
+              <td><pre>1  2  3  3  4  6  7  8</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3
+3 2 1</pre></td>
+              <td><pre>1  2  3</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j, a[100], temp;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    // bubble sort (ascending)
+    for (i = 0; i &lt; n - 1; i++)
+        for (j = 0; j &lt; n - 1 - i; j++)
+            if (a[j] &gt; a[j + 1]) {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p18">
+        <header class="problem-header">
+          <h2>18</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">18.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integers into an array A. Now remove all duplicates numbers from that array. Finally print all elements from that array.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+2 8 1 3 2 6 4 3</pre></td>
+              <td><pre>2 8 1 3 6 4</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3
+3 3 3</pre></td>
+              <td><pre>3</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4
+6 7 8 9</pre></td>
+              <td><pre>6 7 8 9</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j, a[100], b[100], bn = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+
+    for (i = 0; i &lt; n; i++) {
+        int dup = 0;
+        for (j = 0; j &lt; bn; j++)
+            if (b[j] == a[i]) dup = 1;
+        if (!dup) b[bn++] = a[i];
+    }
+
+    for (i = 0; i &lt; bn; i++) printf("%d ", b[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p19">
+        <header class="problem-header">
+          <h2>19</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">19.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integers into array A and m positive integers into array B. Now find the intersection (set operation) of array A and B.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 5 2 6 4 3
+6
+1 3 6 0 9 2</pre></td>
+              <td><pre>1 2 6 3</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3
+1 2 3
+2
+4 5</pre></td>
+              <td><pre>Empty set</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, m, i, j, a[100], b[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+    scanf("%d", &amp;m);
+    for (i = 0; i &lt; m; i++) scanf("%d", &amp;b[i]);
+
+    int count = 0;
+    for (i = 0; i &lt; n; i++) {
+        int inB = 0;
+        for (j = 0; j &lt; m; j++)
+            if (a[i] == b[j]) inB = 1;
+        if (inB) { printf("%d ", a[i]); count++; }
+    }
+    if (count == 0) printf("Empty set");
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p20">
+        <header class="problem-header">
+          <h2>20</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">20.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integers into an array A and m positive integers into array B. Now find the union (set operation) of array A and B.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 5 2 6 4 3
+6
+1 3 6 0 9 2</pre></td>
+              <td><pre>7 8 1 5 2 6 4 3 0 9</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3
+1 2 3
+2
+4 5</pre></td>
+              <td><pre>1 2 3 4 5</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, m, i, j, a[100], b[100];
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) scanf("%d", &amp;a[i]);
+    scanf("%d", &amp;m);
+    for (i = 0; i &lt; m; i++) scanf("%d", &amp;b[i]);
+
+    // print all of A first
+    for (i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    // then B elements that are not already in A
+    for (i = 0; i &lt; m; i++) {
+        int inA = 0;
+        for (j = 0; j &lt; n; j++)
+            if (b[i] == a[j]) inA = 1;
+        if (!inA) printf("%d ", b[i]);
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p21">
+        <header class="problem-header">
+          <h2>21</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">21.c</code>
+        </header>
+        <p class="statement">Write a program that will take n integers into an array A and m positive integers into array B. Now find the difference (set operation) of array A and B or (A-B).</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>8
+7 8 1 5 2 6 4 3
+6
+1 3 6 0 9 2</pre></td>
+              <td><pre>7 8 5 4</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3
+1 2 3
+2
+4 5</pre></td>
+              <td><pre>1 2 3</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int r, c, i, j, a[100], b[100];
+    scanf("%d", &amp;r);
+
+    for (i = 0; i &lt; r; i++)
+    {
+        scanf("%d", &amp;a[i]);
+    }
+    scanf("%d", &amp;c);
+    for (i = 0; i &lt; c; i++)
+    {
+        scanf("%d", &amp;b[i]);
+    }
+
+    for(i = 0; i &lt; r; i++)
+    {
+        int isinB = 0;
+        for(j=0; j&lt;c; j++)
+        {
+            if(a[i]==b[j])
+            {
+                isinB = 1;
+            }
+        }
+
+        if(!isinB)
+        {
+            printf("%d ", a[i]);
+        }
+    }
+    printf("\n");
+}</code></pre>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SPL Lab solutions &middot; written in C &middot; compiled with gcc</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

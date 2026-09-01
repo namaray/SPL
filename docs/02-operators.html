@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operators - SPL Lab Solutions</title>
+  <meta name="description" content="Arithmetic, logical and relational operators, casting and math.h.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">SPL&nbsp;Lab</a>
+    <nav class="site-nav">
+      <a href="01-intro.html">Intro</a>
+      <a href="02-operators.html" aria-current="page">Operators</a>
+      <a href="03-conditions.html">Conditions</a>
+      <a href="04-loop.html">Loops</a>
+      <a href="05-array.html">Arrays</a>
+      <a href="06-nested-loop.html">Nested Loops</a>
+      <a href="07-2d-array.html">2D Arrays</a>
+      <a href="08-strings.html">Strings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>Operators</h1>
+      <p class="lede">Arithmetic, logical and relational operators, casting and math.h.</p>
+      <p class="stats">15 problems</p>
+    </section>
+
+    <nav class="contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#p01"><span class="n">01</span> Arithmetic Operations on Two Numbers</a></li>
+        <li><a href="#p02"><span class="n">02</span> Circumference of a Circle</a></li>
+        <li><a href="#p03"><span class="n">03</span> Evaluate Algebraic Expression</a></li>
+        <li><a href="#p04"><span class="n">04</span> Increment and Decrement Operators</a></li>
+        <li><a href="#p05"><span class="n">05</span> Compound Assignment Add and Subtract</a></li>
+        <li><a href="#p06"><span class="n">06</span> Compound Assignment Multiply and Divide</a></li>
+        <li><a href="#p07"><span class="n">07</span> Type Conversion and Type Casting</a></li>
+        <li><a href="#p08"><span class="n">08</span> Maximum of Two Numbers (Ternary)</a></li>
+        <li><a href="#p09"><span class="n">09</span> Operator Precedence with Parentheses</a></li>
+        <li><a href="#p10"><span class="n">10</span> Relational and Logical NOT Operators</a></li>
+        <li><a href="#p11"><span class="n">11</span> Logical AND and OR Operators</a></li>
+        <li><a href="#p12"><span class="n">12</span> Roots of a Quadratic Equation</a></li>
+        <li><a href="#p13"><span class="n">13</span> Trigonometric Expression</a></li>
+        <li><a href="#p14"><span class="n">14</span> Ceil Floor and Absolute Value</a></li>
+        <li><a href="#p15"><span class="n">15</span> Size of Data Types (sizeof)</a></li>
+      </ol>
+    </nav>
+
+    <section class="problem-list">
+      <article class="problem" id="p01">
+        <header class="problem-header">
+          <h2>01. Arithmetic Operations on Two Numbers</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">01. Arithmetic Operations on Two Numbers.c</code>
+        </header>
+        <p class="statement">Program that will take two numbers X and Y as inputs, then calculate and print the values of their addition, subtraction, multiplication, division (quotient and reminder).</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5     10</pre></td>
+              <td><pre>Addition: 15
+Subtraction: -5
+Multiplication: 50
+Quotient : 0
+Reminder: 5</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-5     10.5</pre></td>
+              <td><pre>Addition: 5.5
+Subtraction: -15.5
+Multiplication: -52.5
+Quotient: 0
+Reminder: -5</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float x, y;
+    scanf("%f %f", &amp;x, &amp;y);
+
+    printf("Addition: %g\n", x + y);
+    printf("Subtraction: %g\n", x - y);
+    printf("Multiplication: %g\n", x * y);
+    printf("Quotient : %d\n", (int)x / (int)y);
+    printf("Reminder: %d\n", (int)x % (int)y);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p02">
+        <header class="problem-header">
+          <h2>02. Circumference of a Circle</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">02. Circumference of a Circle.c</code>
+        </header>
+        <p class="statement">Program that will calculate the circumference of a circle having radius r. Area, A = 2 * Pi * r</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>Area:  31.4</pre></td>
+            </tr>
+            <tr>
+              <td><pre>10.5</pre></td>
+              <td><pre>Area:  65.94</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float r;
+    scanf("%f", &amp;r);
+    // Circumference = 2 * Pi * r
+    printf("Area:  %g\n", 2 * 3.14 * r);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p03">
+        <header class="problem-header">
+          <h2>03. Evaluate Algebraic Expression</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">03. Evaluate Algebraic Expression.c</code>
+        </header>
+        <p class="statement">Program that will take two numbers (a, b) as inputs and compute the value of the equation – (Without using math.h) X = (3.31 * a2 + 2.01 * b3) / (7.16 * b2 + 2.01 * a3)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5            10.5</pre></td>
+              <td><pre>X = 2.315475</pre></td>
+            </tr>
+            <tr>
+              <td><pre>100      -250</pre></td>
+              <td><pre>X = -12.766287</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float a, b, x;
+    scanf("%f %f", &amp;a, &amp;b);
+
+    x = (3.31 * a * a + 2.01 * b * b * b) / (7.16 * b * b + 2.01 * a * a * a);
+    printf("X = %f\n", x);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p04">
+        <header class="problem-header">
+          <h2>04. Increment and Decrement Operators</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">04. Increment and Decrement Operators.c</code>
+        </header>
+        <p class="statement">Program that will increment and decrement a number X by 1 inside the printf function. (Use ++ and - - operators)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>X++ :    5
+++X :    6
+X- -  :    5
+--X   :    4</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-5</pre></td>
+              <td><pre>X++ :    -5
+++X :    -4
+X- -  :    -5
+--X   :    -6</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int X, x;
+    scanf("%d", &amp;X);
+
+    x = X; printf("X++: %d\n", x++);
+    x = X; printf("++X: %d\n", ++x);
+    x = X; printf("X--: %d\n", x--);
+    x = X; printf("--X: %d\n", --x);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p05">
+        <header class="problem-header">
+          <h2>05. Compound Assignment Add and Subtract</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">05. Compound Assignment Add and Subtract.c</code>
+        </header>
+        <p class="statement">Program that will increment and decrement a number X by Y. (Use += and -= operators)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5     10</pre></td>
+              <td><pre>Incremented Value:    15
+Decremented Value:   -5</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-5      5</pre></td>
+              <td><pre>Incremented Value:      0
+Decremented Value:   -10</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x, y;
+    scanf("%d %d", &amp;x, &amp;y);
+
+    int inc = x, dec = x;
+    inc += y;
+    dec -= y;
+    printf("Incremented Value:    %d\n", inc);
+    printf("Decremented Value:   %d\n", dec);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p06">
+        <header class="problem-header">
+          <h2>06. Compound Assignment Multiply and Divide</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">06. Compound Assignment Multiply and Divide.c</code>
+        </header>
+        <p class="statement">Program that will multiply and divide a number X by Y. (Use *= and /= operators)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>56       10</pre></td>
+              <td><pre>Multiplication:    560
+Division:   5</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-56      -10</pre></td>
+              <td><pre>Multiplication:    560
+Division:   5</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int x, y;
+    scanf("%d %d", &amp;x, &amp;y);
+
+    int mul = x, div = x;
+    mul *= y;
+    div /= y;
+    printf("Multiplication:    %d\n", mul);
+    printf("Division:   %d\n", div);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p07">
+        <header class="problem-header">
+          <h2>07. Type Conversion and Type Casting</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">07. Type Conversion and Type Casting.c</code>
+        </header>
+        <p class="statement">Program that will declare and initialize an integer and a floating point number. Then it will perform floating to integer and integer to floating conversions using Assignment operation Type casting</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>-150      123.125</pre></td>
+              <td><pre>Assignment:   123.125000 assigned to an int produces 123
+Assignment:  -150 assigned to a float produces -150.000000
+Type Casting: (float) -150 produces -150.000000
+Type Casting: (int) 123.125 produces -123</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int i;
+    float f;
+    scanf("%d %f", &amp;i, &amp;f);
+
+    int fromFloat = f;
+    float fromInt = i;
+
+    printf("Assignment: %f assigned to an int produces %d\n", f, fromFloat);
+    printf("Assignment: %d assigned to a float produces %f\n", i, fromInt);
+    printf("Type Casting: (float) %d produces %f\n", i, (float)i);
+    printf("Type Casting: (int) %g produces %d\n", f, (int)f);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p08">
+        <header class="problem-header">
+          <h2>08. Maximum of Two Numbers (Ternary)</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">08. Maximum of Two Numbers (Ternary).c</code>
+        </header>
+        <p class="statement">Program that will take two numbers as inputs and print the maximum value. (Using conditional operator - ?)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>20     100</pre></td>
+              <td><pre>Max: 100</pre></td>
+            </tr>
+            <tr>
+              <td><pre>50     -20</pre></td>
+              <td><pre>Max: 50</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float x, y;
+    scanf("%f %f", &amp;x, &amp;y);
+
+    printf("Max: %g\n", (x &gt; y) ? x : y);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p09">
+        <header class="problem-header">
+          <h2>09. Operator Precedence with Parentheses</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">09. Operator Precedence with Parentheses.c</code>
+        </header>
+        <p class="statement">Program that will evaluate the following equations - X = a – b / 3 + c * 2 – 1 Y = a – ( b / ( 3 + c ) * 2) - 1 Z = a – ( ( b / 3) + c * 2) - 1</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>9     12     3</pre></td>
+              <td><pre>X = 10
+Y = 4
+Z = -2</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, c;
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    printf("X = %d\n", a - b / 3 + c * 2 - 1);
+    printf("Y = %d\n", a - (b / (3 + c) * 2) - 1);
+    printf("Z = %d\n", a - ((b / 3) + c * 2) - 1);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p10">
+        <header class="problem-header">
+          <h2>10. Relational and Logical NOT Operators</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">10. Relational and Logical NOT Operators.c</code>
+        </header>
+        <p class="statement">Program that will take a, b &amp; c as inputs and decide if the statements are True (1) of False (0)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>10   -10   0</pre></td>
+              <td><pre>1
+0
+1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, c;
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    // a) (a+b) &lt;= 80
+    int resultA = (a + b &lt;= 80) ? 1 : 0;
+
+    // b) !(a+c)
+    int resultB = !(a + c);
+
+    // c) a != 0
+    int resultC = (a != 0) ? 1 : 0;
+
+    printf("a) %d\n", resultA);
+    printf("b) %d\n", resultB);
+    printf("c) %d\n", resultC);
+
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p11">
+        <header class="problem-header">
+          <h2>11. Logical AND and OR Operators</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">11. Logical AND and OR Operators.c</code>
+        </header>
+        <p class="statement">Program that will take a, b &amp; c as inputs and decide if the statements are True (1) of False (0)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>10   -10   0</pre></td>
+              <td><pre>0
+1
+1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, c;
+    printf("Enter a, b, c: ");
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    int stmt1 = ((a + b) &lt;= 80 &amp;&amp; b &gt;= 0);
+    int stmt2 = ((a + b) == 0 || c != 0);
+    int stmt3 = (a != b || (b &lt; a &amp;&amp; c &gt; 0));
+
+    printf("1) %d\n", stmt1);
+    printf("2) %d\n", stmt2);
+    printf("3) %d\n", stmt3);
+
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p12">
+        <header class="problem-header">
+          <h2>12. Roots of a Quadratic Equation</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">12. Roots of a Quadratic Equation.c</code>
+        </header>
+        <p class="statement">Program that will take calculate the roots of a quadratic equation (a.x2 + b.x + c = 0) from the formula, (here, dot (.) stands for multiplication) -</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2      4     -16</pre></td>
+              <td><pre>2.00    -4.00</pre></td>
+            </tr>
+            <tr>
+              <td><pre>1      2       3</pre></td>
+              <td><pre>Imaginary</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    float a, b, c;
+    scanf("%f %f %f", &amp;a, &amp;b, &amp;c);
+
+    float d = b * b - 4 * a * c;
+    if (d &lt; 0) {
+        printf("Imaginary\n");
+    } else {
+        float r1 = (-b + sqrt(d)) / (2 * a);
+        float r2 = (-b - sqrt(d)) / (2 * a);
+        printf("%.2f    %.2f\n", r1, r2);
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p13">
+        <header class="problem-header">
+          <h2>13. Trigonometric Expression</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">13. Trigonometric Expression.c</code>
+        </header>
+        <p class="statement">Program that will evaluate the equation ; where 1&lt;= x &lt;=180 [No checking needed]</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>30</pre></td>
+              <td><pre>0.8927936413</pre></td>
+            </tr>
+            <tr>
+              <td><pre>120</pre></td>
+              <td><pre>-0.1339745962</pre></td>
+            </tr>
+            <tr>
+              <td><pre>180</pre></td>
+              <td><pre>3.000013</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    int x;
+    scanf("%d", &amp;x);
+
+    double rad = x * 3.1416 / 180.0;
+    double result = 2 * pow(cos(rad), 2) - sqrt(3) * sin(rad) + sin(rad / 2);
+
+    printf("%.10g\n", result);
+
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p14">
+        <header class="problem-header">
+          <h2>14. Ceil Floor and Absolute Value</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">14. Ceil Floor and Absolute Value.c</code>
+        </header>
+        <p class="statement">Program that will take a floating point number X as input and evaluate A,B,C where- A = Value when X is rounded up to the nearest integer B = Value when X is rounded down to the nearest integer C = Absolute value of X</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>10.6</pre></td>
+              <td><pre>A = 11, B = 10, C = 10.6</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-77.9</pre></td>
+              <td><pre>A = 78, B = 77, C = 77.9</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    float x;
+    scanf("%f", &amp;x);
+
+    printf("A = %.0f, B = %.0f, C = %g\n", ceil(fabs(x)), floor(fabs(x)), fabs(x));
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p15">
+        <header class="problem-header">
+          <h2>15. Size of Data Types (sizeof)</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">15. Size of Data Types (sizeof).c</code>
+        </header>
+        <p class="statement">Program to find size of int, float, double and char of the system.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>Size of int in byte(s) = 4
+Size of float in byte(s) = 4
+Size of double in byte(s) = 8
+Size of char in byte(s) = 1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Size of int in byte(s) = %d\n", (int)sizeof(int));
+    printf("Size of float in byte(s) = %d\n", (int)sizeof(float));
+    printf("Size of double in byte(s) = %d\n", (int)sizeof(double));
+    printf("Size of char in byte(s) = %d\n", (int)sizeof(char));
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SPL Lab solutions &middot; written in C &middot; compiled with gcc</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

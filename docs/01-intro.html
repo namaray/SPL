@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intro - SPL Lab Solutions</title>
+  <meta name="description" content="printf, scanf, variables, data types and format specifiers.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">SPL&nbsp;Lab</a>
+    <nav class="site-nav">
+      <a href="01-intro.html" aria-current="page">Intro</a>
+      <a href="02-operators.html">Operators</a>
+      <a href="03-conditions.html">Conditions</a>
+      <a href="04-loop.html">Loops</a>
+      <a href="05-array.html">Arrays</a>
+      <a href="06-nested-loop.html">Nested Loops</a>
+      <a href="07-2d-array.html">2D Arrays</a>
+      <a href="08-strings.html">Strings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>Intro</h1>
+      <p class="lede">printf, scanf, variables, data types and format specifiers.</p>
+      <p class="stats">15 problems</p>
+    </section>
+
+    <nav class="contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#p01"><span class="n">01</span> Hello World</a></li>
+        <li><a href="#p02"><span class="n">02</span> Print Multiple Lines</a></li>
+        <li><a href="#p03"><span class="n">03</span> Escape Sequences</a></li>
+        <li><a href="#p04"><span class="n">04</span> Int Float Char Variables</a></li>
+        <li><a href="#p05"><span class="n">05</span> Variable Declaration and Initialization</a></li>
+        <li><a href="#p06"><span class="n">06</span> Input and Print Age</a></li>
+        <li><a href="#p07"><span class="n">07</span> Input Int Float Char</a></li>
+        <li><a href="#p08"><span class="n">08</span> Skip Input with Assignment Suppression</a></li>
+        <li><a href="#p09"><span class="n">09</span> Double and Bool Types</a></li>
+        <li><a href="#p10"><span class="n">10</span> Long and Short Int Types</a></li>
+        <li><a href="#p11"><span class="n">11</span> Unsigned Data Types</a></li>
+        <li><a href="#p12"><span class="n">12</span> Constant Variables (const)</a></li>
+        <li><a href="#p13"><span class="n">13</span> Symbolic Constants (define)</a></li>
+        <li><a href="#p14"><span class="n">14</span> Global vs Local Variable Scope</a></li>
+        <li><a href="#p15"><span class="n">15</span> Float Format Specifiers</a></li>
+      </ol>
+    </nav>
+
+    <section class="problem-list">
+      <article class="problem" id="p01">
+        <header class="problem-header">
+          <h2>01. Hello World</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">01. Hello World.c</code>
+        </header>
+        <p class="statement">Program that will print “Hello World”.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>Hello World</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello World");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p02">
+        <header class="problem-header">
+          <h2>02. Print Multiple Lines</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">02. Print Multiple Lines.c</code>
+        </header>
+        <p class="statement">Program that will use newline/tab and print the following segment:</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>Hello World.
+This is my first program.           C is fun.</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello World.\n");
+    printf("This is my first program.           C is fun.\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p03">
+        <header class="problem-header">
+          <h2>03. Escape Sequences</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">03. Escape Sequences.c</code>
+        </header>
+        <p class="statement">Program that will print the following segment:</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The question is - “How to write a \comment/ in C programming language?”</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("The question is - \"How to write a \\comment/ in C programming language?\"\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p04">
+        <header class="problem-header">
+          <h2>04. Int Float Char Variables</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">04. Int Float Char Variables.c</code>
+        </header>
+        <p class="statement">Program that will declare an integer, a floating point number, a character. Then it will initialize them with values and print those values.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The integer value: 5
+The floating point value: 3.141593
+The character value: a</pre></td>
+            </tr>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The integer value: 100
+The floating point value: 1.618000
+The character value: z</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 5;
+    float f = 3.141593;
+    char c = 'a';
+
+    i = 5;
+    f = 3.141593;
+    c = 'a';
+
+
+    printf("The integer value: %d\n", i);
+    printf("The floating point value: %f\n", f);
+    printf("The character value: %c\n", c);
+
+    i = 100;
+    f = 1.618;
+    c = 'z';
+
+    printf("The integer value: %d\n", i);
+    printf("The floating point value: %f\n", f);
+    printf("The character value: %c\n", c);
+
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p05">
+        <header class="problem-header">
+          <h2>05. Variable Declaration and Initialization</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">05. Variable Declaration and Initialization.c</code>
+        </header>
+        <p class="statement">Program that will do the followings: Declare a variable uninitialized Declare and initialize a variable in one statement Declare and initialize multiple variables with different values in one statement Declare and initialize multiple variables with the same value in one statement</p>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a;
+    int b = 5;
+    int c = 1, d = 2;
+    int e = 3, f = 3;
+
+    a = 0;
+    printf("a=%d b=%d c=%d d=%d e=%d f=%d\n", a, b, c, d, e, f);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p06">
+        <header class="problem-header">
+          <h2>06. Input and Print Age</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">06. Input and Print Age.c</code>
+        </header>
+        <p class="statement">Program that will take your age in year(s) as input and print it.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>20</pre></td>
+              <td><pre>My age is: 20</pre></td>
+            </tr>
+            <tr>
+              <td><pre>21</pre></td>
+              <td><pre>My age is: 21</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    scanf("%d", &amp;age);
+    printf("My age is: %d\n", age);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p07">
+        <header class="problem-header">
+          <h2>07. Input Int Float Char</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">07. Input Int Float Char.c</code>
+        </header>
+        <p class="statement">Program that will receive the values of an integer, a floating point number, a character from the keyboard and print those values.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+3.141593
+A</pre></td>
+              <td><pre>The integer value: 5
+The floating point value: 3.141593
+The character value: a</pre></td>
+            </tr>
+            <tr>
+              <td><pre>100    1.618    z</pre></td>
+              <td><pre>The integer value: 100
+The floating point value: 1.618000
+The character value: z</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int i;
+    float f;
+    char c;
+
+    scanf("%d %f %c", &amp;i, &amp;f, &amp;c);
+    printf("The integer value: %d\n", i);
+    printf("The floating point value: %f\n", f);
+    printf("The character value: %c\n", c);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p08">
+        <header class="problem-header">
+          <h2>08. Skip Input with Assignment Suppression</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">08. Skip Input with Assignment Suppression.c</code>
+        </header>
+        <p class="statement">Program that will take three integer numbers from keyboard but assign only the first and last inputs to variables and skip any assignment of the middle one.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>20     50     100</pre></td>
+              <td><pre>First Value = 20,  Last Value = 100</pre></td>
+            </tr>
+            <tr>
+              <td><pre>33     75      22</pre></td>
+              <td><pre>First Value = 33,  Last Value = 22</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int first, last;
+
+    scanf("%d %*d %d", &amp;first, &amp;last);
+    printf("First Value = %d,  Last Value = %d\n", first, last);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p09">
+        <header class="problem-header">
+          <h2>09. Double and Bool Types</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">09. Double and Bool Types.c</code>
+        </header>
+        <p class="statement">Program that will declare a variable from each data type: double, boolean. Then it will initialize them with values and print them.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The double value: 3.140000e+00
+The boolean value: 1</pre></td>
+            </tr>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The double value: 1.618039
+The boolean value: 0</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    double d = 3.14;
+    bool b = true;
+
+    printf("The double value: %e\n", d);
+    printf("The boolean value: %d\n", b);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p10">
+        <header class="problem-header">
+          <h2>10. Long and Short Int Types</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">10. Long and Short Int Types.c</code>
+        </header>
+        <p class="statement">Program that will declare a variable from each data type: long int, long long int, long double, short int. Then it will initialize them with values and print them.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The long int value: 2147483647
+The long long int value: 9223372036854775807
+The long double value: 1.1E+4932
+The short int value: 32767</pre></td>
+            </tr>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The long int value: -2,147,483,648
+The long long int value: -9223372036854775808
+The long double value: 3.4E-4932
+The short int value: -32768</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    long int a = 2147483647;
+    long long int b = 9223372036854775807LL;
+    long double c = 1.1e+4932L;
+    short int d = 32767;
+
+    printf("The long int value: %ld\n", a);
+    printf("The long long int value: %lld\n", b);
+    printf("The long double value: %.1Le\n", c);
+    printf("The short int value: %hd\n", d);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p11">
+        <header class="problem-header">
+          <h2>11. Unsigned Data Types</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">11. Unsigned Data Types.c</code>
+        </header>
+        <p class="statement">Program that will declare a variable from each data type: unsigned int, unsigned long int, unsigned long long int, unsigned short int. Then it will initialize them with values and print them.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The unsigned int value: 4294967295
+The unsigned long int value: 4294967295
+The unsigned long long int value: 18446744073709551615
+he unsigned short int value: 65,535</pre></td>
+            </tr>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The unsigned int value: 0
+The unsigned long int value: 0
+The unsigned long long int value: 0
+The unsigned short int value: 0</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    unsigned int a = 4294967295U;
+    unsigned long int b = 4294967295UL;
+    unsigned long long int c = 18446744073709551615ULL;
+    unsigned short int d = 65535;
+
+    printf("The unsigned int value: %u\n", a);
+    printf("The unsigned long int value: %lu\n", b);
+    printf("The unsigned long long int value: %llu\n", c);
+    printf("The unsigned short int value: %hu\n", d);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p12">
+        <header class="problem-header">
+          <h2>12. Constant Variables (const)</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">12. Constant Variables (const).c</code>
+        </header>
+        <p class="statement">Program that will define a constant using “CONST” and print the value.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The value of pi: 3.14</pre></td>
+            </tr>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The value of golden ratio: 1.62</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    const float pi = 3.14;
+    printf("The value of pi: %.2f\n", pi);
+    const float gr = 1.62;
+    printf("The value of of golden ratio: %.2f\n", gr);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p13">
+        <header class="problem-header">
+          <h2>13. Symbolic Constants (define)</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">13. Symbolic Constants (define).c</code>
+        </header>
+        <p class="statement">Program that will define a constant using “DEFINE” and print the value.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The value of HEIGHT: 200</pre></td>
+            </tr>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>The value of PI: 3.14</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+#define HEIGHT 200
+#define PI 3.14
+
+int main() {
+    printf("The value of HEIGHT: %d\n", HEIGHT);
+    printf("The value of PI: %.2f\n", PI);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p14">
+        <header class="problem-header">
+          <h2>14. Global vs Local Variable Scope</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">14. Global vs Local Variable Scope.c</code>
+        </header>
+        <p class="statement">Program that will define a global and a local variable with the same name but with different values, and then do the following steps in order- Print the value of the variable before defining the local variable Print the value of the variable after defining the local variable Explicitly print the value of the variable as global</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre></pre></td>
+              <td><pre>Global: 10
+Local: 20
+Global: 10</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int var = 10;
+
+int main() {
+
+    printf("A. Global: %d\n", var);
+
+    {
+        int var = 20;
+        printf("B. Local: %d\n", var);
+    }
+
+    printf("C. Global: %d\n", var);
+
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p15">
+        <header class="problem-header">
+          <h2>15. Float Format Specifiers</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">15. Float Format Specifiers.c</code>
+        </header>
+        <p class="statement">Program that will take a floating point number as input from the keyboard and use printf function to perform the followings: Print the number right justified within 10 columns Print the number to be right justified to 2 columns (Assuming the input has more than 2 digits) Print the number rounded to two decimal places Print the number rounded to integer (without using conversion or type casting) Prints the number in exponential notation/scientific notation</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>123.098</pre></td>
+              <td><pre>(a) Val:          123.098000
+(b) Val:123.098000
+(c) Val:123.10
+(d) Val:123
+(e) Val: 1.230980e+02</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float x;
+    scanf("%f", &amp;x);
+
+    printf("(a) Val:%20f\n", x);
+    printf("(b) Val:%2f\n", x);
+    printf("(c) Val:%.2f\n", x);
+    printf("(d) Val:%.0f\n", x);
+    printf("(e) Val: %e\n", x);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SPL Lab solutions &middot; written in C &middot; compiled with gcc</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

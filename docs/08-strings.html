@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strings - SPL Lab Solutions</title>
+  <meta name="description" content="Character arrays, string.h functions and manual string handling.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">SPL&nbsp;Lab</a>
+    <nav class="site-nav">
+      <a href="01-intro.html">Intro</a>
+      <a href="02-operators.html">Operators</a>
+      <a href="03-conditions.html">Conditions</a>
+      <a href="04-loop.html">Loops</a>
+      <a href="05-array.html">Arrays</a>
+      <a href="06-nested-loop.html">Nested Loops</a>
+      <a href="07-2d-array.html">2D Arrays</a>
+      <a href="08-strings.html" aria-current="page">Strings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>Strings</h1>
+      <p class="lede">Character arrays, string.h functions and manual string handling.</p>
+      <p class="stats">15 problems</p>
+    </section>
+
+    <nav class="contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#p01"><span class="n">01</span> In C to find the length of a string without using any library...</a></li>
+        <li><a href="#p02"><span class="n">02</span> In C to concatenate two strings without using any library...</a></li>
+        <li><a href="#p03"><span class="n">03</span> In C to count how many vowels are there in a string.</a></li>
+        <li><a href="#p04"><span class="n">04</span> In C to count the number of words in a string.</a></li>
+        <li><a href="#p05"><span class="n">05</span> In C to find the reverse of a string.</a></li>
+        <li><a href="#p06"><span class="n">06</span> In C to convert lowercase string to uppercase.</a></li>
+        <li><a href="#p07"><span class="n">07</span> In C to toggle the case of each character in a string.</a></li>
+        <li><a href="#p08"><span class="n">08</span> In C to sort a string array in alphabetic order.</a></li>
+        <li><a href="#p09"><span class="n">09</span> In C to count the occurrences of a character in a string...</a></li>
+        <li><a href="#p10"><span class="n">10</span> In C to check whether a string is a palindrome or not.</a></li>
+        <li><a href="#p11"><span class="n">11</span> In C to add the digits in a string.</a></li>
+        <li><a href="#p12"><span class="n">12</span> In C to count occurrences of a word in a string.</a></li>
+        <li><a href="#p13"><span class="n">13</span> In C to remove all repeated characters in a string.</a></li>
+        <li><a href="#p14"><span class="n">14</span> In C to find the maximum occurring character in a string.</a></li>
+        <li><a href="#p15"><span class="n">15</span> In C to reverse the words in a string.</a></li>
+      </ol>
+    </nav>
+
+    <section class="problem-list">
+      <article class="problem" id="p01">
+        <header class="problem-header">
+          <h2>01</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">01.c</code>
+        </header>
+        <p class="statement">Write a program in C to find the length of a string without using any library function.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is andy”</pre></td>
+              <td><pre>15</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“Abc 123 7&amp;*&amp;*”</pre></td>
+              <td><pre>13</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char s[200];
+    fgets(s, 200, stdin);   // read the whole line
+
+    int len = 0;
+    while (s[len] != '\0' &amp;&amp; s[len] != '\n') // \0 is the null character and \n is an extra space that exists at the end
+    {
+        len++;
+    }
+
+    printf("%d\n", len);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p02">
+        <header class="problem-header">
+          <h2>02</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">02.c</code>
+        </header>
+        <p class="statement">Write a program in C to concatenate two strings without using any library function.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name ”
+“is andy”</pre></td>
+              <td><pre>“My name is andy”</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“123abc”
+“*A*B”</pre></td>
+              <td><pre>“123abc*A*B”</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char a[200], b[200];
+    fgets(a, sizeof(a), stdin);
+    fgets(b, sizeof(b), stdin);
+
+    int i = 0, j = 0;
+    while (a[i] != '\0' &amp;&amp; a[i] != '\n')
+    {
+        printf("%c", a[i]);
+        i++;
+    }
+    while (b[j] != '\0' &amp;&amp; b[j] != '\n')
+    {
+        printf("%c", b[j]);
+        j++;
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p03">
+        <header class="problem-header">
+          <h2>03</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">03.c</code>
+        </header>
+        <p class="statement">Write a program in C to count how many vowels are there in a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is andy”</pre></td>
+              <td><pre>4</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“Are you READY yet?”</pre></td>
+              <td><pre>7</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int i = 0, count = 0;
+    while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+        char c = s[i];
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+            count++;
+        i++;
+    }
+    printf("%d\n", count);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p04">
+        <header class="problem-header">
+          <h2>04</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">04.c</code>
+        </header>
+        <p class="statement">Write a program in C to count the number of words in a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is andy”</pre></td>
+              <td><pre>4</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“Abc 123 7&amp;*&amp;*”</pre></td>
+              <td><pre>3</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int i = 0, count = 0, inWord = 0;
+    while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+        if (s[i] != ' ') {
+            if (inWord == 0) { count++; inWord = 1; }
+        } else {
+            inWord = 0;
+        }
+        i++;
+    }
+    printf("%d\n", count);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p05">
+        <header class="problem-header">
+          <h2>05</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">05.c</code>
+        </header>
+        <p class="statement">Write a program in C to find the reverse of a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is Andy”</pre></td>
+              <td><pre>“ydnA si eman yM”</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“Abc 123 7&amp;*&amp;*”</pre></td>
+              <td><pre>“*&amp;*&amp;7 321 cbA”</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int len = 0;
+    while (s[len] != '\0' &amp;&amp; s[len] != '\n') len++;
+
+    int i;
+    for (i = len - 1; i &gt;= 0; i--)
+        printf("%c", s[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p06">
+        <header class="problem-header">
+          <h2>06</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">06.c</code>
+        </header>
+        <p class="statement">Write a program in C to convert lowercase string to uppercase.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is andy”</pre></td>
+              <td><pre>“MY NAME IS ANDY”</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“&amp; I am 20 years old”</pre></td>
+              <td><pre>“&amp; I AM 20 YEARS OLD”</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int i = 0;
+    while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+        char c = s[i];
+        if (c &gt;= 'a' &amp;&amp; c &lt;= 'z') c = c - 'a' + 'A';   // lower -&gt; upper
+        printf("%c", c);
+        i++;
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p07">
+        <header class="problem-header">
+          <h2>07</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">07.c</code>
+        </header>
+        <p class="statement">Write a program in C to toggle the case of each character in a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is Andy”</pre></td>
+              <td><pre>“mY NAME IS aNDY”</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“&amp; I am 20 Years old”</pre></td>
+              <td><pre>“&amp; i AM 20 yEARS OLD”</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int i = 0;
+    while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+        char c = s[i];
+        if (c &gt;= 'a' &amp;&amp; c &lt;= 'z')      c = c - 'a' + 'A';
+        else if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') c = c - 'A' + 'a';
+        printf("%c", c);
+        i++;
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p08">
+        <header class="problem-header">
+          <h2>08</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">08.c</code>
+        </header>
+        <p class="statement">Write a program in C to sort a string array in alphabetic order.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is Andy”</pre></td>
+              <td><pre>“   AMadeimnnsyy”</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“Abc 123 7&amp;*&amp;*”</pre></td>
+              <td><pre>“  &amp;&amp;**1237Abc”</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int len = 0;
+    while (s[len] != '\0' &amp;&amp; s[len] != '\n') len++;
+
+    // bubble sort the characters
+    int i, j;
+    char t;
+    for (i = 0; i &lt; len - 1; i++)
+        for (j = 0; j &lt; len - 1 - i; j++)
+            if (s[j] &gt; s[j + 1]) { t = s[j]; s[j] = s[j + 1]; s[j + 1] = t; }
+
+    for (i = 0; i &lt; len; i++) printf("%c", s[i]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p09">
+        <header class="problem-header">
+          <h2>09</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">09.c</code>
+        </header>
+        <p class="statement">Write a program in C to count the occurrences of a character in a string regardless of its case.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is Andy”
+‘a’</pre></td>
+              <td><pre>2</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“WELCOME to CSE, everyone”
+‘E’</pre></td>
+              <td><pre>6</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200], ch;
+    fgets(s, 200, stdin);
+    scanf(" %c", &amp;ch);
+
+    // make the searched character lowercase for a case-insensitive compare
+    if (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z') ch = ch - 'A' + 'a';
+
+    int i = 0, count = 0;
+    while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+        char c = s[i];
+        if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') c = c - 'A' + 'a';
+        if (c == ch) count++;
+        i++;
+    }
+    printf("%d\n", count);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p10">
+        <header class="problem-header">
+          <h2>10</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">10.c</code>
+        </header>
+        <p class="statement">Write a program in C to check whether a string is a palindrome or not.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is andy”</pre></td>
+              <td><pre>no</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“madam”</pre></td>
+              <td><pre>yes</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int len = 0;
+    while (s[len] != '\0' &amp;&amp; s[len] != '\n') len++;
+
+    int i = 0, j = len - 1, palindrome = 1;
+    while (i &lt; j) {
+        if (s[i] != s[j]) palindrome = 0;
+        i++;
+        j--;
+    }
+    if (palindrome) printf("yes\n");
+    else            printf("no\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p11">
+        <header class="problem-header">
+          <h2>11</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">11.c</code>
+        </header>
+        <p class="statement">Write a program in C to add the digits in a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“I am 20 years old”</pre></td>
+              <td><pre>2</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“Abc 123 7&amp;*&amp;*”</pre></td>
+              <td><pre>13</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int i = 0, sum = 0;
+    while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+        if (s[i] &gt;= '0' &amp;&amp; s[i] &lt;= '9')
+            sum += s[i] - '0';   // character digit -&gt; number
+        i++;
+    }
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p12">
+        <header class="problem-header">
+          <h2>12</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">12.c</code>
+        </header>
+        <p class="statement">Write a program in C to count occurrences of a word in a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“I liked the story about the sad giant”
+“the”</pre></td>
+              <td><pre>2</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“It is what it is”
+“it”</pre></td>
+              <td><pre>1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200], w[100];
+    fgets(s, 200, stdin);
+    fgets(w, 100, stdin);
+
+    // length of the word (ignore the newline)
+    int wl = 0;
+    while (w[wl] != '\0' &amp;&amp; w[wl] != '\n') wl++;
+
+    int i = 0, count = 0;
+    while (s[i] != '\0' &amp;&amp; s[i] != '\n') {
+        // try to match the word starting at position i
+        int k = 0;
+        while (k &lt; wl &amp;&amp; s[i + k] == w[k]) k++;
+
+        // it is a full word if all letters matched and the borders are spaces
+        if (k == wl &amp;&amp;
+            (i == 0 || s[i - 1] == ' ') &amp;&amp;
+            (s[i + wl] == ' ' || s[i + wl] == '\n' || s[i + wl] == '\0'))
+            count++;
+        i++;
+    }
+    printf("%d\n", count);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p13">
+        <header class="problem-header">
+          <h2>13</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">13.c</code>
+        </header>
+        <p class="statement">Write a program in C to remove all repeated characters in a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“i like programming in C”</pre></td>
+              <td><pre>“i lkeprogamnC”</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“My name is Andy”</pre></td>
+              <td><pre>“My nameisAd”</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int len = 0;
+    while (s[len] != '\0' &amp;&amp; s[len] != '\n') len++;
+
+    int i, j;
+    for (i = 0; i &lt; len; i++) {
+        // check if s[i] already appeared earlier
+        int seen = 0;
+        for (j = 0; j &lt; i; j++)
+            if (s[j] == s[i]) seen = 1;
+        if (!seen) printf("%c", s[i]);
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p14">
+        <header class="problem-header">
+          <h2>14</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">14.c</code>
+        </header>
+        <p class="statement">Write a program in C to find the maximum occurring character in a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“Welcome to CSE”</pre></td>
+              <td><pre>E (or e)</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“mmmttssarrrddd”</pre></td>
+              <td><pre>D (or d)</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“mmmttssarrrDDd”</pre></td>
+              <td><pre>D (or d)</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int len = 0;
+    while (s[len] != '\0' &amp;&amp; s[len] != '\n') len++;
+
+    int i, j, best = 0, bestCount = 0;
+    for (i = 0; i &lt; len; i++) {
+        if (s[i] == ' ') continue;
+        char ci = s[i];
+        if (ci &gt;= 'A' &amp;&amp; ci &lt;= 'Z') ci = ci - 'A' + 'a';   // ignore case
+
+        int count = 0;
+        for (j = 0; j &lt; len; j++) {
+            char cj = s[j];
+            if (cj &gt;= 'A' &amp;&amp; cj &lt;= 'Z') cj = cj - 'A' + 'a';
+            if (cj == ci) count++;
+        }
+        if (count &gt; bestCount) { bestCount = count; best = ci; }
+    }
+    // print in uppercase like the samples (E, D ...)
+    if (best &gt;= 'a' &amp;&amp; best &lt;= 'z') best = best - 'a' + 'A';
+    printf("%c\n", best);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p15">
+        <header class="problem-header">
+          <h2>15</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">15.c</code>
+        </header>
+        <p class="statement">Write a program in C to reverse the words in a string.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>“My name is  Andy”</pre></td>
+              <td><pre>“Andy  is name My”</pre></td>
+            </tr>
+            <tr>
+              <td><pre>“Abc 123 7&amp;*&amp;*”</pre></td>
+              <td><pre>“7&amp;*&amp;* 123 Abc”</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char s[200];
+    fgets(s, 200, stdin);
+
+    int len = 0;
+    while (s[len] != '\0' &amp;&amp; s[len] != '\n') len++;
+
+    // walk from the end; print each word when we find its start
+    int i = len - 1, end = len - 1;
+    while (i &gt;= 0) {
+        if (s[i] == ' ') {
+            int k;
+            for (k = i + 1; k &lt;= end; k++) printf("%c", s[k]);
+            printf(" ");
+            end = i - 1;
+        }
+        i--;
+    }
+    // print the first word (from start to end)
+    int k;
+    for (k = 0; k &lt;= end; k++) printf("%c", s[k]);
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SPL Lab solutions &middot; written in C &middot; compiled with gcc</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

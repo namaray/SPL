@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conditions - SPL Lab Solutions</title>
+  <meta name="description" content="if, else if, else and menu driven branching.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">SPL&nbsp;Lab</a>
+    <nav class="site-nav">
+      <a href="01-intro.html">Intro</a>
+      <a href="02-operators.html">Operators</a>
+      <a href="03-conditions.html" aria-current="page">Conditions</a>
+      <a href="04-loop.html">Loops</a>
+      <a href="05-array.html">Arrays</a>
+      <a href="06-nested-loop.html">Nested Loops</a>
+      <a href="07-2d-array.html">2D Arrays</a>
+      <a href="08-strings.html">Strings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>Conditions</h1>
+      <p class="lede">if, else if, else and menu driven branching.</p>
+      <p class="stats">15 problems</p>
+    </section>
+
+    <nav class="contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#p01"><span class="n">01</span> Positive or Negative</a></li>
+        <li><a href="#p02"><span class="n">02</span> Even or Odd</a></li>
+        <li><a href="#p03"><span class="n">03</span> Number to Word</a></li>
+        <li><a href="#p04"><span class="n">04</span> Valid Triangle Angles</a></li>
+        <li><a href="#p05"><span class="n">05</span> Power of Two</a></li>
+        <li><a href="#p06"><span class="n">06</span> Power of Two with Input Validation</a></li>
+        <li><a href="#p07"><span class="n">07</span> Compare Two Numbers</a></li>
+        <li><a href="#p08"><span class="n">08</span> Leap Year</a></li>
+        <li><a href="#p09"><span class="n">09</span> Alphabet Digit or Special Character</a></li>
+        <li><a href="#p10"><span class="n">10</span> Calculator with Operator Symbol</a></li>
+        <li><a href="#p11"><span class="n">11</span> Grade Calculator</a></li>
+        <li><a href="#p12"><span class="n">12</span> Menu Based Calculator</a></li>
+        <li><a href="#p13"><span class="n">13</span> Menu Based Calculator with Submenu</a></li>
+        <li><a href="#p14"><span class="n">14</span> Menu Based Calculator with Zero Division Check</a></li>
+        <li><a href="#p15"><span class="n">15</span> Number Guessing Game</a></li>
+      </ol>
+    </nav>
+
+    <section class="problem-list">
+      <article class="problem" id="p01">
+        <header class="problem-header">
+          <h2>01. Positive or Negative</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">01. Positive or Negative.c</code>
+        </header>
+        <p class="statement">Program that will decide whether a number is positive or not.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>100</pre></td>
+              <td><pre>Positive</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-11.11</pre></td>
+              <td><pre>Negative</pre></td>
+            </tr>
+            <tr>
+              <td><pre>0</pre></td>
+              <td><pre>Positive</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float n;
+    scanf("%f", &amp;n);
+
+    if (n &gt;= 0)
+        printf("Positive\n");
+    else
+        printf("Negative\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p02">
+        <header class="problem-header">
+          <h2>02. Even or Odd</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">02. Even or Odd.c</code>
+        </header>
+        <p class="statement">Program that will decide whether a number is even or odd.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>50</pre></td>
+              <td><pre>Even</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-77</pre></td>
+              <td><pre>Odd</pre></td>
+            </tr>
+            <tr>
+              <td><pre>0</pre></td>
+              <td><pre>Even</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n;
+    scanf("%d", &amp;n);
+
+    if (n % 2 == 0)
+        printf("Even\n");
+    else
+        printf("Odd\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p03">
+        <header class="problem-header">
+          <h2>03. Number to Word</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">03. Number to Word.c</code>
+        </header>
+        <p class="statement">Program that will take an integer of length one from the terminal and then display the digit in English.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>9</pre></td>
+              <td><pre>nine</pre></td>
+            </tr>
+            <tr>
+              <td><pre>0</pre></td>
+              <td><pre>zero</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    char *words[10] = {"zero", "one", "two", "three", "four",
+                       "five", "six", "seven", "eight", "nine"};
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%s\n", words[n]);
+
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p04">
+        <header class="problem-header">
+          <h2>04. Valid Triangle Angles</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">04. Valid Triangle Angles.c</code>
+        </header>
+        <p class="statement">Program that will check whether a triangle is valid or not, when the three angles (angle value should be such that, 0 &lt; value &lt; 180) of the triangle are entered through the keyboard. [Hint: A triangle is valid if the sum of all the three angles is equal to 180 degrees.]</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>90       45        45</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>30       110      40</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>160     20        30</pre></td>
+              <td><pre>No</pre></td>
+            </tr>
+            <tr>
+              <td><pre>0         180       0</pre></td>
+              <td><pre>No</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, c;
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    if (a &gt; 0 &amp;&amp; a &lt; 180 &amp;&amp; b &gt; 0 &amp;&amp; b &lt; 180 &amp;&amp; c &gt; 0 &amp;&amp; c &lt; 180 &amp;&amp; a + b + c == 180)
+        printf("Yes\n");
+    else
+        printf("No\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p05">
+        <header class="problem-header">
+          <h2>05. Power of Two</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">05. Power of Two.c</code>
+        </header>
+        <p class="statement">Program that will read from the console a random positive nonzero number and determine if it is a power of 2.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>512</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>1022</pre></td>
+              <td><pre>No</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n;
+    scanf("%d", &amp;n);
+
+    while (n &gt; 0 &amp;&amp; n % 2 == 0){
+        n = n / 2;
+        }
+
+    if (n == 1)
+        printf("Yes\n");
+    else
+        printf("No\n");
+
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p06">
+        <header class="problem-header">
+          <h2>06. Power of Two with Input Validation</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">06. Power of Two with Input Validation.c</code>
+        </header>
+        <p class="statement">Program that will read from the console a random number and check if it is a nonzero positive number. If the check is yes, it will determine if the number is a power of 2. If the check fails the program will check for two more cases. If the number is zero, the program will print “Zero is not a valid input”. Else it will print “Negative input is not valid”.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>0</pre></td>
+              <td><pre>Zero is not a valid input</pre></td>
+            </tr>
+            <tr>
+              <td><pre>1</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>512</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>1022</pre></td>
+              <td><pre>No</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-512</pre></td>
+              <td><pre>Negative input is not valid</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n;
+    scanf("%d", &amp;n);
+
+    if (n &gt; 0) {
+        while (n % 2 == 0){
+            n = n / 2;
+            }
+        if (n == 1)
+            printf("Yes\n");
+        else
+            printf("No\n");
+    } else if (n == 0) {
+        printf("Zero is not a valid input\n");
+    } else {
+        printf("Negative input is not valid\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p07">
+        <header class="problem-header">
+          <h2>07. Compare Two Numbers</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">07. Compare Two Numbers.c</code>
+        </header>
+        <p class="statement">Program that will take two numbers X &amp; Y as inputs and decide whether X is greater than/less than/equal to Y.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5   -10</pre></td>
+              <td><pre>5 is greater than -10</pre></td>
+            </tr>
+            <tr>
+              <td><pre>5    10</pre></td>
+              <td><pre>5 is less than 10</pre></td>
+            </tr>
+            <tr>
+              <td><pre>5     5</pre></td>
+              <td><pre>5 is equal to 5</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x, y;
+    scanf("%d %d", &amp;x, &amp;y);
+
+    if (x &gt; y)
+        printf("%d is greater than %d\n", x, y);
+    else if (x &lt; y)
+        printf("%d is less than %d\n", x, y);
+    else
+        printf("%d is equal to %d\n", x, y);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p08">
+        <header class="problem-header">
+          <h2>08. Leap Year</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">08. Leap Year.c</code>
+        </header>
+        <p class="statement">Program that will decide whether a year is leap year or not. Yes, if ( Year % 4 == 0 &amp;&amp; year % 100 != 0 ) || ( Year % 400 ==0 )</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2000</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2004</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2014</pre></td>
+              <td><pre>No</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int year;
+    scanf("%d", &amp;year);
+
+    if ((year % 4 == 0 &amp;&amp; year % 100 != 0) || (year % 400 == 0))
+        printf("Yes\n");
+    else
+        printf("No\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p09">
+        <header class="problem-header">
+          <h2>09. Alphabet Digit or Special Character</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">09. Alphabet Digit or Special Character.c</code>
+        </header>
+        <p class="statement">Program that will categorize a single character that is entered at the terminal, whether it is an alphabet, a digit or a special character. (Restriction: Without math.h)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>z</pre></td>
+              <td><pre>Alphabet</pre></td>
+            </tr>
+            <tr>
+              <td><pre>A</pre></td>
+              <td><pre>Alphabet</pre></td>
+            </tr>
+            <tr>
+              <td><pre>8</pre></td>
+              <td><pre>Digit</pre></td>
+            </tr>
+            <tr>
+              <td><pre>*</pre></td>
+              <td><pre>Special</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    char c;
+    scanf("%c", &amp;c);
+
+    if ((c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z'))
+        printf("Alphabet\n");
+    else if (c &gt;= '0' &amp;&amp; c &lt;= '9')
+        printf("Digit\n");
+    else
+        printf("Special\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p10">
+        <header class="problem-header">
+          <h2>10. Calculator with Operator Symbol</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">10. Calculator with Operator Symbol.c</code>
+        </header>
+        <p class="statement">Program that will evaluate simple expressions of the form- &lt;number1&gt; &lt;operator&gt; &lt;number2&gt; ; where operators are (+, - , *, /) And if the operator is “/”, then check if &lt;number2&gt; nonzero or not.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>100     *      55.5</pre></td>
+              <td><pre>Multiplication:  5550</pre></td>
+            </tr>
+            <tr>
+              <td><pre>100     /      -5.5</pre></td>
+              <td><pre>Division:   -18.181818</pre></td>
+            </tr>
+            <tr>
+              <td><pre>100    /        0</pre></td>
+              <td><pre>Division:    Zero as divisor is not valid!</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float a, b;
+    char op;
+    scanf("%f %c %f", &amp;a, &amp;op, &amp;b);
+
+    if (op == '+')
+        printf("Addition:  %g\n", a + b);
+    else if (op == '-')
+        printf("Subtraction:  %g\n", a - b);
+    else if (op == '*')
+        printf("Multiplication:  %g\n", a * b);
+    else if (op == '/') {
+        if (b != 0)
+            printf("Division:   %f\n", a / b);
+        else
+            printf("Division:    Zero as divisor is not valid!\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p11">
+        <header class="problem-header">
+          <h2>11. Grade Calculator</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">11. Grade Calculator.c</code>
+        </header>
+        <p class="statement">Program that will take the final score of a student in a particular subject as input and find his/her grade.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>91.5</pre></td>
+              <td><pre>Grade: A</pre></td>
+            </tr>
+            <tr>
+              <td><pre>50</pre></td>
+              <td><pre>Grade: F</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float m;
+    scanf("%f", &amp;m);
+
+    printf("Grade: ");
+    if (m &gt;= 90)      printf("A\n");
+    else if (m &gt;= 86) printf("A-\n");
+    else if (m &gt;= 82) printf("B+\n");
+    else if (m &gt;= 78) printf("B\n");
+    else if (m &gt;= 74) printf("B-\n");
+    else if (m &gt;= 70) printf("C+\n");
+    else if (m &gt;= 66) printf("C\n");
+    else if (m &gt;= 62) printf("C-\n");
+    else if (m &gt;= 58) printf("D+\n");
+    else if (m &gt;= 55) printf("D\n");
+    else              printf("F\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p12">
+        <header class="problem-header">
+          <h2>12. Menu Based Calculator</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">12. Menu Based Calculator.c</code>
+        </header>
+        <p class="statement">Program that will construct a menu for performing arithmetic operations. The user will give two real numbers (a, b) on which the arithmetic operations will be performed and an integer number (1 &lt;= Choice &lt;= 4) as a choice. Choice-1, 2, 3, 4 are for performing addition, subtraction, multiplication, division (quotient) respectively.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5     10
+3</pre></td>
+              <td><pre>Multiplication: 50</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-5     10.5
+4</pre></td>
+              <td><pre>Quotient: 0</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float a, b;
+    int choice;
+    scanf("%f %f", &amp;a, &amp;b);
+    scanf("%d", &amp;choice);
+
+    if (choice == 1)
+        printf("Addition: %g\n", a + b);
+    else if (choice == 2)
+        printf("Subtraction: %g\n", a - b);
+    else if (choice == 3)
+        printf("Multiplication: %g\n", a * b);
+    else if (choice == 4) {
+        if ((int)b != 0)
+            printf("Quotient: %d\n", (int)a / (int)b);
+        else
+            printf("Error: Divisor is zero\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p13">
+        <header class="problem-header">
+          <h2>13. Menu Based Calculator with Submenu</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">13. Menu Based Calculator with Submenu.c</code>
+        </header>
+        <p class="statement">Program that will construct a menu for performing arithmetic operations. The user will give two real numbers (a, b) on which the arithmetic operations will be performed and an integer number (1 &lt;= Choice &lt;= 4) as a choice. Choice-1, 2, 3, 4 are for performing addition, subtraction, multiplication, division respectively. If Choice-4 is selected, again the program will ask for another choice (1 &lt;= Case &lt;=2), where Case-1, 2 evaluate quotient and remainder respectively. Addition Subtraction Multiplication Division 1. Quotient 2. Remainder</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5     10
+3</pre></td>
+              <td><pre>Multiplication: 50</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-5     10.5
+4
+1</pre></td>
+              <td><pre>Quotient: 0</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-5     10.5
+4
+2</pre></td>
+              <td><pre>Remainder:  -48</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float a, b;
+    int choice, choice2;
+    scanf("%f %f", &amp;a, &amp;b);
+    scanf("%d", &amp;choice);
+
+    if (choice == 1)
+        printf("Addition: %g\n", a + b);
+    else if (choice == 2)
+        printf("Subtraction: %g\n", a - b);
+    else if (choice == 3)
+        printf("Multiplication: %g\n", a * b);
+    else if (choice == 4) {
+        scanf("%d", &amp;choice2);
+        if ((int)b == 0)
+            printf("Error: Divisor is zero\n");
+        else if (choice2 == 1)
+            printf("Quotient: %d\n", (int)a / (int)b);
+        else if (choice2 == 2)
+            printf("Remainder: %d\n", (int)a % (int)b);
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p14">
+        <header class="problem-header">
+          <h2>14. Menu Based Calculator with Zero Division Check</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">14. Menu Based Calculator with Zero Division Check.c</code>
+        </header>
+        <p class="statement">Program that will construct a menu for performing arithmetic operations. The user will give two real numbers (a, b) on which the arithmetic operations will be performed and an integer number (1 &lt;= Choice &lt;= 4) as a choice. Choice-1, 2, 3, 4 are for performing addition, subtraction, multiplication, division respectively. If Choice-4 is selected, the program will check if b is nonzero. If the check is true, the program will ask for another choice (1 &lt;= Case &lt;=2), where Case-1, 2 evaluate quotient and reminder respectively. If the check is false, it will print an error message “Error: Divisor is zero” and halt.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5     10
+3</pre></td>
+              <td><pre>Multiplication: 50</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-5     10.5
+4
+2</pre></td>
+              <td><pre>Reminder: -48</pre></td>
+            </tr>
+            <tr>
+              <td><pre>-5     0
+4</pre></td>
+              <td><pre>Error: Divisor is zero</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    float a, b;
+    int choice, choice2;
+    scanf("%f %f", &amp;a, &amp;b);
+    scanf("%d", &amp;choice);
+
+    if (choice == 1)
+        printf("Addition: %g\n", a + b);
+    else if (choice == 2)
+        printf("Subtraction: %g\n", a - b);
+    else if (choice == 3)
+        printf("Multiplication: %g\n", a * b);
+    else if (choice == 4) {
+        if ((int)b != 0) {
+            scanf("%d", &amp;choice2);
+            if (choice2 == 1)
+                printf("Quotient: %d\n", (int)a / (int)b);
+            else if (choice2 == 2)
+                printf("Remainder: %d\n", (int)a % (int)b);
+        } else {
+            printf("Error: Divisor is zero\n");
+        }
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p15">
+        <header class="problem-header">
+          <h2>15. Number Guessing Game</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">15. Number Guessing Game.c</code>
+        </header>
+        <p class="statement">Program for “Guessing Game”: Player-1 picks a number X and Player-2 has to guess that number within N = 3 tries. For each wrong guess by Player-2, the program prints “Wrong, N-1 Chance(s) Left!” If Player-2 successfully guesses the number, the program prints “Right, Player-2 wins!” and stops allowing further tries (if any left). Otherwise after the completion of N = 3 wrong tries, the program prints “Player-1 wins!” and halts. [ Restriction: Without using loop/break/continue Hint: Use flag ]</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+12    8    5</pre></td>
+              <td><pre>Wrong, 2 Chance(s) Left!
+Wrong, 1 Chance(s) Left!
+Right, Player-2 wins!</pre></td>
+            </tr>
+            <tr>
+              <td><pre>100
+50    100</pre></td>
+              <td><pre>Wrong, 2 Chance(s) Left!
+Right, Player-2 wins!</pre></td>
+            </tr>
+            <tr>
+              <td><pre>20
+12    8    5</pre></td>
+              <td><pre>Wrong, 2 Chance(s) Left!
+Wrong, 1 Chance(s) Left!
+Wrong, 0 Chance(s) Left!
+Player-1 wins!</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+
+int main() {
+    int x, g, flag = 0;
+    scanf("%d", &amp;x);
+
+    scanf("%d", &amp;g);
+    if (g == x) {
+    printf("Right, Player-2 wins!\n"); flag = 1;
+    }
+    else{
+    printf("Wrong, 2 Chance(s) Left!\n");
+    }
+
+
+    if (flag == 0) {
+        scanf("%d", &amp;g);
+        if (g == x) {
+        printf("Right, Player-2 wins!\n"); flag = 1;
+        }
+        else {
+        printf("Wrong, 1 Chance(s) Left!\n");
+        }
+    }
+    if (flag == 0) {
+        scanf("%d", &amp;g);
+        if (g == x) {
+        printf("Right, Player-2 wins!\n"); flag = 1;
+        }
+        else {
+        printf("Wrong, 0 Chance(s) Left!\n");
+        }
+    }
+    if (flag == 0){
+        printf("Player-1 wins!\n");
+        }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SPL Lab solutions &middot; written in C &middot; compiled with gcc</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

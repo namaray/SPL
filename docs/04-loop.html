@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loops - SPL Lab Solutions</title>
+  <meta name="description" content="for, while and do-while, series, factorials and number theory.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">SPL&nbsp;Lab</a>
+    <nav class="site-nav">
+      <a href="01-intro.html">Intro</a>
+      <a href="02-operators.html">Operators</a>
+      <a href="03-conditions.html">Conditions</a>
+      <a href="04-loop.html" aria-current="page">Loops</a>
+      <a href="05-array.html">Arrays</a>
+      <a href="06-nested-loop.html">Nested Loops</a>
+      <a href="07-2d-array.html">2D Arrays</a>
+      <a href="08-strings.html">Strings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>Loops</h1>
+      <p class="lede">for, while and do-while, series, factorials and number theory.</p>
+      <p class="stats">20 problems</p>
+    </section>
+
+    <nav class="contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#p01"><span class="n">01</span> (WAP) that will print following series upto Nth terms. 1, 2,...</a></li>
+        <li><a href="#p02"><span class="n">02</span> (WAP) that will print following series upto Nth terms. 1, 3,...</a></li>
+        <li><a href="#p03"><span class="n">03</span> (WAP) that will print following series upto Nth terms. 1, 0,...</a></li>
+        <li><a href="#p04"><span class="n">04</span> (WAP) that will take N numbers as inputs and compute their...</a></li>
+        <li><a href="#p05"><span class="n">05</span> (WAP) that will take two numbers X and Y as inputs. Then it...</a></li>
+        <li><a href="#p06"><span class="n">06</span> (WAP) for the described scenario: Player-1 picks a number X...</a></li>
+        <li><a href="#p07"><span class="n">07</span> (WAP) that will run and show keyboard inputs until the user...</a></li>
+        <li><a href="#p08"><span class="n">08</span> (WAP) that will reverse the digits of an input integer.</a></li>
+        <li><a href="#p09"><span class="n">09</span> (WAP) that will find the grade of N students. For each...</a></li>
+        <li><a href="#p10"><span class="n">10</span> (WAP) that will give the sum of first Nth terms for the...</a></li>
+        <li><a href="#p11"><span class="n">11</span> (WAP) that will calculate the result for the first Nth terms...</a></li>
+        <li><a href="#p12"><span class="n">12</span> (WAP) that will print Fibonacci series upto Nth terms. 1, 1,...</a></li>
+        <li><a href="#p13"><span class="n">13</span> (WAP) that will print the factorial (N!) of a given number N....</a></li>
+        <li><a href="#p14"><span class="n">14</span> (WAP) that will find nCr where n &gt;= r; n and r are integers.</a></li>
+        <li><a href="#p15"><span class="n">15</span> (WAP) that will find xy (x to the power y) where x, y are...</a></li>
+        <li><a href="#p16"><span class="n">16</span> Find the GCD (greatest common divisor) and LCM (least common...</a></li>
+        <li><a href="#p17"><span class="n">17</span> Determine whether a number is prime or not.</a></li>
+        <li><a href="#p18"><span class="n">18</span> Determine whether an integer is palindrome number or not.</a></li>
+        <li><a href="#p19"><span class="n">19</span> Calculate following mathematical function for the input of x....</a></li>
+        <li><a href="#p20"><span class="n">20</span> Takes an integer number n as input and find out the sum of...</a></li>
+      </ol>
+    </nav>
+
+    <section class="problem-list">
+      <article class="problem" id="p01">
+        <header class="problem-header">
+          <h2>01</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">01.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will print following series upto Nth terms. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, …….</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>1, 2</pre></td>
+            </tr>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>1, 2, 3, 4, 5</pre></td>
+            </tr>
+            <tr>
+              <td><pre>11</pre></td>
+              <td><pre>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        printf("%d", i);
+        if (i &lt; n) printf(", ");
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p02">
+        <header class="problem-header">
+          <h2>02</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">02.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will print following series upto Nth terms. 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31 …….</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>1, 3</pre></td>
+            </tr>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>1, 3, 5, 7, 9</pre></td>
+            </tr>
+            <tr>
+              <td><pre>11</pre></td>
+              <td><pre>1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        printf("%d", 2 * i - 1);   // odd numbers
+        if (i &lt; n) printf(", ");
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p03">
+        <header class="problem-header">
+          <h2>03</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">03.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will print following series upto Nth terms. 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, …….</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1</pre></td>
+              <td><pre>1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>1, 0</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>1, 0, 1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>1, 0, 1, 0</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7</pre></td>
+              <td><pre>1, 0, 1, 0, 1, 0, 1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>13</pre></td>
+              <td><pre>1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        if (i % 2 == 1) {
+        printf("1");
+        }
+        else {
+        printf("0");
+        }
+        if (i &lt; n) printf(", ");
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p04">
+        <header class="problem-header">
+          <h2>04</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">04.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will take N numbers as inputs and compute their average. (Restriction: Without using any array)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3
+10         20        30.5</pre></td>
+              <td><pre>AVG of 3 inputs:  20.166667</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2
+22.4     11.1</pre></td>
+              <td><pre>AVG of 2 inputs:  16.750000</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    float x, sum = 0;
+
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++) {
+        scanf("%f", &amp;x);
+        sum += x;
+    }
+    printf("Average of %d inputs:  %f\n", n, sum / n);
+
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p05">
+        <header class="problem-header">
+          <h2>05</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">05.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will take two numbers X and Y as inputs. Then it will print the square of X and increment (if X&lt;Y) or decrement (if X&gt;Y) X by 1, until X reaches Y. If and when X is equal to Y, the program prints “Reached!”</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>10       5</pre></td>
+              <td><pre>100, 81, 64, 49, 36, Reached!</pre></td>
+            </tr>
+            <tr>
+              <td><pre>5         10</pre></td>
+              <td><pre>25, 36, 49, 64, 81, Reached!</pre></td>
+            </tr>
+            <tr>
+              <td><pre>10       10</pre></td>
+              <td><pre>Reached!</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x, y;
+    scanf("%d %d", &amp;x, &amp;y);
+
+    while (x != y) {
+        printf("%d, ", x * x);
+        if (x &lt; y) {
+        x++;
+        }
+        else {
+        x--;
+        }
+    }
+    printf("Reached!\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p06">
+        <header class="problem-header">
+          <h2>06</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">06.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) for the described scenario: Player-1 picks a number X and Player-2 has to guess that number within N tries. For each wrong guess by Player-2, the program prints “Wrong, N-1 Choice(s) Left!” If Player-2 at any time successfully guesses the number, the program prints “Right, Player-2 wins!” and terminates right away. Otherwise after the completion of N wrong tries, the program prints “Player-1 wins!” and halts. (Hint: Use break/continue)</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+3
+12    8    5</pre></td>
+              <td><pre>Wrong, 2 Choice(s) Left!
+Wrong, 1 Choice(s) Left!
+Right, Player-2 wins!</pre></td>
+            </tr>
+            <tr>
+              <td><pre>100
+5
+50    100</pre></td>
+              <td><pre>Wrong, 4 Choice(s) Left!
+Right, Player-2 wins!</pre></td>
+            </tr>
+            <tr>
+              <td><pre>20
+3
+12    8    5</pre></td>
+              <td><pre>Wrong, 2 Choice(s) Left!
+Wrong, 1 Choice(s) Left!
+Wrong, 0 Choice(s) Left!
+Player-1 wins!</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x, n, i, g, won = 0;
+    scanf("%d %d", &amp;x, &amp;n);
+
+    for (i = 0; i &lt; n; i++) {
+        scanf("%d", &amp;g);
+        if (g == x) {
+            printf("Right, Player-2 wins!\n");
+            won = 1;
+            break;
+        }
+        printf("Wrong, %d Choice(s) Left!\n", n - i - 1);
+    }
+    if (!won)
+        printf("Player-1 wins!\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p07">
+        <header class="problem-header">
+          <h2>07</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">07.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will run and show keyboard inputs until the user types an ’A’ at the keyboard.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>X
+1
+a
+A</pre></td>
+              <td><pre>Input 1: X
+Input 2: 1
+Input 3: a</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    char c;
+    int i = 1;
+
+    while (1) {
+        scanf(" %c", &amp;c);
+        if (c == 'A') {
+        break;
+        }
+        printf("Input %d: %c\n", i, c);
+        i++;
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p08">
+        <header class="problem-header">
+          <h2>08</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">08.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will reverse the digits of an input integer.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>13579</pre></td>
+              <td><pre>97531</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4321</pre></td>
+              <td><pre>1234</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n;
+    scanf("%d", &amp;n);
+
+    while (n != 0) {
+        printf("%d", n % 10);
+        n = n / 10;
+
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p09">
+        <header class="problem-header">
+          <h2>09</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">09.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will find the grade of N students. For each student, it will take the marks of his/her the attendance (on 5 marks), assignment (on 10 marks), class test (on 15 marks), midterm (on 50 marks), term final (on 100 marks). Then based on the tables shown below, the program will output his grade.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2
+5     10      15      44.5     92.5
+0     7.5       5       20        55.5</pre></td>
+              <td><pre>Student 1 : A
+Student 2 : F</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    float a, hw, ct, mt, tf, total;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        scanf("%f %f %f %f %f", &amp;a, &amp;hw, &amp;ct, &amp;mt, &amp;tf);
+        // convert every mark to its weight, then add up (out of 100)
+        total = a / 5 * 5 + hw / 10 * 10 + ct / 15 * 15 + mt / 50 * 30 + tf / 100 * 40;
+
+        printf("Student %d : ", i);
+        if (total &gt;= 90)      printf("A\n");
+        else if (total &gt;= 86) printf("A-\n");
+        else if (total &gt;= 82) printf("B+\n");
+        else if (total &gt;= 78) printf("B\n");
+        else if (total &gt;= 74) printf("B-\n");
+        else if (total &gt;= 70) printf("C+\n");
+        else if (total &gt;= 66) printf("C\n");
+        else if (total &gt;= 62) printf("C-\n");
+        else if (total &gt;= 58) printf("D+\n");
+        else if (total &gt;= 55) printf("D\n");
+        else                  printf("F\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p10">
+        <header class="problem-header">
+          <h2>10</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">10.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will give the sum of first Nth terms for the following series. 1, -2, 3, -4, 5, -6, 7, -8, 9, -10, 11, -12, 13, -14, …….</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>Result: -1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>Result: 2</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>Result: -2</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, sum = 0;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        if (i % 2 == 1) {
+        sum += i;
+        }           // odd position -&gt; +
+        else {
+        sum -= i;   // even position -&gt; -
+        }
+    }
+    printf("Result: %d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p11">
+        <header class="problem-header">
+          <h2>11</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">11.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will calculate the result for the first Nth terms of the following series. [In that series sum, dot sign (.) means multiplication] 12.2 + 22.3 + 32.4 + 42.5 + …….</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>Result: 14</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>Result: 50</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>Result: 130</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7</pre></td>
+              <td><pre>Result: 924</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, sum = 0;
+    scanf("%d", &amp;n);
+
+    // term i = i*i*(i+1)
+    for (i = 1; i &lt;= n; i++)
+        sum += i * i * (i + 1);
+
+    printf("Result: %d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p12">
+        <header class="problem-header">
+          <h2>12</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">12.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will print Fibonacci series upto Nth terms. 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, …….</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1</pre></td>
+              <td><pre>1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>1, 1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>1, 1, 2, 3</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7</pre></td>
+              <td><pre>1, 1, 2, 3, 5, 8, 13</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, a = 1, b = 1, t;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        printf("%d", a);
+        if (i &lt; n) printf(", ");
+        t = a + b;
+        a = b;
+        b = t;
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p13">
+        <header class="problem-header">
+          <h2>13</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">13.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will print the factorial (N!) of a given number N. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1</pre></td>
+              <td><pre>1! = 1 = 1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>2! = 2 X 1 = 2</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>3! = 3 X 2 X 1 = 6</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>4! = 4 X 3 X 2 X 1 = 24</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    long f = 1;
+    scanf("%d", &amp;n);
+
+    printf("%d! = ", n);
+    for (i = n; i &gt;= 1; i--) {
+        printf("%d", i);
+        if (i &gt; 1) printf(" X ");
+        f *= i;
+    }
+    printf(" = %ld\n", f);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p14">
+        <header class="problem-header">
+          <h2>14</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">14.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will find nCr where n &gt;= r; n and r are integers.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5   2</pre></td>
+              <td><pre>10</pre></td>
+            </tr>
+            <tr>
+              <td><pre>10   3</pre></td>
+              <td><pre>120</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7   7</pre></td>
+              <td><pre>1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>6   1</pre></td>
+              <td><pre>6</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, r, i;
+    long num = 1, den = 1;
+    scanf("%d %d", &amp;n, &amp;r);
+
+    // nCr = (n * (n-1) * ... r terms) / r!
+    for (i = 1; i &lt;= r; i++) {
+        num *= (n - i + 1);
+        den *= i;
+    }
+    printf("%ld\n", num / den);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p15">
+        <header class="problem-header">
+          <h2>15</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">15.c</code>
+        </header>
+        <p class="statement">Write a program (WAP) that will find xy (x to the power y) where x, y are positive integers.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5   2</pre></td>
+              <td><pre>25</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2   0</pre></td>
+              <td><pre>1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>6   1</pre></td>
+              <td><pre>6</pre></td>
+            </tr>
+            <tr>
+              <td><pre>0   5</pre></td>
+              <td><pre>0</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x, y, i;
+    long p = 1;
+    scanf("%d %d", &amp;x, &amp;y);
+
+    for (i = 1; i &lt;= y; i++)
+        p *= x;
+
+    printf("%ld\n", p);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p16">
+        <header class="problem-header">
+          <h2>16</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">16.c</code>
+        </header>
+        <p class="statement">Write a program that will find the GCD (greatest common divisor) and LCM (least common multiple) of two positive integers.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5   7</pre></td>
+              <td><pre>GCD: 1
+LCM: 35</pre></td>
+            </tr>
+            <tr>
+              <td><pre>12  12</pre></td>
+              <td><pre>GCD: 12
+LCM: 12</pre></td>
+            </tr>
+            <tr>
+              <td><pre>12   32</pre></td>
+              <td><pre>GCD: 4
+LCM: 96</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, i, gcd = 1;
+    scanf("%d %d", &amp;a, &amp;b);
+
+    for (i = 1; i &lt;= a &amp;&amp; i &lt;= b; i++)
+        if (a % i == 0 &amp;&amp; b % i == 0)
+            gcd = i;
+
+    printf("GCD: %d\n", gcd);
+    printf("LCM: %d\n", a / gcd * b);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p17">
+        <header class="problem-header">
+          <h2>17</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">17.c</code>
+        </header>
+        <p class="statement">Write a program that will determine whether a number is prime or not.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1</pre></td>
+              <td><pre>Not prime</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>Prime</pre></td>
+            </tr>
+            <tr>
+              <td><pre>11</pre></td>
+              <td><pre>Prime</pre></td>
+            </tr>
+            <tr>
+              <td><pre>39</pre></td>
+              <td><pre>Not prime</pre></td>
+            </tr>
+            <tr>
+              <td><pre>101</pre></td>
+              <td><pre>Prime</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, isPrime = 1;
+    scanf("%d", &amp;n);
+
+    if (n &lt; 2) isPrime = 0;
+    for (i = 2; i &lt; n; i++)
+        if (n % i == 0)
+            isPrime = 0;
+
+    if (isPrime) printf("Prime\n");
+    else         printf("Not prime\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p18">
+        <header class="problem-header">
+          <h2>18</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">18.c</code>
+        </header>
+        <p class="statement">Write a program that will determine whether an integer is palindrome number or not.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>9</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>91</pre></td>
+              <td><pre>No</pre></td>
+            </tr>
+            <tr>
+              <td><pre>222</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>12321</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>110</pre></td>
+              <td><pre>No</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, t, rev = 0;
+    scanf("%d", &amp;n);
+    t = n;
+
+    while (t != 0) {
+        rev = rev * 10 + t % 10;
+        t = t / 10;
+    }
+
+    if (rev == n) printf("Yes\n");
+    else          printf("No\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p19">
+        <header class="problem-header">
+          <h2>19</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">19.c</code>
+        </header>
+        <p class="statement">Write a program that will calculate following mathematical function for the input of x. Use only the series to solve the problem.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1</pre></td>
+              <td><pre>0.841</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>0.909</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>0.141</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+/* Calculates sin(x) using its Taylor series:
+   sin(x) = x - x^3/3! + x^5/5! - ...  (x is in radians) */
+int main() {
+    double x, term, sum;
+    int i;
+    scanf("%lf", &amp;x);
+
+    term = x;
+    sum = x;
+    for (i = 1; i &lt; 10; i++) {
+        term = term * (-1) * x * x / ((2 * i) * (2 * i + 1));
+        sum += term;
+    }
+    printf("%.3f\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p20">
+        <header class="problem-header">
+          <h2>20</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">20.c</code>
+        </header>
+        <p class="statement">Write a program that takes an integer number n as input and find out the sum of the following series up to n terms. 1 + 12 + 123 + 1234 + …….</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1</pre></td>
+              <td><pre>1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>13</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>136</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>1370</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i;
+    long term = 0, sum = 0;
+    scanf("%d", &amp;n);
+
+    // 1, 12, 123, 1234 ...  each term = previous*10 + i
+    for (i = 1; i &lt;= n; i++) {
+        term = term * 10 + i;
+        sum += term;
+    }
+    printf("%ld\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SPL Lab solutions &middot; written in C &middot; compiled with gcc</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

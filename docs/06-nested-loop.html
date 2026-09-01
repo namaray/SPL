@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nested Loops - SPL Lab Solutions</title>
+  <meta name="description" content="Loops inside loops, star patterns and number pyramids.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">SPL&nbsp;Lab</a>
+    <nav class="site-nav">
+      <a href="01-intro.html">Intro</a>
+      <a href="02-operators.html">Operators</a>
+      <a href="03-conditions.html">Conditions</a>
+      <a href="04-loop.html">Loops</a>
+      <a href="05-array.html">Arrays</a>
+      <a href="06-nested-loop.html" aria-current="page">Nested Loops</a>
+      <a href="07-2d-array.html">2D Arrays</a>
+      <a href="08-strings.html">Strings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>Nested Loops</h1>
+      <p class="lede">Loops inside loops, star patterns and number pyramids.</p>
+      <p class="stats">18 problems</p>
+    </section>
+
+    <nav class="contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#p01"><span class="n">01</span> 123  /  123</a></li>
+        <li><a href="#p02"><span class="n">02</span> 123  /  234</a></li>
+        <li><a href="#p03"><span class="n">03</span> 1  /  23</a></li>
+        <li><a href="#p04"><span class="n">04</span> __1  /  _22</a></li>
+        <li><a href="#p05"><span class="n">05</span> 3  /  32</a></li>
+        <li><a href="#p06"><span class="n">06</span> 1  /  12</a></li>
+        <li><a href="#p07"><span class="n">07</span> ****  /  ****</a></li>
+        <li><a href="#p08"><span class="n">08</span> *****  /  ****</a></li>
+        <li><a href="#p09"><span class="n">09</span> 10101  /  01010</a></li>
+        <li><a href="#p10"><span class="n">10</span> ____*  /  ___**</a></li>
+        <li><a href="#p11"><span class="n">11</span> ____*  /  ___***</a></li>
+        <li><a href="#p12"><span class="n">12</span> ____*  /  ___***</a></li>
+        <li><a href="#p13"><span class="n">13</span> 1_____1  /  12___21</a></li>
+        <li><a href="#p14"><span class="n">14</span> *****  /  *___*</a></li>
+        <li><a href="#p15"><span class="n">15</span> ZZZZZ  /          Z</a></li>
+        <li><a href="#p16"><span class="n">16</span> *___*  /  _*_*_</a></li>
+        <li><a href="#p17"><span class="n">17</span> ____$____  /  ___$$$___</a></li>
+        <li><a href="#p18"><span class="n">18</span> H            H  /  H            H</a></li>
+      </ol>
+    </nav>
+
+    <section class="problem-list">
+      <article class="problem" id="p01">
+        <header class="problem-header">
+          <h2>01</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">01.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>123
+123
+123</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>1234
+1234
+1234
+1234</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        for (j = 1; j &lt;= n; j++)
+            printf("%d", j);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p02">
+        <header class="problem-header">
+          <h2>02</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">02.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>123
+234
+345</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>1234
+2345
+3456
+4567</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        for (j = 0; j &lt; n; j++)
+            printf("%d", i + j);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p03">
+        <header class="problem-header">
+          <h2>03</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">03.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>1
+23
+345</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>1
+23
+345
+4567</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    // row i starts at i and prints i numbers
+    for (i = 1; i &lt;= n; i++) {
+        for (j = 0; j &lt; i; j++)
+            printf("%d", i + j);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p04">
+        <header class="problem-header">
+          <h2>04</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">04.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>__1
+_22
+333</pre></td>
+            </tr>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>____1
+___22
+__333
+_4444
+55555</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        for (j = 0; j &lt; n - i; j++) printf("_");   // leading spaces
+        for (j = 0; j &lt; i; j++)     printf("%d", i);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p05">
+        <header class="problem-header">
+          <h2>05</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">05.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>3
+32
+321</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>4
+43
+432
+4321</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        for (j = n; j &gt;= n - i + 1; j--)
+            printf("%d", j);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p06">
+        <header class="problem-header">
+          <h2>06</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">06.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>1
+12
+123</pre></td>
+            </tr>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>1
+12
+123
+1234</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        for (j = 1; j &lt;= i; j++)
+            printf("%d", j);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p07">
+        <header class="problem-header">
+          <h2>07</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">07.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>****
+****
+****
+****</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>**
+**</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++) {
+        for (j = 0; j &lt; n; j++)
+            printf("*");
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p08">
+        <header class="problem-header">
+          <h2>08</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">08.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>*****
+****
+***
+**
+*</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2</pre></td>
+              <td><pre>**
+*</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = n; i &gt;= 1; i--) {
+        for (j = 0; j &lt; i; j++)
+            printf("*");
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p09">
+        <header class="problem-header">
+          <h2>09</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">09.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>10101
+01010
+10101
+01010
+10101</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>101
+010
+101</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++) {
+        for (j = 0; j &lt; n; j++) {
+            if ((i + j) % 2 == 0) printf("1");
+            else                  printf("0");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p10">
+        <header class="problem-header">
+          <h2>10</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">10.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>____*
+___**
+__***
+_****
+*****</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>__*
+_**
+***</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        for (j = 0; j &lt; n - i; j++) printf("_");   // spaces
+        for (j = 0; j &lt; i; j++)     printf("*");    // stars
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p11">
+        <header class="problem-header">
+          <h2>11</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">11.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>____*
+___***
+__*****
+_*******
+*********</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>__*
+_***
+*****</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++) {
+        for (j = 0; j &lt; n - i; j++)     printf("_");   // spaces
+        for (j = 0; j &lt; 2 * i - 1; j++) printf("*");    // stars
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p12">
+        <header class="problem-header">
+          <h2>12</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">12.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>9</pre></td>
+              <td><pre>____*
+___***
+__*****
+_*******
+*********
+_*******
+__*****
+___***
+____*</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>_*
+***
+_*</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j, h;
+    scanf("%d", &amp;n);
+    h = (n + 1) / 2;   // number of rows in the top half
+
+    // top half (growing)
+    for (i = 1; i &lt;= h; i++) {
+        for (j = 0; j &lt; h - i; j++)     printf("_");
+        for (j = 0; j &lt; 2 * i - 1; j++) printf("*");
+        printf("\n");
+    }
+    // bottom half (shrinking)
+    for (i = h - 1; i &gt;= 1; i--) {
+        for (j = 0; j &lt; h - i; j++)     printf("_");
+        for (j = 0; j &lt; 2 * i - 1; j++) printf("*");
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p13">
+        <header class="problem-header">
+          <h2>13</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">13.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>4</pre></td>
+              <td><pre>1_____1
+12___21
+123_321
+1234321</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>1___1
+12_21
+12321</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, p;
+    scanf("%d", &amp;n);
+
+    int width = 2 * n - 1;           // each line is this wide
+    for (i = 1; i &lt;= n; i++) {
+        for (p = 0; p &lt; width; p++) {
+            // "ring" value: 1 at the edges, growing to n at the centre
+            int left = p + 1;
+            int right = width - p;
+            int v = (left &lt; right) ? left : right;
+
+            if (v &lt;= i) printf("%d", v);
+            else        printf("_");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p14">
+        <header class="problem-header">
+          <h2>14</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">14.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>*****
+*___*
+*****
+*___*
+*****</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3</pre></td>
+              <td><pre>***
+*_*
+***</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++) {
+        for (j = 0; j &lt; n; j++) {
+            if (i % 2 == 0)                 printf("*");   // full rows
+            else if (j == 0 || j == n - 1)  printf("*");   // side walls
+            else                            printf("_");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p15">
+        <header class="problem-header">
+          <h2>15</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">15.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>ZZZZZ
+        Z
+     Z
+  Z
+ZZZZZ</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7</pre></td>
+              <td><pre>ZZZZZZZ
+             Z
+           Z
+        Z
+     Z
+  Z
+ZZZZZZZ</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++) {
+        for (j = 0; j &lt; n; j++) {
+            if (i == 0 || i == n - 1) printf("Z");   // top and bottom line
+            else if (j == n - 1 - i)  printf("Z");   // the diagonal
+            else                      printf(" ");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p16">
+        <header class="problem-header">
+          <h2>16</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">16.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>*___*
+_*_*_
+__*__
+_*_*_
+*___*</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7</pre></td>
+              <td><pre>*_____*
+_*___*_
+__*_*__
+___*___
+__*_*__
+_*___*_
+*_____*</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++) {
+        for (j = 0; j &lt; n; j++) {
+            if (j == i || j == n - 1 - i) printf("*");   // the two diagonals
+            else                          printf("_");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p17">
+        <header class="problem-header">
+          <h2>17</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">17.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>9</pre></td>
+              <td><pre>____$____
+___$$$___
+__$_$_$__
+_$__$__$_
+$$$$$$$$$
+_$__$__$_
+__$_$_$__
+___$$$___
+____$____</pre></td>
+            </tr>
+            <tr>
+              <td><pre>13</pre></td>
+              <td><pre>______$______
+_____$$$_____
+____$_$_$____
+___$__$__$___
+__$___$___$__
+_$____$____$_
+$$$$$$$$$$$$$
+_$____$____$_
+__$___$___$__
+___$__$__$___
+____$_$_$____
+_____$$$_____
+______$______</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j, mid, d;
+    scanf("%d", &amp;n);
+    mid = n / 2;
+
+    for (i = 0; i &lt; n; i++) {
+        d = (i &lt;= mid) ? i : n - 1 - i;   // distance from middle row
+        for (j = 0; j &lt; n; j++) {
+            if (i == mid)                              printf("$");   // middle full row
+            else if (j == mid || j == mid - d || j == mid + d) printf("$");
+            else                                       printf("_");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p18">
+        <header class="problem-header">
+          <h2>18</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">18.c</code>
+        </header>
+        <p class="statement">Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>H            H
+H            H
+H H H H H
+H            H
+H            H</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7</pre></td>
+              <td><pre>H                    H
+H                    H
+H                    H
+H H H H H H H
+H                    H
+H                    H
+H                    H</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++) {
+        for (j = 0; j &lt; n; j++) {
+            if (j == 0 || j == n - 1 || i == n / 2) printf("H");
+            else                                    printf(" ");
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SPL Lab solutions &middot; written in C &middot; compiled with gcc</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

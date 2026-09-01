@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2D Arrays - SPL Lab Solutions</title>
+  <meta name="description" content="Matrices: input, traversal, transpose and multiplication.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">SPL&nbsp;Lab</a>
+    <nav class="site-nav">
+      <a href="01-intro.html">Intro</a>
+      <a href="02-operators.html">Operators</a>
+      <a href="03-conditions.html">Conditions</a>
+      <a href="04-loop.html">Loops</a>
+      <a href="05-array.html">Arrays</a>
+      <a href="06-nested-loop.html">Nested Loops</a>
+      <a href="07-2d-array.html" aria-current="page">2D Arrays</a>
+      <a href="08-strings.html">Strings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>2D Arrays</h1>
+      <p class="lede">Matrices: input, traversal, transpose and multiplication.</p>
+      <p class="stats">15 problems</p>
+    </section>
+
+    <nav class="contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#p01"><span class="n">01</span> 9 integers into a 3 by 3 array (2D) and show them as...</a></li>
+        <li><a href="#p02"><span class="n">02</span> (m x n) integers into a m by n array (2D) and print them both...</a></li>
+        <li><a href="#p03"><span class="n">03</span> Inputs of a 3 by 3 matrix into a 2D array. Now find the...</a></li>
+        <li><a href="#p04"><span class="n">04</span> Inputs of a n sized square matrix into a 2D array. Now show...</a></li>
+        <li><a href="#p05"><span class="n">05</span> The size of an identity matrix from the user and generate the...</a></li>
+        <li><a href="#p06"><span class="n">06</span> Inputs of two m x n sized matrix into two 2D array, suppose A...</a></li>
+        <li><a href="#p07"><span class="n">07</span> Inputs of two 3 x 3 sized matrix into two 2D array, suppose A...</a></li>
+        <li><a href="#p08"><span class="n">08</span> Inputs of m x n sized matrix into a 2D array and find the...</a></li>
+        <li><a href="#p09"><span class="n">09</span> 52</a></li>
+        <li><a href="#p10"><span class="n">10</span> 71</a></li>
+        <li><a href="#p11"><span class="n">11</span> 65</a></li>
+        <li><a href="#p12"><span class="n">12</span> 3 2 1  /  6 5 4</a></li>
+        <li><a href="#p13"><span class="n">13</span> (n x n) integer inputs into a square matrix of dimension n....</a></li>
+        <li><a href="#p14"><span class="n">14</span> (m x n) positive integer inputs into a matrix of dimension m...</a></li>
+        <li><a href="#p15"><span class="n">15</span> 41</a></li>
+      </ol>
+    </nav>
+
+    <section class="problem-list">
+      <article class="problem" id="p01">
+        <header class="problem-header">
+          <h2>01</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">01.c</code>
+        </header>
+        <p class="statement">Write a program that will take 9 integers into a 3 by 3 array (2D) and show them as traditional matrix view.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>9 8 7 6 5 4 3 2 1</pre></td>
+              <td><pre>9 8 7
+6 5 4
+3 2 1</pre></td>
+            </tr>
+            <tr>
+              <td><pre>1 1 1 2 2 2 3 3 3</pre></td>
+              <td><pre>1 1 1
+2 2 2
+3 3 3</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main(){
+
+    int a[3][3], i, j;
+
+    for(i=0; i&lt;3; i++)
+    {
+        for(j=0; j&lt;3; j++)
+        {
+            scanf("%d", &amp;a[i][j]);
+        }
+    }
+
+
+    for(i=0; i&lt;3; i++)
+    {
+        for(j=0; j&lt;3; j++)
+        {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p02">
+        <header class="problem-header">
+          <h2>02</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">02.c</code>
+        </header>
+        <p class="statement">Write a program that will take (m x n) integers into a m by n array (2D) and print them both row-wise and column-wise.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2 3
+1 2 3
+6 5 4</pre></td>
+              <td><pre>Row-wise: 1 2 3 6 5 4
+Column-wise: 1 6 2 5 3 4</pre></td>
+            </tr>
+            <tr>
+              <td><pre>3 3
+1 1 1
+2 2 2
+3 3 3</pre></td>
+              <td><pre>Row-wise: 1 1 1 2 2 2 3 3 3
+Column-wise: 1 2 3 1 2 3 1 2 3</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+
+#include &lt;stdio.h&gt;
+
+int main(){
+
+    int a[50][50], i, j;
+    int r, c;
+    scanf("%d %d", &amp;r, &amp;c);
+
+    for(i=0; i&lt;r; i++)
+    {
+        for(j=0; j&lt;c; j++)
+        {
+            scanf("%d", &amp;a[i][j]);
+        }
+    }
+
+    for(i=0; i&lt;r; i++)
+    {
+        for(j=0; j&lt;c; j++)
+        {
+            printf("%d ", a[i][j]);
+        }
+    }
+    printf("\n");
+
+
+    for(j=0; j&lt;c; j++)
+    {
+        for(i=0; i&lt;r; i++)
+        {
+            printf("%d ", a[i][j]);
+        }
+    }
+    printf("\n");
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p03">
+        <header class="problem-header">
+          <h2>03</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">03.c</code>
+        </header>
+        <p class="statement">Write a program that will take inputs of a 3 by 3 matrix into a 2D array. Now find the determinant of this matrix. http://www.mathsisfun.com/algebra/matrix-determinant.html</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1 2 3
+4 5 6
+7 8 9</pre></td>
+              <td><pre>0</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[3][3], i, j;
+    for (i = 0; i &lt; 3; i++)
+    {
+
+        for (j = 0; j &lt; 3; j++)
+        {
+            scanf("%d", &amp;a[i][j]);
+        }
+
+    }
+
+
+
+    int det = a[0][0] * (a[1][1] * a[2][2] - a[1][2] * a[2][1])
+              - a[0][1] * (a[1][0] * a[2][2] - a[1][2] * a[2][0])
+              + a[0][2] * (a[1][0] * a[2][1] - a[1][1] * a[2][0]);
+
+    printf("%d\n", det);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p04">
+        <header class="problem-header">
+          <h2>04</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">04.c</code>
+        </header>
+        <p class="statement">Write a program that will take inputs of a n sized square matrix into a 2D array. Now show all the elements of its two diagonals. Reference: http://en.wikipedia.org/wiki/Main_diagonal</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1 2 3 4 5
+5 4 3 2 1
+2 2 2 2 2
+6 7 8 9 0
+1 9 3 7 4</pre></td>
+              <td><pre>Major diagonal: 1 4 2 9 4
+Minor diagonal: 5 2 2 7 1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i, j, a[50][50];
+
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        for (j = 0; j &lt; n; j++)
+        {
+            scanf("%d", &amp;a[i][j]);
+        }
+    }
+
+    printf("Major diagonal: ");
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("%d ", a[i][i]);
+    }
+    printf("\n");
+
+    printf("Minor diagonal: ");
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("%d ", a[i][n - 1 - i]);
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p05">
+        <header class="problem-header">
+          <h2>05</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">05.c</code>
+        </header>
+        <p class="statement">Write a program that will take the size of an identity matrix from the user and generate the identity matrix into a 2D array. Finally display it. Reference:http://en.wikipedia.org/wiki/Identity_matrix</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5</pre></td>
+              <td><pre>1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 1 0
+0 0 0 0 1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i, j;
+    scanf("%d", &amp;n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        for (j = 0; j &lt; n; j++)
+        {
+            if (i == j)
+            {
+                printf("1 ");
+            }
+            else
+            {
+                printf("0 ");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p06">
+        <header class="problem-header">
+          <h2>06</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">06.c</code>
+        </header>
+        <p class="statement">Write a program that will take inputs of two m x n sized matrix into two 2D array, suppose A and B. Now do C = A + B. Finally display all the elements from matrix / 2D array C.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>2 3
+1 2 3
+2 3 4
+1 1 1
+2 2 2</pre></td>
+              <td><pre>2 3 4
+4 5 6</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>// 011222131
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int m, n, i, j, a[50][50], b[50][50];
+
+    scanf("%d %d", &amp;m, &amp;n);
+
+    for (i = 0; i &lt; m; i++)
+    {
+        for (j = 0; j &lt; n; j++)
+        {
+            scanf("%d", &amp;a[i][j]);
+        }
+    }
+    for (i = 0; i &lt; m; i++)
+    {
+        for (j = 0; j &lt; n; j++)
+        {
+            scanf("%d", &amp;b[i][j]);
+        }
+    }
+
+
+
+    for (i = 0; i &lt; m; i++)
+    {
+        for (j = 0; j &lt; n; j++)
+        {
+            printf("%d ", a[i][j] + b[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p07">
+        <header class="problem-header">
+          <h2>07</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">07.c</code>
+        </header>
+        <p class="statement">Write a program that will take inputs of two 3 x 3 sized matrix into two 2D array, suppose A and B. Now do C = A * B (multiplication). Finally display all the elements from matrix / 2D array C.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>1 2 3
+4 5 6
+7 8 9
+2 2 2
+2 2 2
+1 1 1</pre></td>
+              <td><pre>9 9 9
+24 24 24
+39 39 39</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a[3][3], b[3][3], c[3][3], i, j, k;
+    for (i = 0; i &lt; 3; i++) for (j = 0; j &lt; 3; j++) scanf("%d", &amp;a[i][j]);
+    for (i = 0; i &lt; 3; i++) for (j = 0; j &lt; 3; j++) scanf("%d", &amp;b[i][j]);
+
+    for (i = 0; i &lt; 3; i++)
+        for (j = 0; j &lt; 3; j++) {
+            c[i][j] = 0;
+            for (k = 0; k &lt; 3; k++)
+                c[i][j] += a[i][k] * b[k][j];
+        }
+
+    for (i = 0; i &lt; 3; i++) {
+        for (j = 0; j &lt; 3; j++)
+            printf("%d ", c[i][j]);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p08">
+        <header class="problem-header">
+          <h2>08</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">08.c</code>
+        </header>
+        <p class="statement">Write a program that will take inputs of m x n sized matrix into a 2D array and find the maximum element with index locationfrom that matrix.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3 3
+1 2 3
+4 5 6
+2 9 2</pre></td>
+              <td><pre>Max: 9
+Location: [2][1]</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2 3
+9 8 7
+3 4 5</pre></td>
+              <td><pre>Max: 9
+Location: [0][0]</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int m, n, i, j, a[50][50];
+    scanf("%d %d", &amp;m, &amp;n);
+    for (i = 0; i &lt; m; i++) for (j = 0; j &lt; n; j++) scanf("%d", &amp;a[i][j]);
+
+    int max = a[0][0], maxi = 0, maxj = 0;
+    for (i = 0; i &lt; m; i++)
+        for (j = 0; j &lt; n; j++)
+            if (a[i][j] &gt; max) { max = a[i][j]; maxi = i; maxj = j; }
+
+    printf("Max: %d\n", max);
+    printf("Location: [%d][%d]\n", maxi, maxj);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p09">
+        <header class="problem-header">
+          <h2>09</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">09.c</code>
+        </header>
+        <p class="statement">Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers at first row, last row and two diagonals without overlap. Please see the sample input-output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1 2 3 4 5
+2 3 4 1 6
+3 4 9 6 7
+4 2 6 7 8
+5 4 3 2 1</pre></td>
+              <td><pre>52</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1</pre></td>
+              <td><pre>23</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+/* Sum of first row, last row and both diagonals (each cell counted once). */
+int main() {
+    int n, i, j, a[50][50], sum = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) for (j = 0; j &lt; n; j++) scanf("%d", &amp;a[i][j]);
+
+    for (i = 0; i &lt; n; i++)
+        for (j = 0; j &lt; n; j++)
+            if (i == 0 || i == n - 1 || i == j || i + j == n - 1)
+                sum += a[i][j];
+
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p10">
+        <header class="problem-header">
+          <h2>10</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">10.c</code>
+        </header>
+        <p class="statement">Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers based on following position pattern (consider only the boxed position during the sum). Please see the input-output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1 2 3 4 5
+2 3 4 1 6
+3 4 9 6 7
+4 2 6 7 8
+5 4 3 2 1</pre></td>
+              <td><pre>71</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1</pre></td>
+              <td><pre>25</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+/* NOTE: the exact "boxed" positions were shown as an image in the original
+   document and could not be extracted. This uses the border + center as a
+   placeholder pattern -- replace the condition with your actual pattern. */
+int main() {
+    int n, i, j, a[50][50], sum = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) for (j = 0; j &lt; n; j++) scanf("%d", &amp;a[i][j]);
+
+    for (i = 0; i &lt; n; i++)
+        for (j = 0; j &lt; n; j++)
+            if (i == 0 || i == n - 1 || j == 0 || j == n - 1 ||
+                (i == n / 2 &amp;&amp; j == n / 2))
+                sum += a[i][j];
+
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p11">
+        <header class="problem-header">
+          <h2>11</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">11.c</code>
+        </header>
+        <p class="statement">Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers based on following position pattern (consider only the boxed position during the sum). Please see the input-output.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>5
+1 2 3 4 5
+2 3 4 1 6
+3 4 9 6 7
+4 2 6 7 8
+5 4 3 2 1</pre></td>
+              <td><pre>65</pre></td>
+            </tr>
+            <tr>
+              <td><pre>7
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1</pre></td>
+              <td><pre>33</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+/* NOTE: the exact "boxed" positions were shown as an image in the original
+   document and could not be extracted. This uses border + both diagonals as
+   a placeholder pattern -- replace the condition with your actual pattern. */
+int main() {
+    int n, i, j, a[50][50], sum = 0;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++) for (j = 0; j &lt; n; j++) scanf("%d", &amp;a[i][j]);
+
+    for (i = 0; i &lt; n; i++)
+        for (j = 0; j &lt; n; j++)
+            if (i == 0 || i == n - 1 || j == 0 || j == n - 1 ||
+                i == j || i + j == n - 1)
+                sum += a[i][j];
+
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p12">
+        <header class="problem-header">
+          <h2>12</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">12.c</code>
+        </header>
+        <p class="statement">Write a program that will take (m x n) integer inputs into a matrix of dimension m x n. Now reverse that matrix within itself and display it. Reversal means swap 1st column with the nth column, swap 2nd column with the (n-1)th column and so on…</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3 3
+1 2 3
+4 5 6
+2 9 2</pre></td>
+              <td><pre>3 2 1
+6 5 4
+2 9 2</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2 6
+1 2 3 4 5 6
+9 8 7 6 5 4</pre></td>
+              <td><pre>6 5 4 3 2 1
+4 5 6 7 8 9</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int m, n, i, j, a[50][50], temp;
+    scanf("%d %d", &amp;m, &amp;n);
+    for (i = 0; i &lt; m; i++) for (j = 0; j &lt; n; j++) scanf("%d", &amp;a[i][j]);
+
+    // swap column j with column (n-1-j)
+    for (i = 0; i &lt; m; i++)
+        for (j = 0; j &lt; n / 2; j++) {
+            temp = a[i][j];
+            a[i][j] = a[i][n - 1 - j];
+            a[i][n - 1 - j] = temp;
+        }
+
+    for (i = 0; i &lt; m; i++) {
+        for (j = 0; j &lt; n; j++)
+            printf("%d ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p13">
+        <header class="problem-header">
+          <h2>13</h2>
+          <span class="difficulty difficulty-2" title="medium">&#9733;&#9733;</span>
+          <code class="filename">13.c</code>
+        </header>
+        <p class="statement">Write a program that will take (n x n) integer inputs into a square matrix of dimension n. Now determine whether the matrix is symmetric or not. Reference: http://en.wikipedia.org/wiki/Symmetric_matrix</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3
+1  7  3
+7  4  5
+3  5  6</pre></td>
+              <td><pre>Yes</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2
+1  3
+4  2</pre></td>
+              <td><pre>No</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>//011222131
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i, j, a[50][50], symmetric = 1;
+    scanf("%d", &amp;n);
+    for (i = 0; i &lt; n; i++)
+    {
+        for (j = 0; j &lt; n; j++)
+        {
+            scanf("%d", &amp;a[i][j]);
+        }
+    }
+
+    for (i = 0; i &lt; n; i++)
+    {
+        for (j = 0; j &lt; n; j++)
+        {
+            if (a[i][j] != a[j][i])
+            {
+                symmetric = 0;
+            }
+        }
+    }
+
+    if (symmetric)
+    {
+        printf("Yes\n");
+    }
+    else
+    {
+        printf("No\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p14">
+        <header class="problem-header">
+          <h2>14</h2>
+          <span class="difficulty difficulty-3" title="hard">&#9733;&#9733;&#9733;</span>
+          <code class="filename">14.c</code>
+        </header>
+        <p class="statement">Write a program that will take (m x n) positive integer inputs into a matrix of dimension m x n. Now replace all the duplicate integers by -1 in that matrix. Finally display it.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3  3
+1  7  3
+7  4  5
+3  5  6</pre></td>
+              <td><pre> 1  7  3
+-1  4  5
+-1 -1  6</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2 6
+2  2  2  2  2  2
+6  5  4  3  2  1</pre></td>
+              <td><pre>2 -1 -1 -1 -1 -1
+6  5  4   3 -1  1</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int m, n, i, j, k, a[50][50];
+    scanf("%d %d", &amp;m, &amp;n);
+    for (i = 0; i &lt; m; i++) for (j = 0; j &lt; n; j++) scanf("%d", &amp;a[i][j]);
+
+    // give every cell a single number 0,1,2,... in row order.
+    // a cell is a duplicate if the same value appeared at a smaller number.
+    for (i = 0; i &lt; m; i++)
+        for (j = 0; j &lt; n; j++) {
+            int cur = i * n + j;                // this cell's order number
+            int dup = 0;
+            for (k = 0; k &lt; cur; k++) {          // all earlier cells
+                int r = k / n, c = k % n;
+                if (a[r][c] == a[i][j]) dup = 1;
+            }
+            if (dup) a[i][j] = -1;
+        }
+
+    for (i = 0; i &lt; m; i++) {
+        for (j = 0; j &lt; n; j++)
+            printf("%d ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+
+      <article class="problem" id="p15">
+        <header class="problem-header">
+          <h2>15</h2>
+          <span class="difficulty difficulty-1" title="easy">&#9733;</span>
+          <code class="filename">15.c</code>
+        </header>
+        <p class="statement">Write a program that will take (m x n) integer inputs into a matrix of dimension m x n. Now just simply add all the integers in that matrix and show the result.</p>
+        <div class="samples">
+          <table>
+            <thead>
+              <tr><th>Sample input</th><th>Sample output</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><pre>3  3
+1  7  3
+7  4  5
+3  5  6</pre></td>
+              <td><pre>41</pre></td>
+            </tr>
+            <tr>
+              <td><pre>2 6
+2  2  2  2  2  2
+6  5  4  3  2  1</pre></td>
+              <td><pre>33</pre></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="solution">
+          <div class="solution-bar">
+            <span>Solution</span>
+            <button class="copy-button" type="button">Copy</button>
+          </div>
+          <pre class="code"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int m, n, i, j, a[50][50], sum = 0;
+    scanf("%d %d", &amp;m, &amp;n);
+    for (i = 0; i &lt; m; i++) for (j = 0; j &lt; n; j++) scanf("%d", &amp;a[i][j]);
+
+    for (i = 0; i &lt; m; i++)
+        for (j = 0; j &lt; n; j++)
+            sum += a[i][j];
+
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SPL Lab solutions &middot; written in C &middot; compiled with gcc</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
