@@ -14,14 +14,30 @@ problem set, the sample input/output, and the full C solution.
 | --- | --- |
 | `index.html` | Homepage with one card per topic. **Generated** |
 | `01-intro.html` … `08-strings.html` | One page per topic. **Generated** |
+| `cheatsheet.html` | Revision page for topics 1-8. **Generated** |
+| `cheatsheet-body.html` | The cheatsheet's content. Hand written |
+| `cheatsheet.css` | Cheatsheet-only styling. Hand written |
 | `style.css` | All the styling. Light and dark, in sections. Hand written |
 | `app.js` | Syntax colouring + the Copy buttons. Hand written |
 | `questions.json` | The questions, pulled out of the .docx problem set. **Generated** |
 | `import_questions.py` | Reads the problem set .docx files, writes `questions.json` |
 | `build.py` | Reads `questions.json` + the `.c` files, writes the HTML |
 
-Only the four files marked "generated" are rebuilt by the scripts. Editing
-`style.css` or `app.js` never gets overwritten.
+Only the files marked "generated" are rebuilt by the scripts. Editing
+`style.css`, `app.js`, `cheatsheet.css` or `cheatsheet-body.html` never gets
+overwritten.
+
+## The cheatsheet
+
+`cheatsheet.html` is built from `cheatsheet-body.html` wrapped in the same
+header and footer as every other page, so the navigation stays in step. Its
+styling is in `cheatsheet.css`, loaded after `style.css` and only on that page.
+Every class there starts with `cs-` so it cannot collide with the rules that
+style the problem pages. Amber callouts mark mistakes that cost marks, green
+ones mark patterns worth memorising — the colour carries meaning, so keep that
+distinction if you edit it.
+
+To change the cheatsheet, edit `cheatsheet-body.html` and re-run `build.py`.
 
 ## Rebuilding
 

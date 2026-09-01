@@ -192,6 +192,15 @@ h1, h2, h3 { line-height: 1.25; }
   color: var(--text-muted);
 }
 
+/* The cheatsheet sits below the topic grid, full width. */
+.cheatsheet-card {
+  margin-top: 1rem;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.cheatsheet-card p { max-width: 62ch; }
+
 
 /* 4. Category pages
    -------------------------------------------------------------------------- */

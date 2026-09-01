@@ -207,15 +207,27 @@ def esc(text):
     return html.escape(text, quote=False)
 
 
-def page_shell(title, description, body, active_id=None):
-    """Wrap page content in the shared header, navigation and footer."""
+def page_shell(title, description, body, active_id=None, extra_css=None):
+    """
+    Wrap page content in the shared header, navigation and footer.
+
+    extra_css is an optional second stylesheet, loaded after style.css.
+    Only the cheatsheet uses it.
+    """
     links = []
     for category in CATEGORIES:
         current = ' aria-current="page"' if category["id"] == active_id else ""
         links.append(
             f'      <a href="{category["id"]}.html"{current}>{esc(category["name"])}</a>'
         )
+    # The cheatsheet sits at the end of the nav, after the eight topics.
+    cheat_current = ' aria-current="page"' if active_id == "cheatsheet" else ""
+    links.append(f'      <a href="cheatsheet.html"{cheat_current}>Cheatsheet</a>')
     nav_links = "\n".join(links)
+
+    stylesheets = '  <link rel="stylesheet" href="style.css">'
+    if extra_css:
+        stylesheets += f'\n  <link rel="stylesheet" href="{extra_css}">'
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -224,7 +236,7 @@ def page_shell(title, description, body, active_id=None):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(description)}">
-  <link rel="stylesheet" href="style.css">
+{stylesheets}
 </head>
 <body>
 
@@ -290,6 +302,15 @@ def render_homepage(all_problems):
     <section class="category-grid">
 {chr(10).join(cards)}
     </section>
+
+    <a class="category-card cheatsheet-card" href="cheatsheet.html">
+      <span class="category-number">REVISION</span>
+      <h2>Midterm Cheatsheet</h2>
+      <p>Every syntax pattern and method behind these {total} problems on one
+         page &mdash; format specifiers, loops, arrays, patterns, matrices,
+         strings, and the mistakes that cost marks.</p>
+      <span class="count">Sets 01&ndash;08</span>
+    </a>
 """
 
 
@@ -418,6 +439,18 @@ def main():
         )
         (WEBSITE_DIR / f"{category['id']}.html").write_text(page_html, encoding="utf-8")
         print(f"wrote {category['id']}.html ({len(problems)} problems)")
+
+    # The cheatsheet: hand written content, wrapped in the same shell.
+    body = (WEBSITE_DIR / "cheatsheet-body.html").read_text(encoding="utf-8")
+    cheatsheet_html = page_shell(
+        title="Midterm Cheatsheet - SPL Lab Solutions",
+        description="C syntax and methods for SPL lab topics 1-8, on one page.",
+        body=body,
+        active_id="cheatsheet",
+        extra_css="cheatsheet.css",
+    )
+    (WEBSITE_DIR / "cheatsheet.html").write_text(cheatsheet_html, encoding="utf-8")
+    print("wrote cheatsheet.html")
 
     total = sum(len(p) for p in all_problems.values())
     missing = sum(1 for p in all_problems.values() for item in p if not item["statement"])
