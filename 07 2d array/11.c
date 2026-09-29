@@ -1,8 +1,8 @@
+//011222131
 #include <stdio.h>
 
-/* NOTE: the exact "boxed" positions were shown as an image in the original
-   document and could not be extracted. This uses border + both diagonals as
-   a placeholder pattern -- replace the condition with your actual pattern. */
+/* Adds the boxed positions: every odd row and every odd column
+   (rows and columns 1, 3, 5 ... counting from 0). This makes a # grid. */
 int main() {
     int n, i, j, a[50][50], sum = 0;
     scanf("%d", &n);
@@ -10,8 +10,7 @@ int main() {
 
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
-            if (i == 0 || i == n - 1 || j == 0 || j == n - 1 ||
-                i == j || i + j == n - 1)
+            if (i % 2 == 1 || j % 2 == 1)
                 sum += a[i][j];
 
     printf("%d\n", sum);

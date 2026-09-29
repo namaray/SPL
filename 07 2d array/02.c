@@ -16,6 +16,7 @@ int main(){
         }
     }
 
+    printf("Row-wise: ");
     for(i=0; i<r; i++)
     {
         for(j=0; j<c; j++)
@@ -26,6 +27,7 @@ int main(){
     printf("\n");
 
 
+    printf("Column-wise: ");
     for(j=0; j<c; j++)
     {
         for(i=0; i<r; i++)

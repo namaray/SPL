@@ -1,3 +1,4 @@
+//011222131
 #include <stdio.h>
 
 /* Sum of first row, last row and both diagonals (each cell counted once). */

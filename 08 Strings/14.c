@@ -1,3 +1,4 @@
+//011222131
 #include <stdio.h>
 
 int main() {
@@ -19,7 +20,11 @@ int main() {
             if (cj >= 'A' && cj <= 'Z') cj = cj - 'A' + 'a';
             if (cj == ci) count++;
         }
-        if (count > bestCount) { bestCount = count; best = ci; }
+        // on a tie, keep the letter that comes first in the alphabet
+        if (count > bestCount || (count == bestCount && ci < best)) {
+            bestCount = count;
+            best = ci;
+        }
     }
     // print in uppercase like the samples (E, D ...)
     if (best >= 'a' && best <= 'z') best = best - 'a' + 'A';
