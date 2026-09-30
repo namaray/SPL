@@ -220,9 +220,11 @@ def page_shell(title, description, body, active_id=None, extra_css=None):
         links.append(
             f'      <a href="{category["id"]}.html"{current}>{esc(category["name"])}</a>'
         )
-    # The cheatsheet sits at the end of the nav, after the eight topics.
-    cheat_current = ' aria-current="page"' if active_id == "cheatsheet" else ""
-    links.append(f'      <a href="cheatsheet.html"{cheat_current}>Cheatsheet</a>')
+    # The two cheatsheets sit at the end of the nav, after the eight topics.
+    for page_id, label in (("cheatsheet", "Midterm Cheatsheet"),
+                           ("final-cheatsheet", "Final Cheatsheet")):
+        current = ' aria-current="page"' if active_id == page_id else ""
+        links.append(f'      <a href="{page_id}.html"{current}>{label}</a>')
     nav_links = "\n".join(links)
 
     stylesheets = '  <link rel="stylesheet" href="style.css">'
@@ -303,14 +305,23 @@ def render_homepage(all_problems):
 {chr(10).join(cards)}
     </section>
 
-    <a class="category-card cheatsheet-card" href="cheatsheet.html">
-      <span class="category-number">REVISION</span>
-      <h2>Midterm Cheatsheet</h2>
-      <p>Every syntax pattern and method behind these {total} problems on one
-         page &mdash; format specifiers, loops, arrays, patterns, matrices,
-         strings, and the mistakes that cost marks.</p>
-      <span class="count">Sets 01&ndash;08</span>
-    </a>
+    <section class="cheatsheet-cards">
+      <a class="category-card cheatsheet-card" href="cheatsheet.html">
+        <span class="category-number">REVISION</span>
+        <h2>Midterm Cheatsheet</h2>
+        <p>Every syntax pattern and method behind these {total} problems on one
+           page &mdash; format specifiers, loops, arrays, patterns, matrices,
+           strings, and the mistakes that cost marks.</p>
+        <span class="count">Sets 01&ndash;08</span>
+      </a>
+      <a class="category-card cheatsheet-card" href="final-cheatsheet.html">
+        <span class="category-number">REVISION</span>
+        <h2>Final Exam Cheatsheet</h2>
+        <p>Functions, structures, pointers, files and recursion on one page,
+           with the questions most worth knowing for the final.</p>
+        <span class="count">Sets 09&ndash;13</span>
+      </a>
+    </section>
 """
 
 
@@ -440,17 +451,24 @@ def main():
         (WEBSITE_DIR / f"{category['id']}.html").write_text(page_html, encoding="utf-8")
         print(f"wrote {category['id']}.html ({len(problems)} problems)")
 
-    # The cheatsheet: hand written content, wrapped in the same shell.
-    body = (WEBSITE_DIR / "cheatsheet-body.html").read_text(encoding="utf-8")
-    cheatsheet_html = page_shell(
-        title="Midterm Cheatsheet - SPL Lab Solutions",
-        description="C syntax and methods for SPL lab topics 1-8, on one page.",
-        body=body,
-        active_id="cheatsheet",
-        extra_css="cheatsheet.css",
-    )
-    (WEBSITE_DIR / "cheatsheet.html").write_text(cheatsheet_html, encoding="utf-8")
-    print("wrote cheatsheet.html")
+    # The two cheatsheets: hand written content, wrapped in the same shell.
+    cheatsheets = [
+        ("cheatsheet", "Midterm Cheatsheet",
+         "C syntax and methods for SPL lab topics 1-8, on one page."),
+        ("final-cheatsheet", "Final Exam Cheatsheet",
+         "C syntax and methods for SPL lab topics 9-13, on one page."),
+    ]
+    for page_id, name, description in cheatsheets:
+        body = (WEBSITE_DIR / f"{page_id}-body.html").read_text(encoding="utf-8")
+        page_html = page_shell(
+            title=f"{name} - SPL Lab Solutions",
+            description=description,
+            body=body,
+            active_id=page_id,
+            extra_css="cheatsheet.css",
+        )
+        (WEBSITE_DIR / f"{page_id}.html").write_text(page_html, encoding="utf-8")
+        print(f"wrote {page_id}.html")
 
     total = sum(len(p) for p in all_problems.values())
     missing = sum(1 for p in all_problems.values() for item in p if not item["statement"])

@@ -700,8 +700,8 @@
     }
   },
   "04-loop": {
-    "01.c": {
-      "title": "",
+    "01. Print 1 to N.c": {
+      "title": "Print 1 to N",
       "statement": "Write a program (WAP) that will print following series upto Nth terms. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, …….",
       "difficulty": "*",
       "samples": [
@@ -719,8 +719,8 @@
         }
       ]
     },
-    "02.c": {
-      "title": "",
+    "02. Print Odd Number Series.c": {
+      "title": "Print Odd Number Series",
       "statement": "Write a program (WAP) that will print following series upto Nth terms. 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31 …….",
       "difficulty": "*",
       "samples": [
@@ -738,8 +738,8 @@
         }
       ]
     },
-    "03.c": {
-      "title": "",
+    "03. Print 1 0 1 0 Series.c": {
+      "title": "Print 1 0 1 0 Series",
       "statement": "Write a program (WAP) that will print following series upto Nth terms. 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, …….",
       "difficulty": "**",
       "samples": [
@@ -769,8 +769,8 @@
         }
       ]
     },
-    "04.c": {
-      "title": "",
+    "04. Average of N Numbers Without Array.c": {
+      "title": "Average of N Numbers Without Array",
       "statement": "Write a program (WAP) that will take N numbers as inputs and compute their average. (Restriction: Without using any array)",
       "difficulty": "*",
       "samples": [
@@ -784,8 +784,8 @@
         }
       ]
     },
-    "05.c": {
-      "title": "",
+    "05. Squares While X Moves Toward Y.c": {
+      "title": "Squares While X Moves Toward Y",
       "statement": "Write a program (WAP) that will take two numbers X and Y as inputs. Then it will print the square of X and increment (if X<Y) or decrement (if X>Y) X by 1, until X reaches Y. If and when X is equal to Y, the program prints “Reached!”",
       "difficulty": "*",
       "samples": [
@@ -803,8 +803,8 @@
         }
       ]
     },
-    "06.c": {
-      "title": "",
+    "06. Number Guessing Game with N Tries.c": {
+      "title": "Number Guessing Game with N Tries",
       "statement": "Write a program (WAP) for the described scenario: Player-1 picks a number X and Player-2 has to guess that number within N tries. For each wrong guess by Player-2, the program prints “Wrong, N-1 Choice(s) Left!” If Player-2 at any time successfully guesses the number, the program prints “Right, Player-2 wins!” and terminates right away. Otherwise after the completion of N wrong tries, the program prints “Player-1 wins!” and halts. (Hint: Use break/continue)",
       "difficulty": "**",
       "samples": [
@@ -822,8 +822,8 @@
         }
       ]
     },
-    "07.c": {
-      "title": "",
+    "07. Show Keyboard Input Until A.c": {
+      "title": "Show Keyboard Input Until A",
       "statement": "Write a program (WAP) that will run and show keyboard inputs until the user types an ’A’ at the keyboard.",
       "difficulty": "*",
       "samples": [
@@ -833,8 +833,8 @@
         }
       ]
     },
-    "08.c": {
-      "title": "",
+    "08. Reverse the Digits of a Number.c": {
+      "title": "Reverse the Digits of a Number",
       "statement": "Write a program (WAP) that will reverse the digits of an input integer.",
       "difficulty": "**",
       "samples": [
@@ -848,8 +848,8 @@
         }
       ]
     },
-    "09.c": {
-      "title": "",
+    "09. Grades of N Students.c": {
+      "title": "Grades of N Students",
       "statement": "Write a program (WAP) that will find the grade of N students. For each student, it will take the marks of his/her the attendance (on 5 marks), assignment (on 10 marks), class test (on 15 marks), midterm (on 50 marks), term final (on 100 marks). Then based on the tables shown below, the program will output his grade.",
       "difficulty": "*",
       "samples": [
@@ -859,8 +859,8 @@
         }
       ]
     },
-    "10.c": {
-      "title": "",
+    "10. Sum of 1 -2 3 -4 Series.c": {
+      "title": "Sum of 1 -2 3 -4 Series",
       "statement": "Write a program (WAP) that will give the sum of first Nth terms for the following series. 1, -2, 3, -4, 5, -6, 7, -8, 9, -10, 11, -12, 13, -14, …….",
       "difficulty": "**",
       "samples": [
@@ -878,8 +878,8 @@
         }
       ]
     },
-    "11.c": {
-      "title": "",
+    "11. Sum of 1x1x2 + 2x2x3 Series.c": {
+      "title": "Sum of 1x1x2 + 2x2x3 Series",
       "statement": "Write a program (WAP) that will calculate the result for the first Nth terms of the following series. [In that series sum, dot sign (.) means multiplication] 12.2 + 22.3 + 32.4 + 42.5 + …….",
       "difficulty": "**",
       "samples": [
@@ -901,8 +901,8 @@
         }
       ]
     },
-    "12.c": {
-      "title": "",
+    "12. Fibonacci Series.c": {
+      "title": "Fibonacci Series",
       "statement": "Write a program (WAP) that will print Fibonacci series upto Nth terms. 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, …….",
       "difficulty": "**",
       "samples": [
@@ -924,8 +924,8 @@
         }
       ]
     },
-    "13.c": {
-      "title": "",
+    "13. Factorial.c": {
+      "title": "Factorial",
       "statement": "Write a program (WAP) that will print the factorial (N!) of a given number N. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -947,8 +947,8 @@
         }
       ]
     },
-    "14.c": {
-      "title": "",
+    "14. nCr Combination.c": {
+      "title": "nCr Combination",
       "statement": "Write a program (WAP) that will find nCr where n >= r; n and r are integers.",
       "difficulty": "**",
       "samples": [
@@ -970,8 +970,8 @@
         }
       ]
     },
-    "15.c": {
-      "title": "",
+    "15. Power X to the Y.c": {
+      "title": "Power X to the Y",
       "statement": "Write a program (WAP) that will find xy (x to the power y) where x, y are positive integers.",
       "difficulty": "*",
       "samples": [
@@ -993,8 +993,8 @@
         }
       ]
     },
-    "16.c": {
-      "title": "",
+    "16. GCD and LCM.c": {
+      "title": "GCD and LCM",
       "statement": "Write a program that will find the GCD (greatest common divisor) and LCM (least common multiple) of two positive integers.",
       "difficulty": "**",
       "samples": [
@@ -1012,8 +1012,8 @@
         }
       ]
     },
-    "17.c": {
-      "title": "",
+    "17. Prime Check.c": {
+      "title": "Prime Check",
       "statement": "Write a program that will determine whether a number is prime or not.",
       "difficulty": "**",
       "samples": [
@@ -1039,8 +1039,8 @@
         }
       ]
     },
-    "18.c": {
-      "title": "",
+    "18. Palindrome Number Check.c": {
+      "title": "Palindrome Number Check",
       "statement": "Write a program that will determine whether an integer is palindrome number or not.",
       "difficulty": "**",
       "samples": [
@@ -1066,8 +1066,8 @@
         }
       ]
     },
-    "19.c": {
-      "title": "",
+    "19. Sin x Using Taylor Series.c": {
+      "title": "Sin x Using Taylor Series",
       "statement": "Write a program that will calculate following mathematical function for the input of x. Use only the series to solve the problem.",
       "difficulty": "***",
       "samples": [
@@ -1085,8 +1085,8 @@
         }
       ]
     },
-    "20.c": {
-      "title": "",
+    "20. Sum of 1 + 12 + 123 Series.c": {
+      "title": "Sum of 1 + 12 + 123 Series",
       "statement": "Write a program that takes an integer number n as input and find out the sum of the following series up to n terms. 1 + 12 + 123 + 1234 + …….",
       "difficulty": "**",
       "samples": [
@@ -1110,8 +1110,8 @@
     }
   },
   "05-array": {
-    "01.c": {
-      "title": "",
+    "01. Print Array in Reverse.c": {
+      "title": "Print Array in Reverse",
       "statement": "Write a program that will take n integer numbers into an array, and then print all the integers into reverse order (from the last valid index to index 0).",
       "difficulty": "*",
       "samples": [
@@ -1125,8 +1125,8 @@
         }
       ]
     },
-    "02.c": {
-      "title": "",
+    "02. Sum of Array.c": {
+      "title": "Sum of Array",
       "statement": "Write a program that will take n integer numbers into an array, and then sum up all the integers in that array.",
       "difficulty": "*",
       "samples": [
@@ -1140,8 +1140,8 @@
         }
       ]
     },
-    "03.c": {
-      "title": "",
+    "03. Sum of Even Numbers in Array.c": {
+      "title": "Sum of Even Numbers in Array",
       "statement": "Write a program that will take n integer numbers into an array, and then sum up all the even integers in that array.",
       "difficulty": "*",
       "samples": [
@@ -1155,8 +1155,8 @@
         }
       ]
     },
-    "04.c": {
-      "title": "",
+    "04. Average of Float Array.c": {
+      "title": "Average of Float Array",
       "statement": "Write a program that will take n floating point numbers into an array, and then find the average of those numbers.",
       "difficulty": "*",
       "samples": [
@@ -1170,8 +1170,8 @@
         }
       ]
     },
-    "05.c": {
-      "title": "",
+    "05. Sum of Even Index Elements.c": {
+      "title": "Sum of Even Index Elements",
       "statement": "Write a program that will take n integer numbers into an array, and then sum up all the even indexed integers in that array.",
       "difficulty": "*",
       "samples": [
@@ -1185,8 +1185,8 @@
         }
       ]
     },
-    "06.c": {
-      "title": "",
+    "06. Add Two Arrays Index by Index.c": {
+      "title": "Add Two Arrays Index by Index",
       "statement": "Write a program that will take n integer numbers in an array, n different integer numbers in a second array and put the sum of the same indexed numbers from the two arrays in a third array.",
       "difficulty": "",
       "samples": [
@@ -1200,8 +1200,8 @@
         }
       ]
     },
-    "07.c": {
-      "title": "",
+    "07. Reverse Array In Place.c": {
+      "title": "Reverse Array In Place",
       "statement": "Write a program that will take n integer numbers into an array, and then reverse all the integers within that array. Finally print them all from 0 index to last valid index.",
       "difficulty": "**",
       "samples": [
@@ -1215,8 +1215,8 @@
         }
       ]
     },
-    "08.c": {
-      "title": "",
+    "08. Max and Min with Index.c": {
+      "title": "Max and Min with Index",
       "statement": "Write a program that will take n integer numbers into an array, and then find the maximum -minimum among them with its index position.",
       "difficulty": "**",
       "samples": [
@@ -1230,8 +1230,8 @@
         }
       ]
     },
-    "09.c": {
-      "title": "",
+    "09. Count Vowels in Letter Array.c": {
+      "title": "Count Vowels in Letter Array",
       "statement": "Write a program that will take n alphabets into an array, and then count number of vowels in that array.",
       "difficulty": "*",
       "samples": [
@@ -1245,8 +1245,8 @@
         }
       ]
     },
-    "10.c": {
-      "title": "",
+    "10. Search a Number and Show Positions.c": {
+      "title": "Search a Number and Show Positions",
       "statement": "Write a program that will take n integers into an array, and then search a number into that array. If found then print its index. If not found then print “NOT FOUND”.",
       "difficulty": "*",
       "samples": [
@@ -1260,8 +1260,8 @@
         }
       ]
     },
-    "11.c": {
-      "title": "",
+    "11. Copy Array A into B in Reverse.c": {
+      "title": "Copy Array A into B in Reverse",
       "statement": "Write a program that will take n integers into an array A, and then copy all numbers in reverse order from array A to another array B. Finally show all elements of both array A and B.",
       "difficulty": "*",
       "samples": [
@@ -1275,8 +1275,8 @@
         }
       ]
     },
-    "12.c": {
-      "title": "",
+    "12. Insert Number at a Position.c": {
+      "title": "Insert Number at a Position",
       "statement": "Write a program that will take n integer numbers as input in an array and then insert a number in a position specified by the user in the array.",
       "difficulty": "**",
       "samples": [
@@ -1290,8 +1290,8 @@
         }
       ]
     },
-    "13.c": {
-      "title": "",
+    "13. Delete Number at a Position.c": {
+      "title": "Delete Number at a Position",
       "statement": "Write a program that will take n integer numbers as input in an array and then delete a number from a position specified by the user in the array.",
       "difficulty": "*",
       "samples": [
@@ -1305,8 +1305,8 @@
         }
       ]
     },
-    "14.c": {
-      "title": "",
+    "14. Swap Two Arrays.c": {
+      "title": "Swap Two Arrays",
       "statement": "Write a program that will first take n integers into an array A and then m integers into array B. Now swap all elements between array A and B. Finally show all elements of both array A and B.",
       "difficulty": "**",
       "samples": [
@@ -1316,8 +1316,8 @@
         }
       ]
     },
-    "15.c": {
-      "title": "",
+    "15. Replace Multiples of 3 with -1.c": {
+      "title": "Replace Multiples of 3 with -1",
       "statement": "Write a program that will take n positive integers into an array A. Now find all the integers that are divisible by 3 and replace them by -1 in array A. Finally show all elements of array A.",
       "difficulty": "*",
       "samples": [
@@ -1331,8 +1331,8 @@
         }
       ]
     },
-    "16.c": {
-      "title": "",
+    "16. Replace Odd Index Elements with 0.c": {
+      "title": "Replace Odd Index Elements with 0",
       "statement": "Write a program that will take n positive integers into an array A. Now find all the integers that have an odd index and replace them by 0 in array A. Finally show all elements of array A.",
       "difficulty": "",
       "samples": [
@@ -1346,8 +1346,8 @@
         }
       ]
     },
-    "17.c": {
-      "title": "",
+    "17. Sort Array Ascending (Bubble Sort).c": {
+      "title": "Sort Array Ascending (Bubble Sort)",
       "statement": "Write a program that will take n integers into an array A. Now sort them in ascending order within that array. Finally show all elements of array A. Reference: http://en.wikipedia.org/wiki/Bubble_sort",
       "difficulty": "***",
       "samples": [
@@ -1361,8 +1361,8 @@
         }
       ]
     },
-    "18.c": {
-      "title": "",
+    "18. Remove Duplicates.c": {
+      "title": "Remove Duplicates",
       "statement": "Write a program that will take n integers into an array A. Now remove all duplicates numbers from that array. Finally print all elements from that array.",
       "difficulty": "**",
       "samples": [
@@ -1380,8 +1380,8 @@
         }
       ]
     },
-    "19.c": {
-      "title": "",
+    "19. Intersection of Two Arrays.c": {
+      "title": "Intersection of Two Arrays",
       "statement": "Write a program that will take n integers into array A and m positive integers into array B. Now find the intersection (set operation) of array A and B.",
       "difficulty": "**",
       "samples": [
@@ -1395,8 +1395,8 @@
         }
       ]
     },
-    "20.c": {
-      "title": "",
+    "20. Union of Two Arrays.c": {
+      "title": "Union of Two Arrays",
       "statement": "Write a program that will take n integers into an array A and m positive integers into array B. Now find the union (set operation) of array A and B.",
       "difficulty": "**",
       "samples": [
@@ -1410,8 +1410,8 @@
         }
       ]
     },
-    "21.c": {
-      "title": "",
+    "21. Difference of Two Arrays (A - B).c": {
+      "title": "Difference of Two Arrays (A - B)",
       "statement": "Write a program that will take n integers into an array A and m positive integers into array B. Now find the difference (set operation) of array A and B or (A-B).",
       "difficulty": "**",
       "samples": [
@@ -1427,8 +1427,8 @@
     }
   },
   "06-nested-loop": {
-    "01.c": {
-      "title": "",
+    "01. Same Row 123 Repeated.c": {
+      "title": "Same Row 123 Repeated",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "*",
       "samples": [
@@ -1442,8 +1442,8 @@
         }
       ]
     },
-    "02.c": {
-      "title": "",
+    "02. Shifting Rows 123 234 345.c": {
+      "title": "Shifting Rows 123 234 345",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "*",
       "samples": [
@@ -1457,8 +1457,8 @@
         }
       ]
     },
-    "03.c": {
-      "title": "",
+    "03. Number Triangle 1 23 345.c": {
+      "title": "Number Triangle 1 23 345",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "*",
       "samples": [
@@ -1472,8 +1472,8 @@
         }
       ]
     },
-    "04.c": {
-      "title": "",
+    "04. Right Aligned Triangle 1 22 333.c": {
+      "title": "Right Aligned Triangle 1 22 333",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1487,8 +1487,8 @@
         }
       ]
     },
-    "05.c": {
-      "title": "",
+    "05. Countdown Triangle 3 32 321.c": {
+      "title": "Countdown Triangle 3 32 321",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "*",
       "samples": [
@@ -1502,8 +1502,8 @@
         }
       ]
     },
-    "06.c": {
-      "title": "",
+    "06. Number Triangle 1 12 123.c": {
+      "title": "Number Triangle 1 12 123",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "*",
       "samples": [
@@ -1517,8 +1517,8 @@
         }
       ]
     },
-    "07.c": {
-      "title": "",
+    "07. Square of Stars.c": {
+      "title": "Square of Stars",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "*",
       "samples": [
@@ -1532,8 +1532,8 @@
         }
       ]
     },
-    "08.c": {
-      "title": "",
+    "08. Upside Down Star Triangle.c": {
+      "title": "Upside Down Star Triangle",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "*",
       "samples": [
@@ -1547,8 +1547,8 @@
         }
       ]
     },
-    "09.c": {
-      "title": "",
+    "09. Checkerboard of 1 and 0.c": {
+      "title": "Checkerboard of 1 and 0",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1562,8 +1562,8 @@
         }
       ]
     },
-    "10.c": {
-      "title": "",
+    "10. Right Aligned Star Triangle.c": {
+      "title": "Right Aligned Star Triangle",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1577,8 +1577,8 @@
         }
       ]
     },
-    "11.c": {
-      "title": "",
+    "11. Star Pyramid.c": {
+      "title": "Star Pyramid",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1592,8 +1592,8 @@
         }
       ]
     },
-    "12.c": {
-      "title": "",
+    "12. Star Diamond.c": {
+      "title": "Star Diamond",
       "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
       "difficulty": "***",
       "samples": [
@@ -1607,8 +1607,8 @@
         }
       ]
     },
-    "13.c": {
-      "title": "",
+    "13. Number Mountain 1234321.c": {
+      "title": "Number Mountain 1234321",
       "statement": "Write a program that will print a pattern based on the input integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1622,8 +1622,8 @@
         }
       ]
     },
-    "14.c": {
-      "title": "",
+    "14. Star Ladder.c": {
+      "title": "Star Ladder",
       "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1637,8 +1637,8 @@
         }
       ]
     },
-    "15.c": {
-      "title": "",
+    "15. Letter Z.c": {
+      "title": "Letter Z",
       "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1652,8 +1652,8 @@
         }
       ]
     },
-    "16.c": {
-      "title": "",
+    "16. Letter X.c": {
+      "title": "Letter X",
       "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1667,8 +1667,8 @@
         }
       ]
     },
-    "17.c": {
-      "title": "",
+    "17. Dollar Diamond with Cross.c": {
+      "title": "Dollar Diamond with Cross",
       "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
       "difficulty": "***",
       "samples": [
@@ -1682,8 +1682,8 @@
         }
       ]
     },
-    "18.c": {
-      "title": "",
+    "18. Letter H.c": {
+      "title": "Letter H",
       "statement": "Write a program that will print a pattern based on the input odd integer n. Please see the sample input output.",
       "difficulty": "**",
       "samples": [
@@ -1699,8 +1699,8 @@
     }
   },
   "07-2d-array": {
-    "01.c": {
-      "title": "",
+    "01. Show 3x3 Matrix.c": {
+      "title": "Show 3x3 Matrix",
       "statement": "Write a program that will take 9 integers into a 3 by 3 array (2D) and show them as traditional matrix view.",
       "difficulty": "*",
       "samples": [
@@ -1714,8 +1714,8 @@
         }
       ]
     },
-    "02.c": {
-      "title": "",
+    "02. Print Row-wise and Column-wise.c": {
+      "title": "Print Row-wise and Column-wise",
       "statement": "Write a program that will take (m x n) integers into a m by n array (2D) and print them both row-wise and column-wise.",
       "difficulty": "*",
       "samples": [
@@ -1729,8 +1729,8 @@
         }
       ]
     },
-    "03.c": {
-      "title": "",
+    "03. Determinant of 3x3 Matrix.c": {
+      "title": "Determinant of 3x3 Matrix",
       "statement": "Write a program that will take inputs of a 3 by 3 matrix into a 2D array. Now find the determinant of this matrix. http://www.mathsisfun.com/algebra/matrix-determinant.html",
       "difficulty": "*",
       "samples": [
@@ -1740,8 +1740,8 @@
         }
       ]
     },
-    "04.c": {
-      "title": "",
+    "04. Show Both Diagonals.c": {
+      "title": "Show Both Diagonals",
       "statement": "Write a program that will take inputs of a n sized square matrix into a 2D array. Now show all the elements of its two diagonals. Reference: http://en.wikipedia.org/wiki/Main_diagonal",
       "difficulty": "*",
       "samples": [
@@ -1751,8 +1751,8 @@
         }
       ]
     },
-    "05.c": {
-      "title": "",
+    "05. Identity Matrix.c": {
+      "title": "Identity Matrix",
       "statement": "Write a program that will take the size of an identity matrix from the user and generate the identity matrix into a 2D array. Finally display it. Reference:http://en.wikipedia.org/wiki/Identity_matrix",
       "difficulty": "*",
       "samples": [
@@ -1762,8 +1762,8 @@
         }
       ]
     },
-    "06.c": {
-      "title": "",
+    "06. Add Two Matrices.c": {
+      "title": "Add Two Matrices",
       "statement": "Write a program that will take inputs of two m x n sized matrix into two 2D array, suppose A and B. Now do C = A + B. Finally display all the elements from matrix / 2D array C.",
       "difficulty": "*",
       "samples": [
@@ -1773,8 +1773,8 @@
         }
       ]
     },
-    "07.c": {
-      "title": "",
+    "07. Multiply Two 3x3 Matrices.c": {
+      "title": "Multiply Two 3x3 Matrices",
       "statement": "Write a program that will take inputs of two 3 x 3 sized matrix into two 2D array, suppose A and B. Now do C = A * B (multiplication). Finally display all the elements from matrix / 2D array C.",
       "difficulty": "***",
       "samples": [
@@ -1784,8 +1784,8 @@
         }
       ]
     },
-    "08.c": {
-      "title": "",
+    "08. Max Element with Location.c": {
+      "title": "Max Element with Location",
       "statement": "Write a program that will take inputs of m x n sized matrix into a 2D array and find the maximum element with index locationfrom that matrix.",
       "difficulty": "*",
       "samples": [
@@ -1799,8 +1799,8 @@
         }
       ]
     },
-    "09.c": {
-      "title": "",
+    "09. Sum of Hourglass Positions.c": {
+      "title": "Sum of Hourglass Positions",
       "statement": "Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers at first row, last row and two diagonals without overlap. Please see the sample input-output.",
       "difficulty": "**",
       "samples": [
@@ -1814,8 +1814,8 @@
         }
       ]
     },
-    "10.c": {
-      "title": "",
+    "10. Sum of Pinwheel Positions.c": {
+      "title": "Sum of Pinwheel Positions",
       "statement": "Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers based on following position pattern (consider only the boxed position during the sum). Please see the input-output.",
       "difficulty": "**",
       "samples": [
@@ -1829,8 +1829,8 @@
         }
       ]
     },
-    "11.c": {
-      "title": "",
+    "11. Sum of Odd Rows and Columns.c": {
+      "title": "Sum of Odd Rows and Columns",
       "statement": "Write a program that will take (n x n) integer inputs into a square matrix of dimension n (where n must be an odd number). Then calculate sum of the integers based on following position pattern (consider only the boxed position during the sum). Please see the input-output.",
       "difficulty": "**",
       "samples": [
@@ -1844,8 +1844,8 @@
         }
       ]
     },
-    "12.c": {
-      "title": "",
+    "12. Mirror Matrix Left to Right.c": {
+      "title": "Mirror Matrix Left to Right",
       "statement": "Write a program that will take (m x n) integer inputs into a matrix of dimension m x n. Now reverse that matrix within itself and display it. Reversal means swap 1st column with the nth column, swap 2nd column with the (n-1)th column and so on…",
       "difficulty": "**",
       "samples": [
@@ -1859,8 +1859,8 @@
         }
       ]
     },
-    "13.c": {
-      "title": "",
+    "13. Symmetric Matrix Check.c": {
+      "title": "Symmetric Matrix Check",
       "statement": "Write a program that will take (n x n) integer inputs into a square matrix of dimension n. Now determine whether the matrix is symmetric or not. Reference: http://en.wikipedia.org/wiki/Symmetric_matrix",
       "difficulty": "**",
       "samples": [
@@ -1874,8 +1874,8 @@
         }
       ]
     },
-    "14.c": {
-      "title": "",
+    "14. Replace Duplicates with -1.c": {
+      "title": "Replace Duplicates with -1",
       "statement": "Write a program that will take (m x n) positive integer inputs into a matrix of dimension m x n. Now replace all the duplicate integers by -1 in that matrix. Finally display it.",
       "difficulty": "***",
       "samples": [
@@ -1889,8 +1889,8 @@
         }
       ]
     },
-    "15.c": {
-      "title": "",
+    "15. Sum of All Elements.c": {
+      "title": "Sum of All Elements",
       "statement": "Write a program that will take (m x n) integer inputs into a matrix of dimension m x n. Now just simply add all the integers in that matrix and show the result.",
       "difficulty": "*",
       "samples": [
@@ -1906,8 +1906,8 @@
     }
   },
   "08-strings": {
-    "01.c": {
-      "title": "",
+    "01. String Length Without Library.c": {
+      "title": "String Length Without Library",
       "statement": "Write a program in C to find the length of a string without using any library function.",
       "difficulty": "*",
       "samples": [
@@ -1921,8 +1921,8 @@
         }
       ]
     },
-    "02.c": {
-      "title": "",
+    "02. Join Two Strings Without Library.c": {
+      "title": "Join Two Strings Without Library",
       "statement": "Write a program in C to concatenate two strings without using any library function.",
       "difficulty": "*",
       "samples": [
@@ -1936,8 +1936,8 @@
         }
       ]
     },
-    "03.c": {
-      "title": "",
+    "03. Count Vowels.c": {
+      "title": "Count Vowels",
       "statement": "Write a program in C to count how many vowels are there in a string.",
       "difficulty": "*",
       "samples": [
@@ -1951,8 +1951,8 @@
         }
       ]
     },
-    "04.c": {
-      "title": "",
+    "04. Count Words.c": {
+      "title": "Count Words",
       "statement": "Write a program in C to count the number of words in a string.",
       "difficulty": "*",
       "samples": [
@@ -1966,8 +1966,8 @@
         }
       ]
     },
-    "05.c": {
-      "title": "",
+    "05. Reverse a String.c": {
+      "title": "Reverse a String",
       "statement": "Write a program in C to find the reverse of a string.",
       "difficulty": "**",
       "samples": [
@@ -1981,8 +1981,8 @@
         }
       ]
     },
-    "06.c": {
-      "title": "",
+    "06. Lowercase to Uppercase.c": {
+      "title": "Lowercase to Uppercase",
       "statement": "Write a program in C to convert lowercase string to uppercase.",
       "difficulty": "*",
       "samples": [
@@ -1996,8 +1996,8 @@
         }
       ]
     },
-    "07.c": {
-      "title": "",
+    "07. Toggle Case.c": {
+      "title": "Toggle Case",
       "statement": "Write a program in C to toggle the case of each character in a string.",
       "difficulty": "*",
       "samples": [
@@ -2011,8 +2011,8 @@
         }
       ]
     },
-    "08.c": {
-      "title": "",
+    "08. Sort Letters Alphabetically.c": {
+      "title": "Sort Letters Alphabetically",
       "statement": "Write a program in C to sort a string array in alphabetic order.",
       "difficulty": "**",
       "samples": [
@@ -2026,8 +2026,8 @@
         }
       ]
     },
-    "09.c": {
-      "title": "",
+    "09. Count a Character (Any Case).c": {
+      "title": "Count a Character (Any Case)",
       "statement": "Write a program in C to count the occurrences of a character in a string regardless of its case.",
       "difficulty": "*",
       "samples": [
@@ -2041,8 +2041,8 @@
         }
       ]
     },
-    "10.c": {
-      "title": "",
+    "10. Palindrome String Check.c": {
+      "title": "Palindrome String Check",
       "statement": "Write a program in C to check whether a string is a palindrome or not.",
       "difficulty": "**",
       "samples": [
@@ -2056,8 +2056,8 @@
         }
       ]
     },
-    "11.c": {
-      "title": "",
+    "11. Sum of Digits in a String.c": {
+      "title": "Sum of Digits in a String",
       "statement": "Write a program in C to add the digits in a string.",
       "difficulty": "**",
       "samples": [
@@ -2071,8 +2071,8 @@
         }
       ]
     },
-    "12.c": {
-      "title": "",
+    "12. Count a Word in a String.c": {
+      "title": "Count a Word in a String",
       "statement": "Write a program in C to count occurrences of a word in a string.",
       "difficulty": "***",
       "samples": [
@@ -2086,8 +2086,8 @@
         }
       ]
     },
-    "13.c": {
-      "title": "",
+    "13. Remove Repeated Characters.c": {
+      "title": "Remove Repeated Characters",
       "statement": "Write a program in C to remove all repeated characters in a string.",
       "difficulty": "***",
       "samples": [
@@ -2101,8 +2101,8 @@
         }
       ]
     },
-    "14.c": {
-      "title": "",
+    "14. Most Frequent Character.c": {
+      "title": "Most Frequent Character",
       "statement": "Write a program in C to find the maximum occurring character in a string.",
       "difficulty": "***",
       "samples": [
@@ -2120,8 +2120,8 @@
         }
       ]
     },
-    "15.c": {
-      "title": "",
+    "15. Reverse the Words.c": {
+      "title": "Reverse the Words",
       "statement": "Write a program in C to reverse the words in a string.",
       "difficulty": "***",
       "samples": [

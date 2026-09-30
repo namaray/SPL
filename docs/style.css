@@ -192,9 +192,15 @@ h1, h2, h3 { line-height: 1.25; }
   color: var(--text-muted);
 }
 
-/* The cheatsheet sits below the topic grid, full width. */
-.cheatsheet-card {
+/* The two cheatsheets sit below the topic grid, side by side. */
+.cheatsheet-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
   margin-top: 1rem;
+}
+
+.cheatsheet-card {
   border-color: var(--accent);
   background: var(--accent-soft);
 }

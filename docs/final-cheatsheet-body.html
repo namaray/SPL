@@ -1,0 +1,576 @@
+<!--
+  The final exam cheatsheet content (problem sets 09-13).
+
+  This file is hand written, not generated. build.py wraps it in the same
+  header/footer as every other page and writes final-cheatsheet.html.
+  It shares cheatsheet.css with the midterm cheatsheet.
+-->
+
+    <section class="category-intro">
+      <h1>Final Exam Cheatsheet</h1>
+      <p class="lede">
+        The syntax and methods behind problem sets 9&ndash;13 &mdash; functions,
+        structures, pointers, files and recursion &mdash; written the way the
+        solutions write them. Amber boxes are the mistakes that cost marks.
+      </p>
+      <p class="stats">Sets 09&ndash;13 &middot; prints on paper cleanly &middot;
+        sets 01&ndash;08 are on the <a href="cheatsheet.html">midterm cheatsheet</a></p>
+    </section>
+
+    <nav class="cs-jump" aria-label="Cheatsheet sections">
+      <a href="#functions">Functions</a>
+      <a href="#structures">Structures</a>
+      <a href="#pointers">Pointers</a>
+      <a href="#files">Files</a>
+      <a href="#recursion">Recursion</a>
+      <a href="#traps">Traps</a>
+      <a href="#exam">Exam list</a>
+    </nav>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="functions">
+      <div class="cs-head">
+        <h2>Functions</h2>
+        <span class="cs-tag">set 09</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Anatomy of a function</h3>
+<pre class="cs-code">int add(int a, int b);      <span class="cs-cmt">/* prototype: goes above main */</span>
+
+int main()
+{
+    int s = add(3, 4);      <span class="cs-cmt">/* call: s becomes 7 */</span>
+    printf("%d\n", s);
+    return 0;
+}
+
+int add(int a, int b)       <span class="cs-cmt">/* definition */</span>
+{
+    return a + b;           <span class="cs-cmt">/* send the answer back */</span>
+}</pre>
+          <p>If the whole function is written <em>above</em> <code>main</code>, the prototype is not needed.</p>
+        </div>
+        <div class="cs-card">
+          <h3>void, or return a value</h3>
+<pre class="cs-code">void greet(void)            <span class="cs-cmt">/* does a job, gives nothing back */</span>
+{
+    printf("Hello\n");
+}
+
+int square(int x)           <span class="cs-cmt">/* gives a value back */</span>
+{
+    return x * x;
+}
+
+greet();                    <span class="cs-cmt">/* just call it */</span>
+int y = square(5);          <span class="cs-cmt">/* keep the answer: 25 */</span></pre>
+        </div>
+        <div class="cs-card cs-wide">
+          <h3>Pass by value vs pass by reference (swap)</h3>
+<pre class="cs-code">void swapValue(int a, int b)        <span class="cs-cmt">/* gets COPIES */</span>
+{
+    int t = a;  a = b;  b = t;      <span class="cs-cmt">/* only the copies swap */</span>
+}
+
+void swapRef(int *a, int *b)        <span class="cs-cmt">/* gets ADDRESSES */</span>
+{
+    int t = *a;  *a = *b;  *b = t;  <span class="cs-cmt">/* the real variables swap */</span>
+}
+
+swapValue(x, y);     <span class="cs-cmt">/* x and y in main do NOT change */</span>
+swapRef(&amp;x, &amp;y);     <span class="cs-cmt">/* x and y in main DO change - note the &amp; */</span></pre>
+          <div class="cs-note"><b>The most asked function question.</b> By value = the function gets copies. By reference = it gets addresses: put <code>&amp;</code> when calling and <code>*</code> inside.</div>
+        </div>
+        <div class="cs-card">
+          <h3>Arrays go in by address</h3>
+<pre class="cs-code">void sortArray(int a[], int n)      <span class="cs-cmt">/* no size inside [ ] */</span>
+{
+    int i, j, t;
+    for (i = 0; i &lt; n - 1; i++)
+        for (j = 0; j &lt; n - 1 - i; j++)
+            if (a[j] &gt; a[j + 1])
+            {
+                t = a[j];  a[j] = a[j + 1];  a[j + 1] = t;
+            }
+}
+
+sortArray(a, n);    <span class="cs-cmt">/* pass the name: no [ ] and no &amp; */</span></pre>
+          <div class="cs-note"><b>Always pass <code>n</code> with the array</b> &mdash; the function cannot tell how long it is.</div>
+          <div class="cs-note cs-good"><b>No pointer needed.</b> An array parameter already changes the caller's array, so <code>a</code> is sorted back in <code>main</code> too.</div>
+        </div>
+        <div class="cs-card">
+          <h3>Return 1 or 0 for yes or no (IsPrime)</h3>
+<pre class="cs-code">int IsPrime(int n)
+{
+    int i;
+    if (n &lt; 2) return 0;            <span class="cs-cmt">/* 0 and 1 are not prime */</span>
+    for (i = 2; i &lt; n; i++)
+        if (n % i == 0) return 0;   <span class="cs-cmt">/* found a divisor: stop */</span>
+    return 1;
+}
+
+if (IsPrime(7)) printf("prime\n");</pre>
+        </div>
+        <div class="cs-card">
+          <h3>Functions that use other functions</h3>
+<pre class="cs-code">int GenNthPrime(int n)              <span class="cs-cmt">/* the nth prime */</span>
+{
+    int count = 0, num = 1;
+    while (count &lt; n)
+    {
+        num++;
+        if (IsPrime(num)) count++;
+    }
+    return num;
+}
+
+<span class="cs-cmt">/* GeneratePrime(N): print every i from 2 to N-1
+   where IsPrime(i) is 1 */</span></pre>
+          <p>Write the small function first, then build on it: IsPrime &rarr; GeneratePrime &rarr; GenNthPrime.</p>
+        </div>
+        <div class="cs-card">
+          <h3>Strings into functions</h3>
+<pre class="cs-code">int str_length(char s[])            <span class="cs-cmt">/* our own strlen */</span>
+{
+    int i = 0;
+    while (s[i] != '\0') i++;
+    return i;
+}
+
+int find_substr(char a[], char b[])
+{
+    int i, j, la = str_length(a), lb = str_length(b);
+    for (i = 0; i &lt;= la - lb; i++)
+    {
+        j = 0;
+        while (j &lt; lb &amp;&amp; a[i + j] == b[j]) j++;
+        if (j == lb) return 1;      <span class="cs-cmt">/* all of b matched */</span>
+    }
+    return -1;                      <span class="cs-cmt">/* not found */</span>
+}</pre>
+          <div class="cs-note"><b>09/22&ndash;23:</b> the question says return <code>-1</code> when not found, but its sample shows <code>0</code>. Follow the question and say so.</div>
+        </div>
+        <div class="cs-card">
+          <h3>2D arrays into functions</h3>
+<pre class="cs-code">void ShowMatrix(int a[50][50], int m, int n)
+{
+    int i, j;
+    for (i = 0; i &lt; m; i++)
+    {
+        for (j = 0; j &lt; n; j++) printf("%d ", a[i][j]);
+        printf("\n");
+    }
+}
+
+ShowMatrix(a, m, n);</pre>
+          <div class="cs-note"><b>The column size is required.</b> <code>int a[][50]</code> is allowed, <code>int a[][]</code> is not.</div>
+        </div>
+        <div class="cs-card">
+          <h3>Keep going until the input ends</h3>
+<pre class="cs-code">int gcd(int a, int b)
+{
+    int i, g = 1;
+    for (i = 1; i &lt;= a &amp;&amp; i &lt;= b; i++)
+        if (a % i == 0 &amp;&amp; b % i == 0) g = i;
+    return g;
+}
+
+int lcm(int a, int b)
+{
+    return a / gcd(a, b) * b;       <span class="cs-cmt">/* one function calls another */</span>
+}
+
+while (scanf("%d %d", &amp;a, &amp;b) == 2)  <span class="cs-cmt">/* stops at end of input */</span>
+{
+    printf("GCD: %d\n", gcd(a, b));
+    printf("LCM: %d\n", lcm(a, b));
+}</pre>
+        </div>
+        <div class="cs-card">
+          <h3>Mean and standard deviation</h3>
+<pre class="cs-code">#include &lt;math.h&gt;                   <span class="cs-cmt">/* compile with -lm */</span>
+
+float CalcMean(float a[], int n)
+{
+    int i;  float s = 0;
+    for (i = 0; i &lt; n; i++) s += a[i];
+    return s / n;
+}
+
+<span class="cs-cmt">/* inside Calc_Std_deviation: */</span>
+for (i = 0; i &lt; n; i++)
+    s += (a[i] - mean) * (a[i] - mean);
+return sqrt(s / n);</pre>
+        </div>
+        <div class="cs-card">
+          <h3>Base conversion (base 2 to 16)</h3>
+<pre class="cs-code">len = 0;
+while (number &gt; 0)
+{
+    result[len++] = number % base;  <span class="cs-cmt">/* digits come out backwards */</span>
+    number = number / base;
+}
+
+for (i = len - 1; i &gt;= 0; i--)      <span class="cs-cmt">/* so print them in reverse */</span>
+{
+    if (result[i] &lt; 10) printf("%d", result[i]);
+    else                printf("%c", 'A' + result[i] - 10);   <span class="cs-cmt">/* 10 is A */</span>
+}</pre>
+          <p>09/27 keeps <code>number</code>, <code>base</code> and <code>result</code> as global variables so all three functions can use them.</p>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="structures">
+      <div class="cs-head">
+        <h2>Structures</h2>
+        <span class="cs-tag">set 10</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Declare, make a variable, use a dot</h3>
+<pre class="cs-code">struct student
+{
+    char  name[50];
+    char  id[20];
+    float cgpa;
+};                          <span class="cs-cmt">/* this semicolon is required */</span>
+
+struct student s;           <span class="cs-cmt">/* a variable of that type */</span>
+s.cgpa = 3.5;               <span class="cs-cmt">/* the dot reaches a member */</span></pre>
+          <div class="cs-note"><b>Missing <code>;</code> after the closing brace</b> is the classic compile error.</div>
+        </div>
+        <div class="cs-card">
+          <h3>Starting values</h3>
+<pre class="cs-code">struct student s = {"Shakib Al Hasan", "101", 3.5};
+<span class="cs-cmt">/* same order as the members were declared */</span>
+
+printf("%s %s %.1f\n", s.name, s.id, s.cgpa);</pre>
+        </div>
+        <div class="cs-card">
+          <h3>Putting text into a member</h3>
+<pre class="cs-code">#include &lt;string.h&gt;
+
+strcpy(s.name, "Shakib");   <span class="cs-cmt">/* correct */</span>
+s.name = "Shakib";          <span class="cs-cmt">/* will NOT compile */</span></pre>
+          <p>A <code>char</code> array cannot be filled with <code>=</code>, so copy the text in with <code>strcpy</code>.</p>
+        </div>
+        <div class="cs-card">
+          <h3>Reading members from the keyboard</h3>
+<pre class="cs-code">scanf(" %[^\n]", s.name);  <span class="cs-cmt">/* whole line, spaces allowed, no &amp; */</span>
+scanf("%s", s.id);          <span class="cs-cmt">/* one word, no &amp; (it is an array) */</span>
+scanf("%f", &amp;s.cgpa);       <span class="cs-cmt">/* a number needs &amp; */</span></pre>
+          <p><code>%[^\n]</code> reads everything up to the Enter key. The space before it skips the Enter left over from the last input.</p>
+        </div>
+        <div class="cs-card">
+          <h3>An array of structures</h3>
+<pre class="cs-code">struct triangle
+{
+    int   triangle_id;
+    float base, height;
+};
+
+struct triangle t[3];
+for (i = 0; i &lt; 3; i++)
+    scanf("%d %f %f", &amp;t[i].triangle_id, &amp;t[i].base, &amp;t[i].height);</pre>
+          <p>Read <code>t[i].base</code> as &ldquo;triangle number i, its base&rdquo;.</p>
+        </div>
+        <div class="cs-card">
+          <h3>Structures into and out of functions</h3>
+<pre class="cs-code">float area(struct triangle t)                       <span class="cs-cmt">/* struct in */</span>
+{
+    return (t.base * t.height) / 2;
+}
+
+struct student better(struct student a, struct student b)
+{                                                   <span class="cs-cmt">/* struct out */</span>
+    if (a.cgpa &gt;= b.cgpa) return a;
+    return b;
+}</pre>
+          <div class="cs-note cs-good"><b>Structs are copied</b> into functions like any normal variable, so the original is not changed.</div>
+        </div>
+        <div class="cs-card">
+          <h3>The biggest one in an array of structs</h3>
+<pre class="cs-code">int maxi = 0;
+for (i = 1; i &lt; 3; i++)
+    if (area(t[i]) &gt; area(t[maxi])) maxi = i;
+
+printf("Area of %d = %g\n", t[maxi].triangle_id, area(t[maxi]));</pre>
+          <p>Keep the <em>position</em> of the best one, not a copy of it.</p>
+        </div>
+        <div class="cs-card">
+          <h3>An array inside a structure (Tigers)</h3>
+<pre class="cs-code">struct player
+{
+    char name[50];
+    int  runs[3];           <span class="cs-cmt">/* one for each match */</span>
+    int  wickets[3];
+    int  points[3];
+};
+
+struct player p[2];
+scanf("%d", &amp;p[i].runs[m]);         <span class="cs-cmt">/* player i, match m */</span>
+total = total + p[i].points[m];</pre>
+          <div class="cs-note"><b>Read <code>p[i].runs[m]</code> from left to right:</b> player <code>i</code> &rarr; their runs &rarr; match <code>m</code>.</div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="pointers">
+      <div class="cs-head">
+        <h2>Pointers</h2>
+        <span class="cs-tag">set 11</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>& and *</h3>
+<pre class="cs-code">int x = 5;
+int *p = &amp;x;        <span class="cs-cmt">/* p holds the ADDRESS of x */</span>
+
+printf("%d", *p);   <span class="cs-cmt">/* *p is the VALUE at that address: 5 */</span>
+*p = 10;            <span class="cs-cmt">/* this changes x itself to 10 */</span></pre>
+          <div class="cs-note cs-good"><b><code>&amp;</code> means &ldquo;address of&rdquo;, <code>*</code> means &ldquo;value at&rdquo;.</b> They undo each other.</div>
+        </div>
+        <div class="cs-card">
+          <h3>A pointer to an array</h3>
+<pre class="cs-code">int *p = a;         <span class="cs-cmt">/* same as p = &amp;a[0] */</span>
+
+*(p + i)            <span class="cs-cmt">/* same as a[i] */</span>
+
+for (i = 0; i &lt; n; i++)
+    sum = sum + *(p + i);           <span class="cs-cmt">/* sum without using a[i] */</span></pre>
+        </div>
+        <div class="cs-card">
+          <h3>Walking a string with a pointer</h3>
+<pre class="cs-code">char *p = s;
+int len = 0;
+while (*p != '\0')
+{
+    len++;
+    p++;            <span class="cs-cmt">/* move to the next character */</span>
+}</pre>
+          <div class="cs-note"><b><code>scanf("%s")</code> stops at the first space.</b> To count letters in a sentence like &ldquo;Sakib Al Hasan&rdquo;, read it with <code>fgets</code>.</div>
+        </div>
+        <div class="cs-card">
+          <h3>Swap with pointers</h3>
+<pre class="cs-code">int *px = &amp;x, *py = &amp;y;
+int t = *px;
+*px = *py;
+*py = t;            <span class="cs-cmt">/* x and y really are swapped */</span></pre>
+        </div>
+        <div class="cs-card">
+          <h3>Backwards through an array</h3>
+<pre class="cs-code">int *p = a;
+for (i = n - 1; i &gt;= 0; i--)
+    printf("%d ", *(p + i));</pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="files">
+      <div class="cs-head">
+        <h2>Files</h2>
+        <span class="cs-tag">set 12</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>The four steps</h3>
+<pre class="cs-code">FILE *fp = fopen("sample.txt", "r");    <span class="cs-cmt">/* 1. open */</span>
+if (fp == NULL)                         <span class="cs-cmt">/* 2. check it opened */</span>
+{
+    printf("File not found\n");
+    return 0;
+}
+<span class="cs-cmt">/* 3. read or write */</span>
+fclose(fp);                             <span class="cs-cmt">/* 4. close */</span></pre>
+        </div>
+        <div class="cs-card">
+          <h3>The three modes</h3>
+<pre class="cs-code">"w"     write: creates the file, or EMPTIES it if it exists
+"r"     read: the file must already exist
+"a"     append: adds to the end, keeps what is there</pre>
+          <div class="cs-note"><b>Opening with <code>"w"</code> wipes the file.</b> To add lines, use <code>"a"</code>.</div>
+        </div>
+        <div class="cs-card">
+          <h3>Writing lines</h3>
+<pre class="cs-code">FILE *fp = fopen("sample.txt", "w");
+fprintf(fp, "1 Zahid\n");       <span class="cs-cmt">/* just like printf, plus fp */</span>
+fprintf(fp, "2 Tanvir\n");
+fclose(fp);</pre>
+        </div>
+        <div class="cs-card">
+          <h3>Reading item by item</h3>
+<pre class="cs-code">int  id;
+char name[50];
+while (fscanf(fp, "%d %s", &amp;id, name) == 2)
+{
+    printf("%d %s\n", id, name);
+}</pre>
+          <p><code>fscanf</code> gives back how many items it read, so the loop stops when a full line can no longer be read.</p>
+        </div>
+        <div class="cs-card">
+          <h3>Reading letter by letter, and counting lines</h3>
+<pre class="cs-code">int c;                              <span class="cs-cmt">/* int, not char, to hold EOF */</span>
+int lines = 0;
+while ((c = fgetc(fp)) != EOF)
+{
+    printf("%c", c);
+    if (c == '\n') lines++;        <span class="cs-cmt">/* every line ends in \n */</span>
+}</pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="recursion">
+      <div class="cs-head">
+        <h2>Recursion</h2>
+        <span class="cs-tag">set 13</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card">
+          <h3>Every recursive function has two parts</h3>
+<pre class="cs-code">int sum(int n)
+{
+    if (n == 0) return 0;           <span class="cs-cmt">/* 1. base case: stop here */</span>
+    return n + sum(n - 1);          <span class="cs-cmt">/* 2. call itself, smaller */</span>
+}</pre>
+          <div class="cs-note"><b>No base case, or one it never reaches</b>, means it calls itself forever and crashes.</div>
+        </div>
+        <div class="cs-card">
+          <h3>How sum(3) works it out</h3>
+<pre class="cs-code">sum(3) = 3 + sum(2)
+       = 3 + 2 + sum(1)
+       = 3 + 2 + 1 + sum(0)
+       = 3 + 2 + 1 + 0
+       = 6</pre>
+          <p>Each call waits for the smaller one to finish, then adds its own part on the way back.</p>
+        </div>
+        <div class="cs-card">
+          <h3>Fibonacci and factorial</h3>
+<pre class="cs-code">int fib(int i)
+{
+    if (i == 0) return 0;
+    if (i == 1) return 1;
+    return fib(i - 1) + fib(i - 2);
+}
+
+int fact(int n)
+{
+    if (n &lt;= 1) return 1;
+    return n * fact(n - 1);
+}</pre>
+        </div>
+        <div class="cs-card">
+          <h3>Counting digits</h3>
+<pre class="cs-code">int countDigits(int n)
+{
+    if (n == 0) return 0;
+    return 1 + countDigits(n / 10);  <span class="cs-cmt">/* chop one digit off */</span>
+}</pre>
+          <div class="cs-note"><b>Input 0 gives 0 digits here</b>, so handle 0 in <code>main</code> (it has 1 digit).</div>
+        </div>
+        <div class="cs-card">
+          <h3>Printing an array</h3>
+<pre class="cs-code">void printArray(int a[], int i, int n)
+{
+    if (i == n) return;             <span class="cs-cmt">/* past the end: stop */</span>
+    printf("%d ", a[i]);
+    printArray(a, i + 1, n);        <span class="cs-cmt">/* the rest of the array */</span>
+}
+
+printArray(a, 0, n);</pre>
+        </div>
+        <div class="cs-card">
+          <h3>Largest element</h3>
+<pre class="cs-code">int largest(int a[], int n)
+{
+    int rest;
+    if (n == 1) return a[0];        <span class="cs-cmt">/* one element left */</span>
+    rest = largest(a, n - 1);       <span class="cs-cmt">/* biggest of the first n-1 */</span>
+    if (a[n - 1] &gt; rest) return a[n - 1];
+    return rest;
+}</pre>
+        </div>
+        <div class="cs-card">
+          <h3>Palindrome from both ends</h3>
+<pre class="cs-code">int isPalindrome(char s[], int i, int j)
+{
+    if (i &gt;= j) return 1;           <span class="cs-cmt">/* met in the middle */</span>
+    if (s[i] != s[j]) return 0;
+    return isPalindrome(s, i + 1, j - 1);
+}
+
+isPalindrome(s, 0, len - 1);</pre>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="traps">
+      <div class="cs-head">
+        <h2>Traps checklist</h2>
+        <span class="cs-tag">read this last, before you hand in</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card cs-wide">
+          <h3>Sets 09&ndash;13</h3>
+          <div class="cs-tablewrap">
+            <table class="cs-table">
+              <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+              <tbody>
+                <tr><td>function change is lost</td><td>passed by value</td><td>pass <code>&amp;x</code>, use <code>*</code> inside</td></tr>
+                <tr><td>implicit declaration warning</td><td>function used before it is written</td><td>add a prototype above <code>main</code></td></tr>
+                <tr><td>error after a struct</td><td>no <code>;</code> after its <code>}</code></td><td>add the semicolon</td></tr>
+                <tr><td>cannot assign to <code>s.name</code></td><td><code>=</code> on a char array</td><td>use <code>strcpy</code></td></tr>
+                <tr><td>sentence cut at a space</td><td><code>scanf("%s")</code></td><td><code>fgets</code> or <code>" %[^\n]"</code></td></tr>
+                <tr><td>File not found</td><td>wrong name, or run from another folder</td><td>check the name and the folder</td></tr>
+                <tr><td>old file contents gone</td><td>opened with <code>"w"</code></td><td>use <code>"a"</code> to add</td></tr>
+                <tr><td>recursion crashes</td><td>base case missing or never reached</td><td>make sure every call gets closer to it</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============================================================ -->
+    <section class="cs-section" id="exam">
+      <div class="cs-head">
+        <h2>Final exam: questions to know</h2>
+        <span class="cs-tag">sets 09&ndash;13</span>
+      </div>
+      <div class="cs-grid">
+        <div class="cs-card cs-wide">
+          <h3>Must know</h3>
+          <div class="cs-tablewrap">
+            <table class="cs-table">
+              <thead><tr><th>Question</th><th>What it teaches</th></tr></thead>
+              <tbody>
+                <tr><td>09/12 + 09/13</td><td>Swap by value vs by reference</td></tr>
+                <tr><td>09/18, 19, 20</td><td>IsPrime, GeneratePrime, GenNthPrime: functions using functions</td></tr>
+                <tr><td>09/17</td><td>Sorting an array inside a function</td></tr>
+                <tr><td>10/09</td><td>A struct passed into a function (better CGPA)</td></tr>
+                <tr><td>10/13</td><td>Tigers: array of structs with arrays inside</td></tr>
+                <tr><td>11/07 + 11/03</td><td>Pointer arithmetic, <code>*(p + i)</code></td></tr>
+                <tr><td>12/02, 04, 05</td><td>Read, count lines, append</td></tr>
+                <tr><td>13/05 + 13/02</td><td>Largest element and Fibonacci with recursion</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="cs-card">
+          <h3>If there is time</h3>
+          <p>09/23 find_substr &middot; 09/26 matrix functions &middot; 09/24 GCD and LCM &middot;
+             10/11 triangle area &middot; 13/07 palindrome &middot; 13/04 digit count</p>
+        </div>
+        <div class="cs-card">
+          <h3>Hardest</h3>
+          <p>09/27 base conversion and 09/21 standard deviation. The two longest programs.</p>
+        </div>
+      </div>
+    </section>
