@@ -1,10 +1,13 @@
+//011222131
 #include <stdio.h>
 
-void printValue(char c) {
+void printValue(char c)
+{
     printf("Value received from main:   %c\n", c);
 }
 
-int main() {
+int main()
+{
     char c;
     scanf("%c", &c);
     printValue(c);

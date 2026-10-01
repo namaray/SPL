@@ -1,6 +1,8 @@
+//011222131
 #include <stdio.h>
 
-int main() {
+int main()
+{
     FILE *fp = fopen("sample.txt", "w");   // "w" creates the file
 
     fprintf(fp, "1 Zahid\n");

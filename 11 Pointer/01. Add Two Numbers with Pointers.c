@@ -1,6 +1,8 @@
+//011222131
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int a, b;
     scanf("%d %d", &a, &b);
 

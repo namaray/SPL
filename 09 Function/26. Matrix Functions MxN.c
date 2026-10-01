@@ -1,3 +1,4 @@
+//011222131
 #include <stdio.h>
 
 void InputMatrix(int a[50][50], int m, int n) {

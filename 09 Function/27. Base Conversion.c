@@ -1,3 +1,4 @@
+//011222131
 #include <stdio.h>
 
 int number, base, result[100], len;

@@ -1,10 +1,12 @@
+//011222131
 #include <stdio.h>
 
 int IsPrime(int n) {
     int i;
     if (n < 2) return 0;
     for (i = 2; i < n; i++)
-        if (n % i == 0) return 0;
+        if (n % i == 0)
+            return 0;
     return 1;
 }
 
@@ -13,7 +15,8 @@ void GeneratePrime(int n) {
     printf("Prime less than %d:   ", n);
     for (i = 2; i < n; i++)
         if (IsPrime(i)) {
-            if (!first) printf(", ");
+            if (!first)
+                printf(", ");
             printf("%d", i);
             first = 0;
         }

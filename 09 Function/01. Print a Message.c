@@ -1,10 +1,13 @@
+//011222131
 #include <stdio.h>
 
-void printMessage() {
+void printMessage()
+{
     printf("This is a function\n");
 }
 
-int main() {
+int main()
+{
     printMessage();
     return 0;
 }

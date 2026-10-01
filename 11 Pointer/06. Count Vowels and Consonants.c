@@ -1,19 +1,30 @@
+//011222131
 #include <stdio.h>
 
-int main() {
+int main()
+{
     char s[200];
-    scanf("%s", s);
+    fgets(s, 200, stdin);           // reads the whole line, spaces included
 
     char *p = s;
     int vowel = 0, cons = 0;
-    while (*p != '\0') {
+    while (*p != '\0' && *p != '\n')   // fgets keeps the Enter key, stop there
+    {
         char c = *p;
-        if (c >= 'A' && c <= 'Z') c = c - 'A' + 'a';
-        if (c >= 'a' && c <= 'z') {
+        if (c >= 'A' && c <= 'Z')
+        {
+            c = c - 'A' + 'a';
+        }
+        if (c >= 'a' && c <= 'z')
+        {
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+            {
                 vowel++;
+            }
             else
+            {
                 cons++;
+            }
         }
         p++;
     }

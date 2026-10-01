@@ -1,6 +1,8 @@
+//011222131
 #include <stdio.h>
 
-int main() {
+int main()
+{
     FILE *fp = fopen("sample.txt", "a");   // "a" appends to the end
 
     fprintf(fp, "4 Rahim\n");

@@ -1,16 +1,24 @@
+//011222131
 #include <stdio.h>
 
-int main() {
+int main()
+{
     FILE *fp = fopen("sample.txt", "r");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         printf("File not found\n");
         return 0;
     }
 
     int lines = 0;
-    char c;
+    int c;                  // int, so it can also hold EOF
     while ((c = fgetc(fp)) != EOF)
-        if (c == '\n') lines++;
+    {
+        if (c == '\n')
+        {
+            lines++;
+        }
+    }
 
     fclose(fp);
     printf("Number of lines: %d\n", lines);

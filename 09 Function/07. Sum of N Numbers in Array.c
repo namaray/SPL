@@ -1,18 +1,31 @@
+//011222131
 #include <stdio.h>
 
-int sum(int a[], int n) {
+int sum(int a[], int n)
+{
     int i, s = 0;
-    for (i = 0; i < n; i++) s += a[i];
+    for (i = 0; i < n; i++)
+    {
+        s += a[i];
+    }
+    printf("Sum In Function: %d\n", s);
+
     return s;
+
 }
 
-int main() {
+int main()
+{
     int n, i, a[100];
     scanf("%d", &n);
-    for (i = 0; i < n; i++) scanf("%d", &a[i]);
 
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
     int result = sum(a, n);
-    printf("Sum In Function: %d\n", result);
+
     printf("Sum In Main: %d\n", result);
+
     return 0;
 }

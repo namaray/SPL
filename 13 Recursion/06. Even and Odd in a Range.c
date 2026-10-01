@@ -1,22 +1,38 @@
+//011222131
 #include <stdio.h>
 
 // print even numbers going up
-void evens(int cur, int end) {
-    if (cur > end) return;
+void evens(int cur, int end)
+{
+    if (cur > end)
+    {
+        return;
+    }
     printf("%d", cur);
-    if (cur + 2 <= end) printf(", ");
+    if (cur + 2 <= end)
+    {
+        printf(", ");
+    }
     evens(cur + 2, end);
 }
 
 // print odd numbers going up
-void odds(int cur, int end) {
-    if (cur > end) return;
+void odds(int cur, int end)
+{
+    if (cur > end)
+    {
+        return;
+    }
     printf("%d", cur);
-    if (cur + 2 <= end) printf(", ");
+    if (cur + 2 <= end)
+    {
+        printf(", ");
+    }
     odds(cur + 2, end);
 }
 
-int main() {
+int main()
+{
     int start, end;
     scanf("%d %d", &start, &end);
 
